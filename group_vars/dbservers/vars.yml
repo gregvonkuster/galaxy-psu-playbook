@@ -1,0 +1,18 @@
+---
+
+dbservers_packages:
+  - python3-psycopg2
+
+# PostgreSQL
+postgresql_objects_users:
+  - name: "{{ galaxy_user.name }}"
+    password: "{{ galaxy_postgresql_password }}"
+
+postgresql_objects_databases:
+  - name: galaxy
+    owner: "{{ galaxy_user.name }}"
+
+# PostgreSQL Backups
+# TODO: modify the role so that the rsync can run as a different user, which can write to this dir
+#postgresql_backup_dir: "{{ corral_root }}/backups/postgresql/{{ galaxy_instance_name }}"
+#postgresql_backup_local_dir: "{{ '~postgres' | expanduser }}/backups"

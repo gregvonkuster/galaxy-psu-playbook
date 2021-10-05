@@ -1,0 +1,12 @@
+---
+
+galaxyservers_packages:
+  - python3-psycopg2
+
+galaxy_job_metrics_plugins:
+  - type: core
+  - type: cpuinfo
+  - type: meminfo
+  - type: uname
+  - type: cgroup
+  - type: hostname

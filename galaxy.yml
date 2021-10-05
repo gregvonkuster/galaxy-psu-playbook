@@ -1,0 +1,46 @@
+---
+
+- name: Database Servers Play
+  hosts: dbservers
+  pre_tasks:
+    - name: Install Dependencies
+      package:
+        name: "{{ all_packages + dbservers_packages }}"
+  roles:
+    - galaxyproject.postgresql
+    - role: natefoo.postgresql_objects
+      become: true
+      become_user: postgres
+  tags:
+    - database
+
+#- name: Galaxy Servers Play
+#  hosts: galaxyservers
+#  pre_tasks:
+#    - name: Install Dependencies
+#      package: "{{ all_packages + galaxyservers_packages }}"
+#  post_tasks:
+#    - name: Install slurm-drmaa
+#      package:
+#        name: slurm-drmaa1
+#  roles:
+#    - galaxyproject.repos
+#    - galaxyproject.slurm
+#    - galaxyproject.postgresql
+#    - role: natefoo.postgresql_objects
+#      become: true
+#      become_user: postgres
+#    - geerlingguy.pip
+#    - gantsign.golang
+#    - cyverse-ansible.singularity
+#    - galaxyproject.galaxy
+#    - role: uchida.miniconda
+#      become: true
+#      become_user: "{{ galaxy_user.name }}"
+#    - usegalaxy_eu.rabbitmq
+#    - galaxyproject.nginx
+#    - galaxyproject.proftpd
+#    - galaxyproject.cvmfs
+#    - galaxyproject.gxadmin
+#    - dj-wasabi.telegraf
+#    - usegalaxy_eu.tiaas2

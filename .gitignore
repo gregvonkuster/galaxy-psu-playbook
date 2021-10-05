@@ -1,0 +1,4 @@
+*.sw?
+
+.vault-password.txt
+roles

@@ -1,0 +1,18 @@
+---
+
+# Python 3 support
+pip_virtualenv_command: /usr/bin/python3 -m venv
+certbot_virtualenv_package_name: python3-venv
+#pip_package: python3-pip
+
+all_packages:
+  - acl
+  - bzip2
+  - git
+  - make
+  - tar
+  - python3-venv
+
+# Convenience variables
+corral_root: /corral/main/projects/Galaxy-PSU
+
