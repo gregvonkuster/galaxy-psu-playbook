@@ -16,3 +16,54 @@ all_packages:
 # Convenience variables
 corral_root: /corral/main/projects/Galaxy-PSU
 
+# Slurm is installed on all hosts
+slurm_munge_key: files/slurm/munge.key
+slurm_create_user: yes
+slurm_user:
+  name: slurm
+  group: slurm
+  uid: 800
+  gid: 800
+  home: /home/slurm
+  shell: /bin/bash
+  system: true
+
+slurm_config:
+  ControlMachine: "{{ groups.slurmservers[0].split('.')[0] }}"
+  #ControlAddr: 
+  SelectType: select/cons_res
+  SelectTypeParameters: CR_CPU_Memory
+  SlurmctldDebug: 4
+  SlurmdDebug: 4
+
+  SlurmdParameters: config_overrides
+
+  ReturnToService: 1
+  RebootProgram: /usr/sbin/reboot
+
+  JobAcctGatherType: jobacct_gather/cgroup
+  JobAcctGatherFrequency: task=15
+  ProctrackType: proctrack/cgroup
+  TaskPlugin: task/cgroup
+
+slurm_nodes:
+  - name: galaxy-psu-jobs1
+    #CPUs: 2
+    #RealMemory: 6000
+  - name: galaxy-psu-bigjobs1
+
+slurm_partitions:
+  - name: normal
+    Default: YES
+    Nodes: galaxy-psu-jobs1,galaxy-psu-bigjobs1
+    State: UP
+    # TODO: make this RealMemory/8
+    DefMemPerCPU: 4000
+    # TODO: one partition and use a node priority to prefer scheduling on standard nodes first?
+    #LLN: YES
+
+slurm_cgroup_config:
+  CgroupAutomount: yes
+  ConstrainCores: yes
+  ConstrainRAMSpace: yes
+  ConstrainSwapSpace: yes

@@ -7,7 +7,7 @@
       package:
         name: "{{ all_packages + dbservers_packages }}"
   roles:
-    - galaxyproject.postgresql
+    - role: galaxyproject.postgresql
     - role: natefoo.postgresql_objects
       become: true
       become_user: postgres
@@ -27,6 +27,13 @@
         system: true
   tags:
     - database
+
+- name: Slurm Play
+  hosts: all
+  roles:
+    - role: galaxyproject.slurm
+  tags:
+    - slurm
 
 #- name: Galaxy Servers Play
 #  hosts: galaxyservers
