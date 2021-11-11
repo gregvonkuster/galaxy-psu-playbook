@@ -11,6 +11,20 @@
     - role: natefoo.postgresql_objects
       become: true
       become_user: postgres
+  post_tasks:
+    # The postgres user needs to be added to the appropriate group(s) used for Corral quotas
+    # The group is in LDAP but has to exist locally to be able to add a local user to it
+    - name: Create local project group
+      group:
+        name: "{{ galaxy_instance_group }}"
+        gid: "{{ galaxy_instance_group[2:] }}"
+        local: true
+    - name: Add postgres user to project group
+      user:
+        name: postgres
+        groups: "{{ galaxy_instance_group }}"
+        local: true
+        system: true
   tags:
     - database
 

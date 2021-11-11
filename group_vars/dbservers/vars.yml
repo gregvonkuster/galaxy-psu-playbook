@@ -2,6 +2,7 @@
 
 dbservers_packages:
   - python3-psycopg2
+  - libuser  # for lgroupmod
 
 # PostgreSQL
 postgresql_objects_users:
@@ -12,7 +13,12 @@ postgresql_objects_databases:
   - name: galaxy
     owner: "{{ galaxy_user.name }}"
 
+
 # PostgreSQL Backups
-# TODO: modify the role so that the rsync can run as a different user, which can write to this dir
-#postgresql_backup_dir: "{{ corral_root }}/backups/postgresql/{{ galaxy_instance_name }}"
-#postgresql_backup_local_dir: "{{ '~postgres' | expanduser }}/backups"
+# In order to control the group of this dir, it was created by hand
+postgresql_create_backup_dir: false
+postgresql_backup_dir: "{{ corral_root }}/backups/postgresql/{{ galaxy_instance_name }}"
+
+# Ensure backup files are written as the appropriate group, for quota purposes
+postgresql_archive_wal_rsync_args: '--ignore-existing -pt --chown=postgres:{{ galaxy_instance_group }} --info=skip1'
+postgresql_backup_rsync_backup_opts: '-rpt --chown=postgres:{{ galaxy_instance_group }}'

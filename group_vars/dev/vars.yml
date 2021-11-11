@@ -1,19 +1,23 @@
 ---
 
 galaxy_instance_name: dev
+galaxy_instance_group: G-824019
 
 # vars defined in the corresponding vault.yml
 galaxy_postgresql_password: "{{ vault_galaxy_postgresql_password }}"
 
 galaxy_user:
-  name: galaxydev
-  uid: 800
-  comment: Galaxy Development Server
-  shell: /bin/bash
-  create_home: true
-  system: true
+  name: glxyhpcdev
 
-galaxy_group:
-  name: galaxydev
-  gid: 800
-  system: true
+#galaxy_user:
+#  name: galaxydev
+#  uid: 800
+#  comment: Galaxy Development Server
+#  shell: /bin/bash
+#  create_home: true
+#  system: true
+#
+#galaxy_group:
+#  name: galaxydev
+#  gid: 800
+#  system: true
