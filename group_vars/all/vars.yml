@@ -46,21 +46,32 @@ slurm_config:
   ProctrackType: proctrack/cgroup
   TaskPlugin: task/cgroup
 
+# Weight nodes such that when they are in the same partition, the standard nodes are preferred over the big memory nodes
+
 slurm_nodes:
   - name: galaxy-psu-jobs1
-    #CPUs: 2
-    #RealMemory: 6000
+    CPUs: 8
+    RealMemory: 32089
+    Weight: 0
   - name: galaxy-psu-bigjobs1
+    CPUs: 8
+    RealMemory: 257736
+    Weight: 10
+
+# Prioritize jobs such that jobs in the bigmem partition will get priority access to the (shared) big memory nodes
 
 slurm_partitions:
   - name: normal
     Default: YES
     Nodes: galaxy-psu-jobs1,galaxy-psu-bigjobs1
     State: UP
-    # TODO: make this RealMemory/8
     DefMemPerCPU: 4000
-    # TODO: one partition and use a node priority to prefer scheduling on standard nodes first?
-    #LLN: YES
+    PriorityTier: 0
+  - name: bigmem
+    Nodes: galaxy-psu-bigjobs1
+    State: UP
+    DefMemPerCPU: 32216
+    PriorityTier: 10
 
 slurm_cgroup_config:
   CgroupAutomount: yes
