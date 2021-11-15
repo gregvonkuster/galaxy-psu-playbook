@@ -2,22 +2,90 @@
 
 galaxy_instance_name: dev
 galaxy_instance_group: G-824019
+galaxy_instance_hostname: dev.galaxy.psu.edu
+galaxy_postgresql_host: galaxy-psu-dbdev.tacc.utexas.edu
+galaxy_postgresql_db_name: galaxy_dev
 
 # vars defined in the corresponding vault.yml
 galaxy_postgresql_password: "{{ vault_galaxy_postgresql_password }}"
 
-galaxy_user:
-  name: glxyhpcdev
-
 #galaxy_user:
-#  name: galaxydev
-#  uid: 800
-#  comment: Galaxy Development Server
-#  shell: /bin/bash
-#  create_home: true
-#  system: true
-#
-#galaxy_group:
-#  name: galaxydev
-#  gid: 800
-#  system: true
+#  name: glxyhpcdev
+
+galaxy_user:
+  name: galaxydev
+  uid: 810
+  comment: Galaxy Development Server
+  shell: /bin/bash
+  create_home: true
+  system: true
+
+galaxy_group:
+  name: "{{ galaxy_instance_group }}"
+
+galaxy_config:
+  uwsgi:
+    socket: 127.0.0.1:5000
+    logto: "{{ galaxy_log_dir }}/uwsgi.log"
+    buffer-size: 16384
+    processes: 4
+    threads: 8
+    offload-threads: 2
+    static-map:
+      - /static={{ galaxy_server_dir }}/static
+      - /favicon.ico={{ galaxy_server_dir }}/static/favicon.ico
+    static-safe: client/galaxy/images
+    master: true
+    virtualenv: "{{ galaxy_venv_dir }}"
+    pythonpath: "{{ galaxy_server_dir }}/lib"
+    module: galaxy.webapps.galaxy.buildapp:uwsgi_app()
+    thunder-lock: true
+    die-on-term: true
+    hook-master-start:
+      - unix_signal:2 gracefully_kill_them_all
+      - unix_signal:15 gracefully_kill_them_all
+    enable-threads: true
+  galaxy:
+    #tool_data_table_config_path: /cvmfs/data.galaxyproject.org/byhand/location/tool_data_table_conf.xml,/cvmfs/data.galaxyproject.org/managed/location/tool_data_table_conf.xml
+    #dependency_resolvers_config_file: "{{ galaxy_config_dir }}/dependency_resolvers_conf.xml"
+    #containers_resolvers_config_file: "{{ galaxy_config_dir }}/container_resolvers_conf.xml"
+    brand: "PSU Dev"
+    admin_users: "{{ vault_galaxy_config_admin_users }}"
+    database_connection: "postgresql://{{ galaxy_user.name }}:{{ galaxy_postgresql_password }}@{{ galaxy_postgresql_host }}/{{ galaxy_postgresql_db_name }}"
+    file_path: "{{ galaxy_instance_root }}/objects"
+    check_migrate_tools: false
+    tool_data_path: "{{ galaxy_mutable_data_dir }}/tool-data"
+    object_store_store_by: uuid
+    id_secret: "{{ vault_galaxy_config_id_secret }}"
+    job_config_file: "{{ galaxy_config_dir }}/job_conf.yml"
+    # SQL Performance
+    database_engine_option_server_side_cursors: true
+    # File serving Performance
+    nginx_x_accel_redirect_base: /_x_accel_redirect
+    # Automation / Ease of Use / User-facing features
+    #watch_job_rules: 'auto'
+    allow_path_paste: true
+    enable_quotas: true
+    allow_user_deletion: false
+    show_welcome_with_login: true
+    expose_user_name: true
+    expose_dataset_path: true
+    expose_potentially_sensitive_job_metrics: true
+    # NFS workarounds
+    retry_job_output_collection: 3
+    # Debugging
+    cleanup_job: onsuccess
+    allow_user_impersonation: true
+    # Tool security
+    outputs_to_working_directory: true
+    # FTP
+    #ftp_upload_dir: /data/uploads
+    #ftp_upload_site: "{{ inventory_hostname }}"
+    # Tool Dependencies
+    conda_prefix: "{{ miniconda_prefix }}"
+    conda_auto_install: false
+    conda_auto_init: false
+
+galaxy_config_templates:
+  - src: templates/galaxy/config/job_conf.yml.j2
+    dest: "{{ galaxy_config.galaxy.job_config_file }}"

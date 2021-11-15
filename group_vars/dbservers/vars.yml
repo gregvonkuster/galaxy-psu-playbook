@@ -5,12 +5,19 @@ dbservers_packages:
   - libuser  # for lgroupmod
 
 # PostgreSQL
+postgresql_conf:
+  - listen_addresses: "'*'"
+  - ssl: "off"
+
+postgresql_pg_hba_conf:
+  - "host all all {{ lookup('dig', galaxy_instance_hostname) }}/32 md5"
+
 postgresql_objects_users:
   - name: "{{ galaxy_user.name }}"
     password: "{{ galaxy_postgresql_password }}"
 
 postgresql_objects_databases:
-  - name: galaxy
+  - name: "galaxy_{{ galaxy_instance_name }}"
     owner: "{{ galaxy_user.name }}"
 
 

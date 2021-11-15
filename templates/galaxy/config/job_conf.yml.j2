@@ -1,0 +1,39 @@
+---
+
+#
+# Job runner plugin configuration
+#
+runners:
+  local:
+    load: galaxy.jobs.runners.local:LocalJobRunner
+    workers: 2
+  slurm:
+    load: galaxy.jobs.runners.slurm:SlurmJobRunner
+    workers: 4
+    drmaa_library_path: /usr/lib/slurm-drmaa/lib/libdrmaa.so
+    invalidjobexception_retries: 5
+    internalexception_retries: 5
+
+handling:
+  assign:
+    - db-skip-locked
+  max_grab: 16
+  ready_window_size: 32
+
+# TODO: singularity options
+execution:
+  default: slurm_normal
+  environments:
+    local:
+      runner: local
+    slurm_normal:
+      runner: slurm
+      env:
+        - name: LC_ALL
+          value: C
+    slurm_bigmem:
+      runner: slurm
+      native_specification: --partition=bigmem
+      env:
+        - name: LC_ALL
+          value: C

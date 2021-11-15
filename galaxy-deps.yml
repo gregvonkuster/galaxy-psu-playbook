@@ -1,0 +1,97 @@
+---
+# Install/Manage Galaxy dependencies
+
+- name: PostgreSQL
+  hosts: dbservers
+  pre_tasks:
+    - name: Install Dependencies
+      package:
+        name: "{{ all_packages + dbservers_packages }}"
+  roles:
+    - role: galaxyproject.postgresql
+    - role: natefoo.postgresql_objects
+      become: true
+      become_user: postgres
+  post_tasks:
+    # The postgres user needs to be added to the appropriate group(s) used for Corral quotas
+    # The group is in LDAP but has to exist locally to be able to add a local user to it
+    - name: Create local project group
+      group:
+        name: "{{ galaxy_instance_group }}"
+        gid: "{{ galaxy_instance_group[2:] }}"
+        local: true
+    - name: Add postgres user to project group
+      user:
+        name: postgres
+        groups: "{{ galaxy_instance_group }}"
+        local: true
+        system: true
+  tags:
+    - postgres
+
+- name: Slurm
+  # Slurm is installed on everything, even if just as a client
+  hosts: all
+  roles:
+    - role: galaxyproject.slurm
+  tags:
+    - slurm
+
+- name: DRMAA for Slurm
+  hosts: galaxyservers
+  roles:
+    - role: galaxyproject.repos
+  post_tasks:
+    - name: Install slurm-drmaa
+      package:
+        name: slurm-drmaa1
+  tags:
+    - slurm
+
+- name: Galaxy Initial Setup
+  hosts: galaxyservers
+  pre_tasks:
+    # Pulled out of galaxyproject.galaxy until we make a collection out of its parts
+    - name: Install Dependencies
+      package:
+        name: "{{ all_packages + galaxyservers_packages }}"
+    - name: Create Galaxy user
+      user:
+        name: "{{ galaxy_user.name }}"
+        uid: "{{ galaxy_user.uid }}"
+        group: "{{ galaxy_group.name }}"
+        comment: "{{ galaxy_user.comment }}"
+        create_home: "{{ galaxy_user.create_home }}"
+        shell: "{{ galaxy_user.shell }}"
+        system: "{{ galaxy_user.system }}"
+    - name: Create Galaxy directories
+      file:
+        path: "{{ item }}"
+        state: directory
+        mode: 02775
+      loop: "{{ galaxy_precreate_dirs }}"
+      become: true
+      become_user: "{{ galaxy_user.name }}"
+  roles:
+#    - geerlingguy.pip
+#    - gantsign.golang
+#    - cyverse-ansible.singularity
+    - role: galaxyproject.miniconda
+      become: yes
+      become_user: "{{ galaxy_user.name }}"
+#    - usegalaxy_eu.rabbitmq
+#    - galaxyproject.nginx
+#    - galaxyproject.proftpd
+#    - galaxyproject.cvmfs
+#    - galaxyproject.gxadmin
+#    - dj-wasabi.telegraf
+#    - usegalaxy_eu.tiaas2
+  tags:
+    - galaxy
+
+- name: NGINX
+  hosts: galaxyservers
+  roles:
+    - role: galaxyproject.nginx
+  tags:
+    - nginx

@@ -1,67 +1,28 @@
 ---
 
-- name: Database Servers Play
-  hosts: dbservers
-  pre_tasks:
-    - name: Install Dependencies
-      package:
-        name: "{{ all_packages + dbservers_packages }}"
+- name: Galaxy Servers Play
+  hosts: galaxyservers
+  # TODO: user/become handling in the galaxyproject.galaxy role breaks if this is not set at the play level, this should be set per-role once the role is converted to a collection
+  become: true
+  become_user: "{{ galaxy_user.name }}"
   roles:
-    - role: galaxyproject.postgresql
-    - role: natefoo.postgresql_objects
-      become: true
-      become_user: postgres
+    - role: galaxyproject.galaxy
   post_tasks:
-    # The postgres user needs to be added to the appropriate group(s) used for Corral quotas
-    # The group is in LDAP but has to exist locally to be able to add a local user to it
-    - name: Create local project group
-      group:
-        name: "{{ galaxy_instance_group }}"
-        gid: "{{ galaxy_instance_group[2:] }}"
-        local: true
-    - name: Add postgres user to project group
-      user:
-        name: postgres
-        groups: "{{ galaxy_instance_group }}"
-        local: true
-        system: true
-  tags:
-    - database
+    # Pulled out of galaxyproject.galaxy until we make a collection out of its parts
+    - name: Deploy Galaxy systemd service unit
+      template:
+        owner: root
+        group: root
+        mode: 0644
+        src: roles/galaxyproject.galaxy/templates/systemd/galaxy.service.j2
+        dest: /etc/systemd/system/galaxy.service
+      become_user: root
+      notify:
+        - daemon reload
+        - galaxy mule restart
 
-- name: Slurm Play
-  hosts: all
-  roles:
-    - role: galaxyproject.slurm
-  tags:
-    - slurm
-
-#- name: Galaxy Servers Play
-#  hosts: galaxyservers
-#  pre_tasks:
-#    - name: Install Dependencies
-#      package: "{{ all_packages + galaxyservers_packages }}"
-#  post_tasks:
-#    - name: Install slurm-drmaa
-#      package:
-#        name: slurm-drmaa1
-#  roles:
-#    - galaxyproject.repos
-#    - galaxyproject.slurm
-#    - galaxyproject.postgresql
-#    - role: natefoo.postgresql_objects
-#      become: true
-#      become_user: postgres
-#    - geerlingguy.pip
-#    - gantsign.golang
-#    - cyverse-ansible.singularity
-#    - galaxyproject.galaxy
-#    - role: uchida.miniconda
-#      become: true
-#      become_user: "{{ galaxy_user.name }}"
-#    - usegalaxy_eu.rabbitmq
-#    - galaxyproject.nginx
-#    - galaxyproject.proftpd
-#    - galaxyproject.cvmfs
-#    - galaxyproject.gxadmin
-#    - dj-wasabi.telegraf
-#    - usegalaxy_eu.tiaas2
+    - name: Enable Galaxy Unit
+      systemd:
+        name: galaxy.service
+        enabled: yes
+      become_user: root

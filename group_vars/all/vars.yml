@@ -15,6 +15,7 @@ all_packages:
 
 # Convenience variables
 corral_root: /corral/main/projects/Galaxy-PSU
+galaxy_instance_root: "{{ corral_root }}/{{ galaxy_instance_name }}"
 
 # Slurm is installed on all hosts
 slurm_munge_key: files/slurm/munge.key
