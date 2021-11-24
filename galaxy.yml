@@ -7,22 +7,11 @@
   become_user: "{{ galaxy_user.name }}"
   roles:
     - role: galaxyproject.galaxy
-  post_tasks:
-    # Pulled out of galaxyproject.galaxy until we make a collection out of its parts
-    - name: Deploy Galaxy systemd service unit
-      template:
-        owner: root
-        group: root
-        mode: 0644
-        src: roles/galaxyproject.galaxy/templates/systemd/galaxy.service.j2
-        dest: /etc/systemd/system/galaxy.service
+    - role: supervisor
       become_user: root
-      notify:
-        - daemon reload
-        - galaxy mule restart
-
-    - name: Enable Galaxy Unit
-      systemd:
-        name: galaxy.service
-        enabled: yes
+  handlers:
+    - name: supervisorctl restart galaxy
+      supervisorctl:
+        name: 'galaxy:'
+        state: restarted
       become_user: root

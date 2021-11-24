@@ -1,5 +1,8 @@
 ---
 
+supervisor_configs:
+  - galaxy.conf
+
 # General dependencies
 galaxyservers_packages:
   - gcc
@@ -23,8 +26,10 @@ galaxy_separate_privileges: false
 #galaxy_manage_paths: false
 galaxy_layout: root-dir
 galaxy_root: "{{ galaxy_instance_root }}/galaxy"
-galaxy_restart_handler_name: galaxy mule restart
+galaxy_restart_handler_name: supervisorctl restart galaxy
 
+# This is used by the nginx template and have to be set since the nginx role doesn't run in the same playbook/after the galaxy role
+galaxy_server_dir: "{{ galaxy_root }}/server"
 # TODO: These should't need to be set if the role can be used to manage paths instead of doing it as a pre-task in the deps playbook
 galaxy_config_dir: "{{ galaxy_root }}/config"
 galaxy_mutable_config_dir: "{{ galaxy_root }}/var/config"
@@ -33,6 +38,8 @@ galaxy_precreate_dirs:
   - "{{ galaxy_config_dir }}"
   - "{{ galaxy_mutable_config_dir }}"
   - "{{ galaxy_log_dir }}"
+  # Does not need to be precreated but this ensures its permissions do not allow world reading
+  - "{{ galaxy_instance_root }}/objects"
 
 # TODO: https://github.com/galaxyproject/ansible-galaxy/issues/137
 __galaxy_user_group: "{{ galaxy_instance_group }}"

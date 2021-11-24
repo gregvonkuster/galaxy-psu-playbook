@@ -5,6 +5,7 @@ galaxy_instance_group: G-824019
 galaxy_instance_hostname: dev.galaxy.psu.edu
 galaxy_postgresql_host: galaxy-psu-dbdev.tacc.utexas.edu
 galaxy_postgresql_db_name: galaxy_dev
+galaxy_config_uwsgi_socket: 127.0.0.1:5000
 
 # vars defined in the corresponding vault.yml
 galaxy_postgresql_password: "{{ vault_galaxy_postgresql_password }}"
@@ -25,8 +26,8 @@ galaxy_group:
 
 galaxy_config:
   uwsgi:
-    socket: 127.0.0.1:5000
-    logto: "{{ galaxy_log_dir }}/uwsgi.log"
+    socket: "{{ galaxy_config_uwsgi_socket }}"
+    #logto: "{{ galaxy_log_dir }}/uwsgi.log"
     buffer-size: 16384
     processes: 4
     threads: 8
@@ -58,6 +59,7 @@ galaxy_config:
     object_store_store_by: uuid
     id_secret: "{{ vault_galaxy_config_id_secret }}"
     job_config_file: "{{ galaxy_config_dir }}/job_conf.yml"
+    smtp_server: localhost
     # SQL Performance
     database_engine_option_server_side_cursors: true
     # File serving Performance
@@ -66,6 +68,8 @@ galaxy_config:
     #watch_job_rules: 'auto'
     allow_path_paste: true
     enable_quotas: true
+    require_login: true
+    allow_user_creation: false
     allow_user_deletion: false
     show_welcome_with_login: true
     expose_user_name: true
@@ -85,6 +89,11 @@ galaxy_config:
     conda_prefix: "{{ miniconda_prefix }}"
     conda_auto_install: false
     conda_auto_init: false
+    container_resolvers:
+      - type: cached_mulled_singularity
+        cache_directory: /cvmfs/singularity.galaxyproject.org/all
+        cache_directory_cacher_type: dir_mtime
+      - type: explicit_singularity
 
 galaxy_config_templates:
   - src: templates/galaxy/config/job_conf.yml.j2

@@ -11,7 +11,7 @@ server {
     # The most important location block, by default all requests are sent to uWSGI
     location / {
         # This is the backend to send the requests to.
-        uwsgi_pass {{ galaxy_config.uwsgi.socket }};
+        uwsgi_pass {{ galaxy_config_uwsgi_socket }};
         uwsgi_param UWSGI_SCHEME $scheme;
         include uwsgi_params;
     }

@@ -12,6 +12,7 @@ all_packages:
   - make
   - tar
   - python3-venv
+  - libuser  # for lgroupmod
 
 # Convenience variables
 corral_root: /corral/main/projects/Galaxy-PSU
@@ -79,3 +80,9 @@ slurm_cgroup_config:
   ConstrainCores: yes
   ConstrainRAMSpace: yes
   ConstrainSwapSpace: yes
+
+
+# CVMFS vars
+cvmfs_role: client
+galaxy_cvmfs_repos_enabled: true
+cvmfs_quota_limit: 5000

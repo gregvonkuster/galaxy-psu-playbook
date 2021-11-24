@@ -2,7 +2,6 @@
 
 dbservers_packages:
   - python3-psycopg2
-  - libuser  # for lgroupmod
 
 # PostgreSQL
 postgresql_conf:

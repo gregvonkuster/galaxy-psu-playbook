@@ -10,7 +10,7 @@ runners:
   slurm:
     load: galaxy.jobs.runners.slurm:SlurmJobRunner
     workers: 4
-    drmaa_library_path: /usr/lib/slurm-drmaa/lib/libdrmaa.so
+    drmaa_library_path: /usr/lib/slurm-drmaa/lib/libdrmaa.so.1
     invalidjobexception_retries: 5
     internalexception_retries: 5
 
@@ -20,9 +20,8 @@ handling:
   max_grab: 16
   ready_window_size: 32
 
-# TODO: singularity options
 execution:
-  default: slurm_normal
+  default: slurm_normal_container
   environments:
     local:
       runner: local
@@ -31,9 +30,28 @@ execution:
       env:
         - name: LC_ALL
           value: C
-    slurm_bigmem:
+    slurm_normal_container:
       runner: slurm
-      native_specification: --partition=bigmem
+      singularity_enabled: true
+      #singularity_volumes:
+      outputs_to_working_directory: true
+      singularity_default_container_id: "/cvmfs/singularity.galaxyproject.org/all/python:3.8.3"
       env:
         - name: LC_ALL
           value: C
+    slurm_bigmem_container:
+      runner: slurm
+      native_specification: --partition=bigmem
+      singularity_enabled: true
+      #singularity_volumes:
+      outputs_to_working_directory: true
+      singularity_default_container_id: "/cvmfs/singularity.galaxyproject.org/all/python:3.8.3"
+      env:
+        - name: LC_ALL
+          value: C
+
+tools:
+  - id: upload1
+    destination: slurm_normal
+  - id: __DATA_FETCH__
+    destination: slurm_normal

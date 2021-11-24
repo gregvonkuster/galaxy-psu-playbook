@@ -1,0 +1,38 @@
+[program:galaxy-web]
+command         = {{ galaxy_venv_dir }}/bin/uwsgi --yaml {{ galaxy_config_file }}
+directory       = {{ galaxy_server_dir }}
+process_name    = web
+umask           = 022
+autostart       = true
+autorestart     = true
+startsecs       = 15
+stopwaitsecs    = 65
+user            = {{ galaxy_user.name }}
+environment     = HOME={{ ('~' ~ galaxy_user.name) | expanduser }},VIRTUAL_ENV={{ galaxy_venv_dir }},PATH={{ galaxy_venv_dir }}/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin
+stopsignal      = INT
+stdout_logfile  = /var/log/supervisor/uwsgi.log
+stdout_logfile_maxbytes = 128MB
+stdout_logfile_backups = 30
+redirect_stderr = true
+
+[program:galaxy-job-handler]
+command         = {{ galaxy_venv_dir }}/bin/python3 {{ galaxy_server_dir }}/scripts/galaxy-main -c {{ galaxy_config_file }} --attach-to-pool=job-handlers --server-name=job-handler-%(process_num)s
+directory       = {{ galaxy_server_dir }}
+process_name    = job-handler-%(process_num)s
+numprocs        = 1
+numprocs_start  = 0
+umask           = 022
+autostart       = true
+autorestart     = true
+startsecs       = 30
+stopwaitsecs    = 180
+user            = {{ galaxy_user.name }}
+environment     = HOME={{ ('~' ~ galaxy_user.name) | expanduser }},VIRTUAL_ENV={{ galaxy_venv_dir }},PATH={{ galaxy_venv_dir }}/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin
+stdout_logfile  = /var/log/supervisor/job-handler-%(process_num)s.log
+stdout_logfile_maxbytes = 128MB
+stdout_logfile_backups = 30
+redirect_stderr = true
+
+[group:galaxy]
+#programs        = galaxy-web,galaxy-job-handler,galaxy-workflow-scheduler
+programs        = galaxy-web,galaxy-job-handler

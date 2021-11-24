@@ -1,0 +1,8 @@
+---
+
+# Golang
+golang_gopath: '/opt/workspace-go'
+
+# Singularity target version
+singularity_version: "3.9.1"
+singularity_go_path: "{{ golang_install_dir }}"

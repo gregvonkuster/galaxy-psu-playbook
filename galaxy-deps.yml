@@ -1,6 +1,29 @@
 ---
 # Install/Manage Galaxy dependencies
 
+- name: Early setup tasks for all hosts
+  hosts: all
+  tasks:
+    - name: Install Packages
+      package:
+        name: "{{ all_packages }}"
+    # TODO: this hack can be removed if the dev user is added to LDAP
+    - name: Create dev project group
+      group:
+        name: G-824019
+        gid: 824019
+        local: true
+    # TODO: same
+    - name: Create local Galaxy dev user
+      user:
+        name: galaxydev
+        uid: 810
+        group: G-824019
+        comment: Galaxy Development Server
+        shell: /bin/bash
+        create_home: true
+        system: true
+
 - name: PostgreSQL
   hosts: dbservers
   pre_tasks:
@@ -37,6 +60,15 @@
   tags:
     - slurm
 
+- name: Slurm Exec Hosts
+  hosts: slurmexechosts
+  roles:
+    - role: gantsign.golang
+    - role: cyverse-ansible.singularity
+  tags:
+    - slurm
+    - singularity
+
 - name: DRMAA for Slurm
   hosts: galaxyservers
   roles:
@@ -68,14 +100,12 @@
       file:
         path: "{{ item }}"
         state: directory
-        mode: 02775
+        mode: 02770
       loop: "{{ galaxy_precreate_dirs }}"
       become: true
       become_user: "{{ galaxy_user.name }}"
   roles:
 #    - geerlingguy.pip
-#    - gantsign.golang
-#    - cyverse-ansible.singularity
     - role: galaxyproject.miniconda
       become: yes
       become_user: "{{ galaxy_user.name }}"
@@ -93,5 +123,20 @@
   hosts: galaxyservers
   roles:
     - role: galaxyproject.nginx
+  post_tasks:
+    - name: Set nginx runtime group
+      lineinfile:
+        line: 'user www-data {{ galaxy_instance_group }};'
+        regexp: '^user .*;$'
+        path: /etc/nginx/nginx.conf
+      notify:
+        - restart nginx
   tags:
     - nginx
+
+- name: CVMFS
+  hosts: all
+  roles:
+    - role: galaxyproject.cvmfs
+  tags:
+    - cvmfs
