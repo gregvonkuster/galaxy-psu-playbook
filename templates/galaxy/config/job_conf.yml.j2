@@ -86,3 +86,7 @@ tools:
     environment: slurm_normal
   - id: vsnp_add_zero_coverage
     environment: slurm_normal_container_conda
+
+limits:
+  - type: registered_user_concurrent_jobs
+    value: 8
