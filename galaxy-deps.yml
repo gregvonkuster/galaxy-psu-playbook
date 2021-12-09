@@ -4,6 +4,13 @@
 - name: Early setup tasks for all hosts
   hosts: all
   tasks:
+    # Obviously, the first person to run this has to manually install their key, if it's not set up in the VM
+    # bootstrapping process
+    - name: Add to root ssh keys
+      authorized_key:
+        user: root
+        key: "{{ item }}"
+      loop: "{{ root_authorized_ssh_keys }}"
     - name: Install Packages
       package:
         name: "{{ all_packages }}"
@@ -23,6 +30,8 @@
         shell: /bin/bash
         create_home: true
         system: true
+  tags:
+    - system
 
 - name: PostgreSQL
   hosts: dbservers

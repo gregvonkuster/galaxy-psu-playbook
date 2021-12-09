@@ -1,5 +1,7 @@
 ---
 
+root_authorized_ssh_keys: "{{ vault_root_authorized_ssh_keys }}"
+
 # Python 3 support
 pip_virtualenv_command: /usr/bin/python3 -m venv
 certbot_virtualenv_package_name: python3-venv
