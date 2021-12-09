@@ -25,11 +25,13 @@ execution:
   environments:
     local:
       runner: local
+    # single core, default (4GB) memory, non-container
     slurm_normal:
       runner: slurm
       env:
         - name: LC_ALL
           value: C
+    # single core, default (4GB) memory, singularity
     slurm_normal_container:
       runner: slurm
       singularity_enabled: true
@@ -39,6 +41,19 @@ execution:
       env:
         - name: LC_ALL
           value: C
+    # multi core, default (4GB) memory, singularity
+    slurm_normal_multicore_container:
+      runner: slurm
+      tags: [multicore]
+      native_specification: --ntasks=6 --mem=4000
+      singularity_enabled: true
+      singularity_volumes: "{{ galaxy_job_conf_singularity_volumes | join(',') }}"
+      outputs_to_working_directory: true
+      singularity_default_container_id: "/cvmfs/singularity.galaxyproject.org/all/python:3.9--1"
+      env:
+        - name: LC_ALL
+          value: C
+    # single core, large (32GB) memory, singularity
     slurm_bigmem_container:
       runner: slurm
       native_specification: --partition=bigmem
@@ -49,6 +64,7 @@ execution:
       env:
         - name: LC_ALL
           value: C
+    # single core, default (4GB) memory, singularity, galaxy venv (for tools that use galaxy lib)
     slurm_normal_container_venv:
       runner: slurm
       singularity_enabled: true
@@ -60,8 +76,25 @@ execution:
           value: C
         - name: SINGULARITYENV_PREPEND_PATH
           value: "{{ galaxy_venv_dir }}/bin"
+    # single core, default (4GB) memory, conda deps in singularity
     slurm_normal_container_conda:
       runner: slurm
+      singularity_enabled: true
+      singularity_volumes: "{{ galaxy_job_conf_singularity_volumes | join(',') }}"
+      outputs_to_working_directory: true
+      container_override:
+        - type: singularity
+          shell: /bin/sh
+          resolve_dependencies: true
+          identifier: "/cvmfs/singularity.galaxyproject.org/all/python:3.9--1"
+      env:
+        - name: LC_ALL
+          value: C
+    # multi core, default (4GB) memory, conda deps in singularity
+    slurm_normal_multicore_container_conda:
+      runner: slurm
+      tags: [multicore]
+      native_specification: --ntasks=6 --mem=4000
       singularity_enabled: true
       singularity_volumes: "{{ galaxy_job_conf_singularity_volumes | join(',') }}"
       outputs_to_working_directory: true
@@ -84,9 +117,21 @@ tools:
     # FIXME: /corral/main/projects/Galaxy-PSU/dev/galaxy/venv/bin/nodejs: error while loading shared libraries: libstdc++.so.6: cannot open shared object file: No such file or directory
     #environment: slurm_normal_container_venv
     environment: slurm_normal
+  # vSNP tools do not have corresponding BioContainers
   - id: vsnp_add_zero_coverage
+    environment: slurm_normal_container_conda
+  - id: vsnp_build_tables
+    environment: slurm_normal_multicore_container_conda
+  - id: vsnp_determine_ref_from_data
+    environment: slurm_normal_container_conda
+  - id: vsnp_get_snps
+    environment: slurm_normal_multicore_container_conda
+  - id: vsnp_statistics
     environment: slurm_normal_container_conda
 
 limits:
   - type: registered_user_concurrent_jobs
     value: 8
+  - type: environment_user_concurrent_jobs
+    id: multicore
+    value: 2
