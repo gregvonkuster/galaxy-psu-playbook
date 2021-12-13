@@ -31,6 +31,12 @@ execution:
       env:
         - name: LC_ALL
           value: C
+        - name: TMPDIR
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TMP
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TEMP
+          value: $_GALAXY_JOB_TMP_DIR
     # single core, default (4GB) memory, singularity
     slurm_normal_container:
       runner: slurm
@@ -41,6 +47,12 @@ execution:
       env:
         - name: LC_ALL
           value: C
+        - name: TMPDIR
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TMP
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TEMP
+          value: $_GALAXY_JOB_TMP_DIR
     slurm_normal_container_resolv_fix:
       runner: slurm
       singularity_enabled: true
@@ -51,6 +63,12 @@ execution:
       env:
         - name: LC_ALL
           value: C
+        - name: TMPDIR
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TMP
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TEMP
+          value: $_GALAXY_JOB_TMP_DIR
     # default multi core (6), default (4GB) memory, singularity
     slurm_normal_multicore_container:
       runner: slurm
@@ -63,6 +81,12 @@ execution:
       env:
         - name: LC_ALL
           value: C
+        - name: TMPDIR
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TMP
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TEMP
+          value: $_GALAXY_JOB_TMP_DIR
     # 4 cores, 8 GB memory, singularity
     slurm_normal_multicore_container_4c8g:
       runner: slurm
@@ -75,6 +99,12 @@ execution:
       env:
         - name: LC_ALL
           value: C
+        - name: TMPDIR
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TMP
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TEMP
+          value: $_GALAXY_JOB_TMP_DIR
     # single core, large (32GB) memory, singularity
     slurm_bigmem_container:
       runner: slurm
@@ -86,6 +116,12 @@ execution:
       env:
         - name: LC_ALL
           value: C
+        - name: TMPDIR
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TMP
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TEMP
+          value: $_GALAXY_JOB_TMP_DIR
     # single core, default (4GB) memory, singularity, galaxy venv (for tools that use galaxy lib)
     slurm_normal_container_venv:
       runner: slurm
@@ -96,6 +132,12 @@ execution:
       env:
         - name: LC_ALL
           value: C
+        - name: TMPDIR
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TMP
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TEMP
+          value: $_GALAXY_JOB_TMP_DIR
         - name: SINGULARITYENV_PREPEND_PATH
           value: "{{ galaxy_venv_dir }}/bin"
     # single core, default (4GB) memory, conda deps in singularity
@@ -112,6 +154,12 @@ execution:
       env:
         - name: LC_ALL
           value: C
+        - name: TMPDIR
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TMP
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TEMP
+          value: $_GALAXY_JOB_TMP_DIR
     # multi core, default (4GB) memory, conda deps in singularity
     slurm_normal_multicore_container_conda:
       runner: slurm
@@ -128,6 +176,12 @@ execution:
       env:
         - name: LC_ALL
           value: C
+        - name: TMPDIR
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TMP
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TEMP
+          value: $_GALAXY_JOB_TMP_DIR
 
 tools:
   - id: upload1
