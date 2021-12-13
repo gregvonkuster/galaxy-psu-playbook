@@ -1,0 +1,4 @@
+---
+
+- name: supervisorctl update
+  command: supervisorctl update

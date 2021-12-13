@@ -1,4 +1,4 @@
 *.sw?
 
 .vault-password.txt
-roles
+roles/*.*
