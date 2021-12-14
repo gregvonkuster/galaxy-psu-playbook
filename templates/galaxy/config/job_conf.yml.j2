@@ -105,6 +105,24 @@ execution:
           value: $_GALAXY_JOB_TMP_DIR
         - name: TEMP
           value: $_GALAXY_JOB_TMP_DIR
+    # 4 cores, large (16GB) memory, singularity
+    slurm_bigmem_multicore_container_4c16g:
+      runner: slurm
+      tags: [multicore]
+      native_specification: --ntasks=4 --mem=16384 --partition=bigmem
+      singularity_enabled: true
+      singularity_volumes: "{{ galaxy_job_conf_singularity_volumes | join(',') }}"
+      outputs_to_working_directory: true
+      singularity_default_container_id: "/cvmfs/singularity.galaxyproject.org/all/python:3.9--1"
+      env:
+        - name: LC_ALL
+          value: C
+        - name: TMPDIR
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TMP
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TEMP
+          value: $_GALAXY_JOB_TMP_DIR
     # 4 cores, large (32GB) memory, singularity
     slurm_bigmem_multicore_container_4c32g:
       runner: slurm
@@ -223,6 +241,8 @@ tools:
   - id: vsnp_statistics
     environment: slurm_normal_container_conda
   # Increase memory/cores
+  - id: bg_diamond_makedb
+    environment: slurm_bigmem_multicore_container_4c16g
   - id: diamond_database_builder
     environment: slurm_bigmem_multicore_container_4c32g
   # Undeclared Python dep
