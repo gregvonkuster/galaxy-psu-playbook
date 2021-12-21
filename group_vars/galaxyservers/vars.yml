@@ -34,6 +34,8 @@ galaxy_server_dir: "{{ galaxy_root }}/server"
 galaxy_config_dir: "{{ galaxy_root }}/config"
 galaxy_mutable_config_dir: "{{ galaxy_root }}/var/config"
 galaxy_log_dir: "{{ galaxy_root }}/var/log"
+galaxy_reports_config_file: "{{ galaxy_config_dir }}/reports.yml"
+
 galaxy_precreate_dirs:
   - "{{ galaxy_config_dir }}"
   - "{{ galaxy_mutable_config_dir }}"
@@ -69,6 +71,10 @@ galaxy_job_conf_singularity_volumes:
   - "{{ miniconda_prefix }}:ro"
   - "{{ galaxy_venv_dir }}:ro"
   - "/cvmfs/data.galaxyproject.org:ro"
+
+galaxy_config_templates:
+  - src: templates/galaxy/config/reports.yml.j2
+    dest: "{{ galaxy_reports_config_file }}"
 
 
 # Certbot
