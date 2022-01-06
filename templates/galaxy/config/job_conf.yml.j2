@@ -230,6 +230,26 @@ execution:
           value: $_GALAXY_JOB_TMP_DIR
         - name: SINGULARITYENV_PREPEND_PATH
           value: "{{ galaxy_venv_dir }}/bin"
+    # default multi core (6), default (4GB) memory, singularity, galaxy venv (for tools that use galaxy lib)
+    slurm_normal_multicore_container_venv:
+      runner: slurm
+      tags: [multicore]
+      native_specification: --ntasks=6 --mem=4000
+      singularity_enabled: true
+      singularity_volumes: "{{ galaxy_job_conf_singularity_volumes | join(',') }}"
+      outputs_to_working_directory: true
+      singularity_default_container_id: "/cvmfs/singularity.galaxyproject.org/all/python:3.9--1"
+      env:
+        - name: LC_ALL
+          value: C
+        - name: TMPDIR
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TMP
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: TEMP
+          value: $_GALAXY_JOB_TMP_DIR
+        - name: SINGULARITYENV_PREPEND_PATH
+          value: "{{ galaxy_venv_dir }}/bin"
     # single core, default (4GB) memory, conda deps in singularity
     slurm_normal_container_conda:
       runner: slurm
@@ -326,35 +346,35 @@ tools:
     environment: slurm_bigmem_multicore_container_4c256g
   # Undeclared Python dep
   - id: blastxml_to_tabular
-    environment: slurm_normal_container_venv
+    environment: slurm_normal_multicore_container_venv
   - id: ncbi_blastdbcmd_info
-    environment: slurm_normal_container_venv
+    environment: slurm_normal_multicore_container_venv
   - id: ncbi_blastdbcmd_wrapper
-    environment: slurm_normal_container_venv
+    environment: slurm_normal_multicore_container_venv
   - id: ncbi_blastn_wrapper
-    environment: slurm_normal_container_venv
+    environment: slurm_normal_multicore_container_venv
   - id: ncbi_blastp_wrapper
-    environment: slurm_normal_container_venv
+    environment: slurm_normal_multicore_container_venv
   - id: ncbi_blastx_wrapper
-    environment: slurm_normal_container_venv
+    environment: slurm_normal_multicore_container_venv
   - id: ncbi_convert2blastmask_wrapper
-    environment: slurm_normal_container_venv
+    environment: slurm_normal_multicore_container_venv
   - id: ncbi_dustmasker_wrapper
-    environment: slurm_normal_container_venv
+    environment: slurm_normal_multicore_container_venv
   - id: ncbi_makeblastdb
-    environment: slurm_normal_container_venv
+    environment: slurm_normal_multicore_container_venv
   - id: ncbi_makeprofiledb
-    environment: slurm_normal_container_venv
+    environment: slurm_normal_multicore_container_venv
   - id: ncbi_rpsblast_wrapper
-    environment: slurm_normal_container_venv
+    environment: slurm_normal_multicore_container_venv
   - id: ncbi_rpstblastn_wrapper
-    environment: slurm_normal_container_venv
+    environment: slurm_normal_multicore_container_venv
   - id: ncbi_segmasker_wrapper
-    environment: slurm_normal_container_venv
+    environment: slurm_normal_multicore_container_venv
   - id: ncbi_tblastn_wrapper
-    environment: slurm_normal_container_venv
+    environment: slurm_normal_multicore_container_venv
   - id: ncbi_tblastx_wrapper
-    environment: slurm_normal_container_venv
+    environment: slurm_normal_multicore_container_venv
 
 limits:
   - type: registered_user_concurrent_jobs
