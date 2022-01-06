@@ -94,7 +94,3 @@ galaxy_config:
         cache_directory: /cvmfs/singularity.galaxyproject.org/all
         cache_directory_cacher_type: dir_mtime
       - type: explicit_singularity
-
-galaxy_config_templates:
-  - src: templates/galaxy/config/job_conf.yml.j2
-    dest: "{{ galaxy_config.galaxy.job_config_file }}"
