@@ -181,7 +181,7 @@ execution:
     slurm_bigmem_multicore_container_4c256g:
       runner: slurm
       tags: [multicore]
-      native_specification: --ntasks=4 --mem=262144 --partition=bigmem
+      native_specification: --ntasks=4 --mem=257736 --partition=bigmem
       singularity_enabled: true
       singularity_volumes: "{{ galaxy_job_conf_singularity_volumes | join(',') }}"
       outputs_to_working_directory: true
@@ -347,6 +347,8 @@ tools:
   - id: bbtools_bbmap
     environment: slurm_bigmem_multicore_container_4c32g
   - id: metaspades
+    environment: slurm_bigmem_multicore_container_4c32g
+  - id: dada2_assignTaxonomyAddspecies
     environment: slurm_bigmem_multicore_container_4c32g
   # Undeclared Python dep
   - id: blastxml_to_tabular
