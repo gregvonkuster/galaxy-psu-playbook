@@ -327,6 +327,9 @@ tools:
     # FIXME: /corral/main/projects/Galaxy-PSU/dev/galaxy/venv/bin/nodejs: error while loading shared libraries: libstdc++.so.6: cannot open shared object file: No such file or directory
     #environment: slurm_normal_container_venv
     environment: slurm_normal
+  # Tools using a single core that need to run in the venv.
+  - id: __SET_METADATA__
+    environment: slurm_normal_container_venv
   # vSNP tools do not have corresponding BioContainers
   - id: vsnp_add_zero_coverage
     environment: slurm_normal_container_conda
