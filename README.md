@@ -8,7 +8,7 @@ Install Ansible and dependencies:
 ```console
 $ python3 -m venv ansible
 $ . ./ansible/bin/activate
-$ pip install ansible dnspython
+$ pip install -r requirements.txt
 ```
 
 Install roles:

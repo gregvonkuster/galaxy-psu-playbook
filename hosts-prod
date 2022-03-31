@@ -1,10 +1,10 @@
+login3.frontera.tacc.utexas.edu ansible_user=glxyhpc ansible_ssh_executable=./.ssh-keyboard-interactive
+
 [galaxyservers]
-galaxy-psu-dev.tacc.utexas.edu
-#galaxy-psu-prod.tacc.utexas.edu
+galaxy-psu-prod.tacc.utexas.edu
 
 [dbservers]
-galaxy-psu-dbdev.tacc.utexas.edu
-#galaxy-psu-db.tacc.utexas.edu
+galaxy-psu-db.tacc.utexas.edu
 
 [slurmservers]
 galaxy-psu-db.tacc.utexas.edu
@@ -13,13 +13,16 @@ galaxy-psu-db.tacc.utexas.edu
 galaxy-psu-jobs1.tacc.utexas.edu
 galaxy-psu-bigjobs1.tacc.utexas.edu
 
-[dev]
+[rabbitmqservers]
 galaxy-psu-dev.tacc.utexas.edu
-galaxy-psu-dbdev.tacc.utexas.edu
+
+[pulsarservers]
+login3.frontera.tacc.utexas.edu
 
 [prod]
 galaxy-psu-prod.tacc.utexas.edu
 galaxy-psu-db.tacc.utexas.edu
+login3.frontera.tacc.utexas.edu
 
 [all:vars]
 ansible_user=root
