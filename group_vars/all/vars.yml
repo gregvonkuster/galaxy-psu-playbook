@@ -1,6 +1,7 @@
 ---
 
 root_authorized_ssh_keys: "{{ vault_root_authorized_ssh_keys }}"
+rabbitmq_pulsar_user_password: "{{ vault_rabbitmq_pulsar_user_password }}"
 
 # Python 3 support
 pip_virtualenv_command: /usr/bin/python3 -m venv
@@ -88,3 +89,7 @@ slurm_cgroup_config:
 cvmfs_role: client
 galaxy_cvmfs_repos_enabled: true
 cvmfs_quota_limit: 5000
+
+
+# Pulsar/Galaxy vars
+pulsar_message_queue_url: "amqp://pulsar:{{ rabbitmq_pulsar_user_password }}@{{ galaxy_instance_hostname }}:5671//pulsar?ssl=1"

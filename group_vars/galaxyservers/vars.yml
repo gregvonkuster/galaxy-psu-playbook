@@ -90,8 +90,11 @@ certbot_environment: production
 certbot_well_known_root: /srv/nginx/_well-known_root
 certbot_share_key_users:
   - nginx
+  # rabbitmq in container
+  - 999
 certbot_post_renewal: |
-    systemctl restart nginx || true
+  systemctl restart nginx || true
+  docker restart rabbitmq || true
 certbot_domains:
   - "{{ galaxy_instance_hostname }}"
 certbot_agree_tos: --agree-tos

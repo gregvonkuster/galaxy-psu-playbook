@@ -1,0 +1,44 @@
+---
+
+docker_install_compose: false
+
+rabbitmq_predefined_erlang_cookie: "{{ vault_rabbitmq_predefined_erlang_cookie }}"
+rabbitmq_root_user_password: "{{ vault_rabbitmq_root_user_password }}"
+# galaxy user password is in the "all" group vault
+
+rabbitmq_users:
+  - user: root
+    password: "{{ rabbitmq_root_user_password }}"
+    tags: administrator
+    vhost: /
+  - user: pulsar
+    password: "{{ rabbitmq_pulsar_user_password }}"
+    vhost: /pulsar
+
+rabbitmq_container:
+  name: rabbitmq
+  image: rabbitmq:3.9.11
+  hostname: "{{ galaxy_instance_hostname }}"
+
+rabbitmq_config:
+  listeners:
+    tcp: none
+  ssl_listeners:
+    default: 5671
+  ssl_options:
+    cacertfile: "/etc/ssl/certs/fullchain.pem"
+    certfile: "/etc/ssl/certs/cert.pem"
+    keyfile: "/etc/ssl/user/privkey-999.pem"
+    verify: verify_peer
+    fail_if_no_peer_cert: 'false'
+
+rabbitmq_container_standalone_setup_details:
+  volumes:
+    - "{{ rabbitmq_path }}/data:/var/lib/rabbitmq"
+    - "{{ rabbitmq_path }}/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro"
+    - "{{ rabbitmq_path }}/.erlang.cookie:/var/lib/rabbitmq/.erlang.cookie"
+    - /etc/ssl:/etc/ssl:ro
+    - /etc/pki:/etc/pki:ro
+  ports:
+    - 15672:15672
+    - 5671:5671
