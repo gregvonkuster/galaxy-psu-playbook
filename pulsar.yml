@@ -1,0 +1,22 @@
+---
+
+- name: Deploy Pulsar
+  hosts: pulsarservers
+  handlers:
+    - name: supervisor restart pulsar
+      supervisorctl:
+        name: "pulsar"
+        state: restarted
+        supervisorctl_path: "{{ supervisor_prefix }}/bin/supervisorctl"
+        config: "{{ supervisor_config_path }}"
+  pre_tasks:
+    - name: Create pulsar log dir
+      file:
+        path: "{{ pulsar_root }}/log"
+        state: directory
+        mode: 0750
+  roles:
+    - role: galaxyproject.miniconda
+      when: miniconda_prefix is defined
+    - role: galaxyproject.pulsar
+    - role: supervisor

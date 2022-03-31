@@ -1,0 +1,4 @@
+---
+
+supervisor_supervisorctl: supervisorctl
+supervisor_config_include_dir: /etc/supervisor/conf.d

@@ -1,4 +1,5 @@
 ---
 
-supervisor_config_include_dir: /etc/supervisor/conf.d
+supervisor_install: package
 supervisor_configs: []
+supervisord_service_install: false

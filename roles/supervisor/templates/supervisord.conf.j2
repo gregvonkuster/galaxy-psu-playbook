@@ -1,0 +1,25 @@
+;;
+;; This file is maintained by Ansible - CHANGES WILL BE OVERWRITTEN
+;;
+
+[unix_http_server]
+file                            = {{ supervisor_run_dir }}/supervisord.sock
+
+[supervisord]
+logfile                         = {{ supervisor_log_dir }}/supervisord.log
+logfile_maxbytes                = 50MB
+logfile_backups                 = 10
+loglevel                        = info
+pidfile                         = {{ supervisor_run_dir }}/supervisord.pid
+nodaemon                        = false
+minfds                          = 1024
+minprocs                        = 200
+
+[rpcinterface:supervisor]
+supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+
+[supervisorctl]
+serverurl                       = unix://{{ supervisor_run_dir }}/supervisord.sock
+
+[include]
+files                           = {{ supervisor_config_include_dir }}/*.conf

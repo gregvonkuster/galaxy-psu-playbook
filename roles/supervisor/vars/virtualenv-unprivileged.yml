@@ -1,0 +1,9 @@
+---
+
+supervisor_supervisorctl: "{{ supervisor_prefix }}/bin/supervisorctl -c {{ supervisor_config_path }}"
+supervisor_config_path: "{{ supervisor_prefix }}/etc/supervisord.conf"
+supervisor_config_include_dir: "{{ supervisor_prefix }}/etc/conf.d"
+supervisor_log_dir: "{{ supervisor_prefix }}/var/log"
+supervisor_run_dir: "{{ supervisor_prefix }}/var/run"
+
+supervisord_unprivileged_command: "{ date; pgrep -u {{ ansible_user }} supervisord || '{{ supervisor_prefix }}/bin/supervisord' -c '{{ supervisor_config_path }}'; } >> {{ supervisor_log_dir }}/supervisord-launch.log 2>&1"

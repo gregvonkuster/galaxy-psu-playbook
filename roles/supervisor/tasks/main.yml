@@ -1,8 +1,10 @@
 ---
 
-- name: Install supervisor
-  package:
-    name: supervisor
+- name: Include vars for install type
+  include_vars: "{{ supervisor_install }}.yml"
+
+- name: Include tasks for install type
+  include_tasks: "install-{{ supervisor_install }}.yml"
 
 - name: List existing supervisor configs
   find:

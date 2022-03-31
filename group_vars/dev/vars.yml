@@ -7,6 +7,9 @@ galaxy_postgresql_host: galaxy-psu-dbdev.tacc.utexas.edu
 galaxy_postgresql_db_name: galaxy_dev
 galaxy_config_uwsgi_socket: 127.0.0.1:5000
 
+# TODO: redeploy as this user on VMs
+tacc_user: glxhpc
+
 # vars defined in the corresponding vault.yml
 galaxy_postgresql_password: "{{ vault_galaxy_postgresql_password }}"
 

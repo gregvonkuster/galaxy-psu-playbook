@@ -1,4 +1,7 @@
 ---
 
 - name: supervisorctl update
-  command: supervisorctl update
+  command: "{{ supervisor_supervisorctl }} update"
+
+- name: restart supervisord
+  command: "{{ supervisor_supervisorctl }} reload"

@@ -1,0 +1,5 @@
+---
+
+- name: Install supervisor
+  package:
+    name: supervisor

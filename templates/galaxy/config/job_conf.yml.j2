@@ -13,6 +13,18 @@ runners:
     drmaa_library_path: /usr/lib/slurm-drmaa/lib/libdrmaa.so.1
     invalidjobexception_retries: 5
     internalexception_retries: 5
+  frontera:
+    load: galaxy.jobs.runners.pulsar:PulsarMQJobRunner
+    manager: frontera
+    amqp_url: "{{ pulsar_message_queue_url }}"
+    galaxy_url: "https://{{ galaxy_instance_hostname }}"
+    persistence_directory: "{{ galaxy_root }}/var/pulsar_amqp_ack
+    amqp_acknowledge: true
+    amqp_ack_republish_time: 1200
+    amqp_consumer_timeout: 2.0
+    amqp_publish_retry: true
+    amqp_publish_retry_max_retries: 60
+
 
 handling:
   assign:
@@ -313,6 +325,44 @@ execution:
           value: $_GALAXY_JOB_TMP_DIR
         - name: TEMP
           value: $_GALAXY_JOB_TMP_DIR
+    # Frontera via Pulsar
+    frontera_small:
+      runner: frontera
+      submit_native_specification: --partition=small --nodes=1 --ntasks=56 --time=48:00:00
+      remote_metadata: false
+      transport: curl
+      default_file_action: remote_transfer
+      dependency_resolution: remote
+      rewrite_parameters: true
+      outputs_to_working_directory: false
+      jobs_directory: "/scratch1/08500/{{ tacc_user }}/staging"
+      singularity_enabled: true
+      # the tacc-singularity module automatically sets up mounts
+      singularity_volumes: null
+      container_resolvers:
+        - type: explicit_singularity
+        - type: mulled_singularity
+      require_container: true
+      env:
+        - name: _JAVA_OPTIONS
+          value: $_JAVA_OPTIONS -Xmx128g -Xms256m
+        - name: LC_ALL
+          value: C
+        - name: TERM
+          value: vt100
+        - execute: ulimit -c 0
+        - name: SINGULARITYENV__JAVA_OPTIONS
+          value: $_JAVA_OPTIONS
+        - name: SINGULARITYENV_LC_ALL
+          value: $LC_ALL
+        - name: SINGULARITYENV_TERM
+          value: $TERM
+        - file: /etc/profile.d/z01_lmod.sh
+        - execute: module load tacc-singularity
+        - name: GALAXY_SLOTS
+          value: "$SLURM_NTASKS"
+        - name: GALAXY_MEMORY_MB
+          value: "194560"
 
 tools:
   - id: upload1
