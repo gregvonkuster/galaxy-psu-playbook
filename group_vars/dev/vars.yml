@@ -63,6 +63,8 @@ galaxy_config:
     id_secret: "{{ vault_galaxy_config_id_secret }}"
     job_config_file: "{{ galaxy_config_dir }}/job_conf.yml"
     smtp_server: localhost
+    error_email_to: ghv2@psu.edu
+    email_from: "Greg Von Kuster <ghv2@psu.edu>"
     # SQL Performance
     database_engine_option_server_side_cursors: true
     # File serving Performance

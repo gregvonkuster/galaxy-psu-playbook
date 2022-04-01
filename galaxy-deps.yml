@@ -30,6 +30,23 @@
         shell: /bin/bash
         create_home: true
         system: true
+    - name: Configure Postfix if necessary
+      template:
+        src: templates/postfix/main.cf.j2
+        dest: /etc/postfix/main.cf
+        force: false
+        mode: 0644
+      notify:
+        - start postfix
+    - name: Create Postfix aliases if necessary
+      command: newaliases
+      args:
+        creates: /etc/aliases.db
+  handlers:
+    - name: start postfix
+      service:
+        name: postfix
+        state: started
   tags:
     - system
 
