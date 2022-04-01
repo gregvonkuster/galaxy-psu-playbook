@@ -46,7 +46,7 @@ galaxy_precreate_dirs:
 # TODO: https://github.com/galaxyproject/ansible-galaxy/issues/137
 __galaxy_user_group: "{{ galaxy_instance_group }}"
 
-galaxy_commit_id: release_21.09
+galaxy_commit_id: release_22.01
 galaxy_force_checkout: true
 
 galaxy_virtualenv_command: "{{ miniconda_prefix }}/envs/__python@3.9/bin/python3 -m venv"
