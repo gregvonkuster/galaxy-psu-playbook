@@ -10,13 +10,32 @@
         supervisorctl_path: "{{ supervisor_prefix }}/bin/supervisorctl"
         config: "{{ supervisor_config_path }}"
   pre_tasks:
-    - name: Create pulsar log dir
+    - name: Create directories for Pulsar
       file:
-        path: "{{ pulsar_root }}/log"
+        path: "{{ item.path }}"
         state: directory
-        mode: 0750
+        mode: "{{ item.mode }}"
+      loop: "{{ pulsar_directories }}"
+    - name: Copy files for Pulsar
+      copy:
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+        mode: "{{ item.mode }}"
+      loop: "{{ pulsar_files }}"
   roles:
     - role: galaxyproject.miniconda
       when: miniconda_prefix is defined
     - role: galaxyproject.pulsar
     - role: supervisor
+  post_tasks:
+    - name: Schedule cron jobs for Pulsar
+      cron:
+        name: "{{ item.name }}"
+        day: "{{ item.day | default(omit) }}"
+        hour: "{{ item.hour | default(omit) }}"
+        minute: "{{ item.minute | default(omit) }}"
+        month: "{{ item.month | default(omit) }}"
+        special_time: "{{ item.special_time | default(omit) }}"
+        weekday: "{{ item.weekday | default(omit) }}"
+        job: "{{ item.job }}"
+      loop: "{{ pulsar_cron_jobs }}"

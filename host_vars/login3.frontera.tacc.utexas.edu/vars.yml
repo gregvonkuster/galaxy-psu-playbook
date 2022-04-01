@@ -18,31 +18,30 @@ pulsar_optional_dependencies:
   - requests
 
 
-# FIXME: nothing does these currently
-host_directories:
+pulsar_directories:
   - path: "{{ _frontera_home_root }}/bin"
     mode: "0755"
-  # this is now a pre-task
   - path: "{{ pulsar_root }}/log"
     mode: "0750"
-  # these should be created by the supervisor role
-  #- path: "{{ supervisord_log_dir }}"
-  #  mode: "0750"
-  #- path: "{{ supervisord_run_dir }}"
-  #  mode: "0750"
 
-host_files:
+pulsar_files:
   - src: "files/pulsar/tmpwatch.el7"
     dest: "{{ _frontera_home_root }}/bin/tmpwatch"
     mode: "0755"
 
-host_crontabs:
-  - id: "pulsar-clean-scratch"
-    use_cron_file: false
+pulsar_cron_jobs:
+  - name: "pulsar-clean-scratch"
     minute: "0"
     hour: "*/6"
     job: "{{ _frontera_home_root }}/bin/tmpwatch -v --all --mtime --dirmtime 7d '{{ pulsar_staging_dir }}' >> '{{ pulsar_root }}/log/cleanup.log'"
-# FIXME END
+  - name: "pulsar-update-tool-data"
+    minute: "0"
+    hour: "23"
+    job: "rsync -av /corral/projects/Galaxy-PSU/dev/galaxy/var/tool-data {{ _frontera_scratch_root }}"
+  - name: "pulsar-access-tool-data"
+    minute: "0"
+    hour: "5"
+    job: "find {{ _frontera_scratch_root }}/tool-data -print0 | xargs -0 touch -a"
 
 
 miniconda_prefix: "{{ _frontera_work_root }}/conda"
@@ -98,7 +97,7 @@ pulsar_yaml_config:
       - type: conda
         prefix: "{{ miniconda_prefix }}"
         auto_init: false
-        auto_install: true
+        auto_install: false
   managers:
     frontera:
       type: queued_drmaa

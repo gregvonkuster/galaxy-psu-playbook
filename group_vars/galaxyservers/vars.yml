@@ -77,6 +77,8 @@ galaxy_config_templates:
     dest: "{{ galaxy_reports_config_file }}"
   - src: templates/galaxy/config/job_conf.yml.j2
     dest: "{{ galaxy_config.galaxy.job_config_file }}"
+  - src: templates/galaxy/config/pulsar_frontera_actions.yml.j2
+    dest: "{{ galaxy_config_dir }}/pulsar_frontera_actions.yml"
 
 
 # Certbot
