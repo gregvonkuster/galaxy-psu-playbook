@@ -423,23 +423,13 @@ tools:
   - id: __SET_METADATA__
     environment: slurm_normal_container_venv
   # Tools that do not have corresponding BioContainers
-  - id: phyloseq_from_dada2
-    environment: slurm_normal_container_conda
-  - id: phyloseq_plot_richness
-    environment: slurm_normal_container_conda
-  - id: phyloseq_plot_ordination
-    environment: slurm_normal_container_conda
-  - id: vsnp_add_zero_coverage
-    environment: slurm_normal_container_conda
-  - id: vsnp_build_tables
-    environment: slurm_normal_multicore_container_conda
-  - id: vsnp_determine_ref_from_data
-    environment: slurm_normal_container_conda
-  - id: vsnp_get_snps
-    environment: slurm_normal_multicore_container_conda
-  - id: vsnp_statistics
-    environment: slurm_normal_container_conda_1c8g
   # Increase memory/cores
+  - id: phyloseq_from_dada2
+    environment: slurm_bigmem_multicore_container_4c16g
+  - id: phyloseq_plot_richness
+    environment: slurm_bigmem_multicore_container_4c16g
+  - id: phyloseq_plot_ordination
+    environment: slurm_bigmem_multicore_container_4c16g
   - id: pilon
     environment: slurm_bigmem_multicore_container_4c32g
   - id: flye
@@ -453,6 +443,16 @@ tools:
   - id: kraken2
     environment: frontera_small
   - id: bbtools_bbmap
+    environment: frontera_small
+  - id: vsnp_add_zero_coverage
+    environment: frontera_small
+  - id: vsnp_build_tables
+    environment: frontera_small
+  - id: vsnp_determine_ref_from_data
+    environment: frontera_small
+  - id: vsnp_get_snps
+    environment: frontera_small
+  - id: vsnp_statistics
     environment: frontera_small
   - id: metaspades
     environment: slurm_bigmem_multicore_container_4c32g
