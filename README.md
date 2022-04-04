@@ -23,8 +23,16 @@ Run the deps (one-time tasks) playbook:
 $ ansible-playbook --diff galaxy-deps.yml
 ```
 
-To update Galaxy and/or its configuration:
+The Galaxy dev and prod hosts are split into two separate inventory files, hosts-dev and hosts-prod.
+
+To update Galaxy prod and/or its configuration:
 
 ```console
-$ ansible-playbook --diff galaxy.yml
+$ ansible-playbook -i hosts-prod --diff galaxy.yml
+```
+
+To update Galaxy dev and/or its configuration:
+
+```console
+$ ansible-playbook -i hosts-dev --diff galaxy.yml
 ```

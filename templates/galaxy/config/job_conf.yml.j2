@@ -439,21 +439,37 @@ tools:
   - id: bg_diamond
     environment: slurm_bigmem_multicore_container_4c32g
   - id: bg_diamond_makedb
-    environment: frontera_small
+    environment: frontera_development
   - id: kraken2
-    environment: frontera_small
+    environment: frontera_development
   - id: bbtools_bbmap
-    environment: frontera_small
+    environment: frontera_development
+  - id: malt_run
+    environment: frontera_development
+  - id: megan_blast2lca
+    environment: frontera_development
+  - id: megan_blast2rma
+    environment: frontera_development
+  - id: megan_daa2info
+    environment: frontera_development
+  - id: megan_daa2rma
+    environment: frontera_development
+  - id: megan_daa_meganizer
+    environment: frontera_development
+  - id: megan_read_extractor
+    environment: frontera_development
+  - id: megan_sam2rma
+    environment: frontera_development
   - id: vsnp_add_zero_coverage
-    environment: frontera_small
+    environment: frontera_development
   - id: vsnp_build_tables
-    environment: frontera_small
+    environment: frontera_development
   - id: vsnp_determine_ref_from_data
-    environment: frontera_small
+    environment: frontera_development
   - id: vsnp_get_snps
-    environment: frontera_small
+    environment: frontera_development
   - id: vsnp_statistics
-    environment: frontera_small
+    environment: frontera_development
   - id: metaspades
     environment: slurm_bigmem_multicore_container_4c32g
   - id: dada2_assignTaxonomyAddspecies
@@ -496,11 +512,11 @@ tools:
 
 limits:
   - type: registered_user_concurrent_jobs
-    value: 8
+    value: 20
   # Per-user limits on queued/running jobs per-environment
   - type: environment_user_concurrent_jobs
     id: multicore
-    value: 2
+    value: 4
   # Total limits on queued/running jobs across all users
   - type: environment_total_concurrent_jobs
     id: frontera_development
