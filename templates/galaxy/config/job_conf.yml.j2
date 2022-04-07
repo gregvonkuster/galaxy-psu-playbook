@@ -476,6 +476,10 @@ tools:
     environment: slurm_bigmem_multicore_container_4c32g
   - id: bg_diamond
     environment: slurm_bigmem_multicore_container_4c32g
+  - id: bwa
+    environment: frontera_small
+  - id: bwa_mem
+    environment: frontera_small
   - id: bg_diamond_makedb
     environment: frontera_small
   - id: kraken2
@@ -510,14 +514,28 @@ tools:
     environment: frontera_small
   - id: vsnp_statistics
     environment: frontera_small
+  - id: spades_biosyntheticspades
+    environment: frontera_small
+  - id: metaspades
+    environment: frontera_small
+  - id: rnaspades
+    environment: frontera_small
+  - id: spades_coronaspades
+    environment: frontera_small
+  - id: spades_metaplasmidspades
+    environment: frontera_small
+  - id: spades_metaviralspades
+    environment: frontera_small
+  - id: spades_plasmidspades
+    environment: frontera_small
+  - id: spades_rnaviralspades
+    environment: frontera_small
   - id: fastq_dump
     environment: slurm_normal_multicore_container
   - id: fasterq_dump
     environment: slurm_normal_multicore_container
   - id: sam_dump
     environment: slurm_normal_multicore_container
-  - id: metaspades
-    environment: slurm_bigmem_multicore_container_4c32g
   - id: dada2_assignTaxonomyAddspecies
     environment: slurm_bigmem_multicore_container_4c32g
   - id: dada2_dada
