@@ -440,6 +440,45 @@ execution:
           value: "$SLURM_NTASKS"
         - name: GALAXY_MEMORY_MB
           value: "1966080"
+    frontera_large_tmp:
+      runner: frontera
+      submit_native_specification: --partition=nvdimm --nodes=1 --ntasks=112 --time=00:10:00
+      remote_metadata: false
+      transport: curl
+      default_file_action: remote_transfer
+      dependency_resolution: remote
+      rewrite_parameters: true
+      file_action_config: {{ galaxy_config_dir }}/pulsar_frontera_actions.yml
+      outputs_to_working_directory: false
+      jobs_directory: "/scratch1/08500/{{ tacc_user }}/staging"
+      singularity_enabled: true
+      # the tacc-singularity module automatically sets up mounts
+      singularity_volumes: null
+      container_resolvers:
+        - type: explicit_singularity
+        - type: mulled_singularity
+      require_container: true
+      env:
+        - name: _JAVA_OPTIONS
+          value: $_JAVA_OPTIONS -Xmx128g -Xms256m
+        - name: LC_ALL
+          value: C
+        - name: TERM
+          value: vt100
+        - execute: ulimit -c 0
+        - name: SINGULARITYENV__JAVA_OPTIONS
+          value: $_JAVA_OPTIONS
+        - name: SINGULARITYENV_LC_ALL
+          value: $LC_ALL
+        - name: SINGULARITYENV_TERM
+          value: $TERM
+        - file: /etc/profile.d/z01_lmod.sh
+        - execute: module load tacc-singularity
+        - name: GALAXY_SLOTS
+          value: "$SLURM_NTASKS"
+        - name: GALAXY_MEMORY_MB
+          value: "194560"
+
 
 tools:
   - id: upload1
@@ -488,6 +527,8 @@ tools:
     environment: frontera_small
   - id: magicblast
     environment: frontera_small
+  - id: cat1
+    environment: frontera_large_tmp
   - id: malt_run
     environment: frontera_large
   - id: megan_blast2lca
