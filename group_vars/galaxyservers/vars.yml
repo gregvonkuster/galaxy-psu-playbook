@@ -111,6 +111,9 @@ nginx_ssl_servers:
 nginx_enable_default_server: false
 nginx_conf_http:
   client_max_body_size: 500g
+  proxy_read_timeout: 600
+  proxy_connect_timeout: 300
+  proxy_send_timeout: 300
 nginx_ssl_role: usegalaxy_eu.certbot
 nginx_conf_ssl_certificate: /etc/ssl/certs/fullchain.pem
 nginx_conf_ssl_certificate_key: /etc/ssl/user/privkey-nginx.pem
