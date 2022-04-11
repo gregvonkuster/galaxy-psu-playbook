@@ -424,7 +424,7 @@ execution:
       require_container: true
       env:
         - name: _JAVA_OPTIONS
-          value: $_JAVA_OPTIONS -Xmx128g -Xms256m
+          value: $_JAVA_OPTIONS -Xmx1792g -Xms256m
         - name: LC_ALL
           value: C
         - name: TERM
@@ -441,7 +441,7 @@ execution:
         - name: GALAXY_SLOTS
           value: "$SLURM_NTASKS"
         - name: GALAXY_MEMORY_MB
-          value: "194560"
+          value: "1966080"
     frontera_large_8hr:
       runner: frontera
       submit_native_specification: --partition=nvdimm --nodes=1 --ntasks=112 --time=08:00:00
@@ -462,7 +462,7 @@ execution:
       require_container: true
       env:
         - name: _JAVA_OPTIONS
-          value: $_JAVA_OPTIONS -Xmx128g -Xms256m
+          value: $_JAVA_OPTIONS -Xmx1792g -Xms256m
         - name: LC_ALL
           value: C
         - name: TERM
@@ -479,7 +479,7 @@ execution:
         - name: GALAXY_SLOTS
           value: "$SLURM_NTASKS"
         - name: GALAXY_MEMORY_MB
-          value: "194560"
+          value: "1966080"
     frontera_large_48hr:
       runner: frontera
       submit_native_specification: --partition=nvdimm --nodes=1 --ntasks=112 --time=48:00:00
