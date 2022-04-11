@@ -11,6 +11,8 @@ $ . ./ansible/bin/activate
 $ pip install -r requirements.txt
 ```
 
+The Galaxy dev and prod hosts are split into two separate inventory files, hosts-dev and hosts-prod.
+
 Install roles:
 
 ```console
@@ -20,10 +22,12 @@ $ ansible-galaxy role install -r requirements.yml
 Run the deps (one-time tasks) playbook:
 
 ```console
-$ ansible-playbook --diff galaxy-deps.yml
+$ ansible-playbook -i hosts-prod --diff galaxy-deps.yml
 ```
 
-The Galaxy dev and prod hosts are split into two separate inventory files, hosts-dev and hosts-prod.
+```console
+$ ansible-playbook -i hosts-dev --diff galaxy-deps.yml
+```
 
 To update Galaxy prod and/or its configuration:
 
