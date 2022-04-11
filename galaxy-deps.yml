@@ -2,7 +2,7 @@
 # Install/Manage Galaxy dependencies
 
 - name: Early setup tasks for all hosts
-  hosts: all
+  hosts: galaxypsuvms
   tasks:
     # Obviously, the first person to run this has to manually install their key, if it's not set up in the VM
     # bootstrapping process
@@ -80,7 +80,7 @@
 
 - name: Slurm
   # Slurm is installed on everything, even if just as a client
-  hosts: all
+  hosts: galaxypsuvms
   roles:
     - role: galaxyproject.slurm
   tags:
@@ -161,7 +161,7 @@
     - nginx
 
 - name: CVMFS
-  hosts: all
+  hosts: galaxypsuvms
   roles:
     - role: galaxyproject.cvmfs
   tags:

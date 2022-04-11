@@ -360,6 +360,7 @@ execution:
           value: $TERM
         - file: /etc/profile.d/z01_lmod.sh
         - execute: module load tacc-singularity
+        - execute: module unload xalt
         - name: GALAXY_SLOTS
           value: "$SLURM_NTASKS"
         - name: GALAXY_MEMORY_MB
@@ -398,6 +399,7 @@ execution:
           value: $TERM
         - file: /etc/profile.d/z01_lmod.sh
         - execute: module load tacc-singularity
+        - execute: module unload xalt
         - name: GALAXY_SLOTS
           value: "$SLURM_NTASKS"
         - name: GALAXY_MEMORY_MB
@@ -436,6 +438,7 @@ execution:
           value: $TERM
         - file: /etc/profile.d/z01_lmod.sh
         - execute: module load tacc-singularity
+        - execute: module unload xalt
         - name: GALAXY_SLOTS
           value: "$SLURM_NTASKS"
         - name: GALAXY_MEMORY_MB
