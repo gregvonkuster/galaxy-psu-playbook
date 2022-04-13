@@ -365,6 +365,7 @@ execution:
           value: "$SLURM_NTASKS"
         - name: GALAXY_MEMORY_MB
           value: "194560"
+    #### For testing
     frontera_small_2min:
       runner: frontera
       submit_native_specification: --partition=small --nodes=1 --ntasks=56 --time=00:02:00
@@ -446,6 +447,45 @@ execution:
     frontera_small_8hr:
       runner: frontera
       submit_native_specification: --partition=small --nodes=1 --ntasks=56 --time=08:00:00
+      remote_metadata: false
+      transport: curl
+      default_file_action: remote_transfer
+      dependency_resolution: remote
+      rewrite_parameters: true
+      file_action_config: {{ galaxy_config_dir }}/pulsar_frontera_actions.yml
+      outputs_to_working_directory: false
+      jobs_directory: "/scratch1/08500/{{ tacc_user }}/staging"
+      singularity_enabled: true
+      # the tacc-singularity module automatically sets up mounts
+      singularity_volumes: null
+      container_resolvers:
+        - type: explicit_singularity
+        - type: mulled_singularity
+      require_container: true
+      env:
+        - name: _JAVA_OPTIONS
+          value: $_JAVA_OPTIONS -Xmx128g -Xms256m
+        - name: LC_ALL
+          value: C
+        - name: TERM
+          value: vt100
+        - execute: ulimit -c 0
+        - name: SINGULARITYENV__JAVA_OPTIONS
+          value: $_JAVA_OPTIONS
+        - name: SINGULARITYENV_LC_ALL
+          value: $LC_ALL
+        - name: SINGULARITYENV_TERM
+          value: $TERM
+        - file: /etc/profile.d/z01_lmod.sh
+        - execute: module load tacc-singularity
+        - execute: module unload xalt
+        - name: GALAXY_SLOTS
+          value: "$SLURM_NTASKS"
+        - name: GALAXY_MEMORY_MB
+          value: "194560"
+    frontera_small_16hr:
+      runner: frontera
+      submit_native_specification: --partition=small --nodes=1 --ntasks=56 --time=16:00:00
       remote_metadata: false
       transport: curl
       default_file_action: remote_transfer
@@ -636,6 +676,44 @@ execution:
           value: "$SLURM_NTASKS"
         - name: GALAXY_MEMORY_MB
           value: "1966080"
+    frontera_large_16hr:
+      runner: frontera
+      submit_native_specification: --partition=nvdimm --nodes=1 --ntasks=112 --time=16:00:00
+      remote_metadata: false
+      transport: curl
+      default_file_action: remote_transfer
+      dependency_resolution: remote
+      rewrite_parameters: true
+      file_action_config: {{ galaxy_config_dir }}/pulsar_frontera_actions.yml
+      outputs_to_working_directory: false
+      jobs_directory: "/scratch1/08500/{{ tacc_user }}/staging"
+      singularity_enabled: true
+      # the tacc-singularity module automatically sets up mounts
+      singularity_volumes: null
+      container_resolvers:
+        - type: explicit_singularity
+        - type: mulled_singularity
+      require_container: true
+      env:
+        - name: _JAVA_OPTIONS
+          value: $_JAVA_OPTIONS -Xmx1792g -Xms256m
+        - name: LC_ALL
+          value: C
+        - name: TERM
+          value: vt100
+        - execute: ulimit -c 0
+        - name: SINGULARITYENV__JAVA_OPTIONS
+          value: $_JAVA_OPTIONS
+        - name: SINGULARITYENV_LC_ALL
+          value: $LC_ALL
+        - name: SINGULARITYENV_TERM
+          value: $TERM
+        - file: /etc/profile.d/z01_lmod.sh
+        - execute: module load tacc-singularity
+        - name: GALAXY_SLOTS
+          value: "$SLURM_NTASKS"
+        - name: GALAXY_MEMORY_MB
+          value: "1966080"
     frontera_large_24hr:
       runner: frontera
       submit_native_specification: --partition=nvdimm --nodes=1 --ntasks=112 --time=24:00:00
@@ -734,23 +812,21 @@ tools:
   - id: __SET_METADATA__
     environment: slurm_normal_container_venv
   # Tools that do not have corresponding BioContainers
-  # Increase memory/cores
-  - id: phyloseq_from_dada2
-    environment: slurm_bigmem_multicore_container_4c16g
-  - id: phyloseq_plot_richness
-    environment: slurm_bigmem_multicore_container_4c16g
-  - id: phyloseq_plot_ordination
-    environment: slurm_bigmem_multicore_container_4c16g
-  - id: pilon
-    environment: slurm_bigmem_multicore_container_4c32g
-  - id: flye
-    environment: slurm_bigmem_multicore_container_4c32g
-  - id: diamond_database_builder
-    environment: slurm_bigmem_multicore_container_4c32g
+  #### Frontera small
   - id: bg_diamond
-    environment: slurm_bigmem_multicore_container_4c32g
-  - id: cat1
-    environment: frontera_small_2min
+    environment: frontera_small_8hr
+  - id: flye
+    environment: frontera_small_8hr
+  - id: vsnp_add_zero_coverage
+    environment: frontera_small_8hr
+  - id: vsnp_build_tables
+    environment: frontera_small_8hr
+  - id: vsnp_determine_ref_from_data
+    environment: frontera_small_8hr
+  - id: vsnp_get_snps
+    environment: frontera_small_8hr
+  - id: vsnp_statistics
+    environment: frontera_small_8hr
   - id: bwa
     environment: frontera_small_8hr
   - id: bwa_mem
@@ -763,32 +839,7 @@ tools:
     environment: frontera_small_8hr
   - id: magicblast
     environment: frontera_small_8hr
-  - id: malt_run
-    environment: frontera_large_4hr
-  - id: megan_blast2lca
-    environment: frontera_large_8hr
-  - id: megan_blast2rma
-    environment: frontera_large_8hr
-  - id: megan_daa2info
-    environment: frontera_large_8hr
-  - id: megan_daa2rma
-    environment: frontera_large_8hr
-  - id: megan_daa_meganizer
-    environment: frontera_large_8hr
-  - id: megan_read_extractor
-    environment: frontera_large_8hr
-  - id: megan_sam2rma
-    environment: frontera_large_8hr
-  - id: vsnp_add_zero_coverage
-    environment: frontera_small_4hr
-  - id: vsnp_build_tables
-    environment: frontera_small_4hr
-  - id: vsnp_determine_ref_from_data
-    environment: frontera_small_4hr
-  - id: vsnp_get_snps
-    environment: frontera_small_4hr
-  - id: vsnp_statistics
-    environment: frontera_small_4hr
+  #### Frontera large
   - id: spades_biosyntheticspades
     environment: frontera_large_4hr
   - id: metaspades
@@ -805,12 +856,45 @@ tools:
     environment: frontera_large_4hr
   - id: spades_rnaviralspades
     environment: frontera_large_4hr
+  - id: diamond_database_builder
+    environment: frontera_large_8hr
+  - id: pilon
+    environment: frontera_large_8hr
+  - id: unicycler
+    environment: frontera_large_8hr
+  - id: trimmomatic
+    environment: frontera_large_8hr
+  - id: megan_blast2lca
+    environment: frontera_large_8hr
+  - id: megan_blast2rma
+    environment: frontera_large_8hr
+  - id: megan_daa2info
+    environment: frontera_large_8hr
+  - id: megan_daa2rma
+    environment: frontera_large_8hr
+  - id: megan_daa_meganizer
+    environment: frontera_large_8hr
+  - id: megan_read_extractor
+    environment: frontera_large_8hr
+  - id: megan_sam2rma
+    environment: frontera_large_8hr
+  - id: malt_run
+    environment: frontera_large_24hr
+  #### Slurm normal multicore
   - id: fastq_dump
     environment: slurm_normal_multicore_container
   - id: fasterq_dump
     environment: slurm_normal_multicore_container
   - id: sam_dump
     environment: slurm_normal_multicore_container
+  #### Slurm normal multicore 4c16g
+  - id: phyloseq_from_dada2
+    environment: slurm_bigmem_multicore_container_4c16g
+  - id: phyloseq_plot_richness
+    environment: slurm_bigmem_multicore_container_4c16g
+  - id: phyloseq_plot_ordination
+    environment: slurm_bigmem_multicore_container_4c16g
+  #### Slurm normal multicore 4c32g
   - id: dada2_assignTaxonomyAddspecies
     environment: slurm_bigmem_multicore_container_4c32g
   - id: dada2_dada
@@ -867,6 +951,9 @@ limits:
     id: frontera_small_8hr
     value: 50
   - type: environment_total_concurrent_jobs
+    id: frontera_small_16hr
+    value: 50
+  - type: environment_total_concurrent_jobs
     id: frontera_small_24hr
     value: 50
   - type: environment_total_concurrent_jobs
@@ -877,6 +964,9 @@ limits:
     value: 50
   - type: environment_total_concurrent_jobs
     id: frontera_large_8hr
+    value: 50
+  - type: environment_total_concurrent_jobs
+    id: frontera_large_16hr
     value: 50
   - type: environment_total_concurrent_jobs
     id: frontera_large_24hr
