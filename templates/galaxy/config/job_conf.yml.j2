@@ -405,6 +405,45 @@ execution:
           value: "$SLURM_NTASKS"
         - name: GALAXY_MEMORY_MB
           value: "194560"
+    frontera_small_2hr:
+      runner: frontera
+      submit_native_specification: --partition=small --nodes=1 --ntasks=56 --time=02:00:00
+      remote_metadata: false
+      transport: curl
+      default_file_action: remote_transfer
+      dependency_resolution: remote
+      rewrite_parameters: true
+      file_action_config: {{ galaxy_config_dir }}/pulsar_frontera_actions.yml
+      outputs_to_working_directory: false
+      jobs_directory: "/scratch1/08500/{{ tacc_user }}/staging"
+      singularity_enabled: true
+      # the tacc-singularity module automatically sets up mounts
+      singularity_volumes: null
+      container_resolvers:
+        - type: explicit_singularity
+        - type: mulled_singularity
+      require_container: true
+      env:
+        - name: _JAVA_OPTIONS
+          value: $_JAVA_OPTIONS -Xmx128g -Xms256m
+        - name: LC_ALL
+          value: C
+        - name: TERM
+          value: vt100
+        - execute: ulimit -c 0
+        - name: SINGULARITYENV__JAVA_OPTIONS
+          value: $_JAVA_OPTIONS
+        - name: SINGULARITYENV_LC_ALL
+          value: $LC_ALL
+        - name: SINGULARITYENV_TERM
+          value: $TERM
+        - file: /etc/profile.d/z01_lmod.sh
+        - execute: module load tacc-singularity
+        - execute: module unload xalt
+        - name: GALAXY_SLOTS
+          value: "$SLURM_NTASKS"
+        - name: GALAXY_MEMORY_MB
+          value: "194560"
     frontera_small_4hr:
       runner: frontera
       submit_native_specification: --partition=small --nodes=1 --ntasks=56 --time=04:00:00
@@ -600,6 +639,44 @@ execution:
           value: "$SLURM_NTASKS"
         - name: GALAXY_MEMORY_MB
           value: "194560"
+    frontera_large_2hr:
+      runner: frontera
+      submit_native_specification: --partition=nvdimm --nodes=1 --ntasks=112 --time=02:00:00
+      remote_metadata: false
+      transport: curl
+      default_file_action: remote_transfer
+      dependency_resolution: remote
+      rewrite_parameters: true
+      file_action_config: {{ galaxy_config_dir }}/pulsar_frontera_actions.yml
+      outputs_to_working_directory: false
+      jobs_directory: "/scratch1/08500/{{ tacc_user }}/staging"
+      singularity_enabled: true
+      # the tacc-singularity module automatically sets up mounts
+      singularity_volumes: null
+      container_resolvers:
+        - type: explicit_singularity
+        - type: mulled_singularity
+      require_container: true
+      env:
+        - name: _JAVA_OPTIONS
+          value: $_JAVA_OPTIONS -Xmx1792g -Xms256m
+        - name: LC_ALL
+          value: C
+        - name: TERM
+          value: vt100
+        - execute: ulimit -c 0
+        - name: SINGULARITYENV__JAVA_OPTIONS
+          value: $_JAVA_OPTIONS
+        - name: SINGULARITYENV_LC_ALL
+          value: $LC_ALL
+        - name: SINGULARITYENV_TERM
+          value: $TERM
+        - file: /etc/profile.d/z01_lmod.sh
+        - execute: module load tacc-singularity
+        - name: GALAXY_SLOTS
+          value: "$SLURM_NTASKS"
+        - name: GALAXY_MEMORY_MB
+          value: "1966080"
     frontera_large_4hr:
       runner: frontera
       submit_native_specification: --partition=nvdimm --nodes=1 --ntasks=112 --time=04:00:00
@@ -813,19 +890,19 @@ tools:
     environment: slurm_normal_container_venv
   # Tools that do not have corresponding BioContainers
   #### Frontera small
+  - id: vsnp_determine_ref_from_data
+    environment: frontera_small_2hr
+  - id: vsnp_add_zero_coverage
+    environment: frontera_small_2hr
+  - id: vsnp_statistics
+    environment: frontera_small_2hr
   - id: bg_diamond
     environment: frontera_small_8hr
   - id: flye
     environment: frontera_small_8hr
-  - id: vsnp_add_zero_coverage
-    environment: frontera_small_8hr
   - id: vsnp_build_tables
     environment: frontera_small_8hr
-  - id: vsnp_determine_ref_from_data
-    environment: frontera_small_8hr
   - id: vsnp_get_snps
-    environment: frontera_small_8hr
-  - id: vsnp_statistics
     environment: frontera_small_8hr
   - id: bwa
     environment: frontera_small_8hr
@@ -839,7 +916,11 @@ tools:
     environment: frontera_small_8hr
   - id: magicblast
     environment: frontera_small_8hr
+  - id: flash
+    environment: frontera_small_8hr
   #### Frontera large
+  - id: trimmomatic
+    environment: frontera_large_2hr
   - id: spades_biosyntheticspades
     environment: frontera_large_4hr
   - id: metaspades
@@ -861,8 +942,6 @@ tools:
   - id: pilon
     environment: frontera_large_8hr
   - id: unicycler
-    environment: frontera_large_8hr
-  - id: trimmomatic
     environment: frontera_large_8hr
   - id: megan_blast2lca
     environment: frontera_large_8hr
@@ -958,6 +1037,9 @@ limits:
     value: 50
   - type: environment_total_concurrent_jobs
     id: frontera_small_48hr
+    value: 50
+  - type: environment_total_concurrent_jobs
+    id: frontera_large_2hr
     value: 50
   - type: environment_total_concurrent_jobs
     id: frontera_large_4hr
