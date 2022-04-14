@@ -46,6 +46,9 @@ server {
     }
 
     location ~ ^/api/jobs/[^/]+/files/?$ {
+        uwsgi_pass {{ galaxy_config_uwsgi_socket }};
+        uwsgi_param UWSGI_SCHEME $scheme;
+        include uwsgi_params;
         uwsgi_request_buffering off;
     }
 
