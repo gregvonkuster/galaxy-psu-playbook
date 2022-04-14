@@ -45,6 +45,10 @@ server {
                   $vis_d/static/$static_file =404;
     }
 
+    location ~ ^/api/jobs/[^/]+/files/?$ {
+        uwsgi_request_buffering off;
+    }
+
     location /robots.txt {
         alias {{ galaxy_server_dir }}/static/robots.txt;
     }

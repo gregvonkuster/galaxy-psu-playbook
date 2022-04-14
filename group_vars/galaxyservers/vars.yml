@@ -110,7 +110,7 @@ nginx_ssl_servers:
   - galaxy
 nginx_enable_default_server: false
 nginx_conf_http:
-  client_max_body_size: 0
+  client_max_body_size: 500g
   proxy_read_timeout: 1800
   uwsgi_read_timeout: 1800
 nginx_ssl_role: usegalaxy_eu.certbot
