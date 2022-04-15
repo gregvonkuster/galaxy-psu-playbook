@@ -923,6 +923,36 @@ tools:
     environment: frontera_small_8hr
   - id: flash
     environment: frontera_small_8hr
+  - id: blastxml_to_tabular
+    environment: frontera_small_8hr
+  - id: ncbi_blastdbcmd_info
+    environment: frontera_small_8hr
+  - id: ncbi_blastdbcmd_wrapper
+    environment: frontera_small_8hr
+  - id: ncbi_blastn_wrapper
+    environment: frontera_small_8hr
+  - id: ncbi_blastp_wrapper
+    environment: frontera_small_8hr
+  - id: ncbi_blastx_wrapper
+    environment: frontera_small_8hr
+  - id: ncbi_convert2blastmask_wrapper
+    environment: frontera_small_8hr
+  - id: ncbi_dustmasker_wrapper
+    environment: frontera_small_8hr
+  - id: ncbi_makeblastdb
+    environment: frontera_small_8hr
+  - id: ncbi_makeprofiledb
+    environment: frontera_small_8hr
+  - id: ncbi_rpsblast_wrapper
+    environment: frontera_small_8hr
+  - id: ncbi_rpstblastn_wrapper
+    environment: frontera_small_8hr
+  - id: ncbi_segmasker_wrapper
+    environment: frontera_small_8hr
+  - id: ncbi_tblastn_wrapper
+    environment: frontera_small_8hr
+  - id: ncbi_tblastx_wrapper
+    environment: frontera_small_8hr
   #### Frontera large
   - id: trimmomatic
     environment: frontera_large_2hr
@@ -986,36 +1016,8 @@ tools:
   - id: dada2_learnErrors
     environment: slurm_bigmem_multicore_container_4c32g
   # Undeclared Python dep
-  - id: blastxml_to_tabular
-    environment: slurm_normal_multicore_container_venv
-  - id: ncbi_blastdbcmd_info
-    environment: slurm_normal_multicore_container_venv
-  - id: ncbi_blastdbcmd_wrapper
-    environment: slurm_normal_multicore_container_venv
-  - id: ncbi_blastn_wrapper
-    environment: slurm_normal_multicore_container_venv
-  - id: ncbi_blastp_wrapper
-    environment: slurm_normal_multicore_container_venv
-  - id: ncbi_blastx_wrapper
-    environment: slurm_normal_multicore_container_venv
-  - id: ncbi_convert2blastmask_wrapper
-    environment: slurm_normal_multicore_container_venv
-  - id: ncbi_dustmasker_wrapper
-    environment: slurm_normal_multicore_container_venv
-  - id: ncbi_makeblastdb
-    environment: slurm_normal_multicore_container_venv
-  - id: ncbi_makeprofiledb
-    environment: slurm_normal_multicore_container_venv
-  - id: ncbi_rpsblast_wrapper
-    environment: slurm_normal_multicore_container_venv
-  - id: ncbi_rpstblastn_wrapper
-    environment: slurm_normal_multicore_container_venv
-  - id: ncbi_segmasker_wrapper
-    environment: slurm_normal_multicore_container_venv
-  - id: ncbi_tblastn_wrapper
-    environment: slurm_normal_multicore_container_venv
-  - id: ncbi_tblastx_wrapper
-    environment: slurm_normal_multicore_container_venv
+  #- id: blastxml_to_tabular
+  #  environment: slurm_normal_multicore_container_venv
 
 limits:
   - type: registered_user_concurrent_jobs
