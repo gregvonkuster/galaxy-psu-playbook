@@ -1025,20 +1025,87 @@ tools:
     environment: slurm_normal_multicore_container
   - id: sam_dump
     environment: slurm_normal_multicore_container
-  #### Slurm normal multicore 4c16g
+  #### Slurm bigmem multicore
   - id: phyloseq_from_dada2
     environment: slurm_bigmem_multicore_container_4c16g
   - id: phyloseq_plot_richness
     environment: slurm_bigmem_multicore_container_4c16g
   - id: phyloseq_plot_ordination
     environment: slurm_bigmem_multicore_container_4c16g
-  #### Slurm normal multicore 4c32g
   - id: dada2_assignTaxonomyAddspecies
     environment: slurm_bigmem_multicore_container_4c32g
   - id: dada2_dada
     environment: slurm_bigmem_multicore_container_4c32g
   - id: dada2_learnErrors
     environment: slurm_bigmem_multicore_container_4c32g
+  - id: qiime_align_seqs
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_alpha_diversity
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_alpha_rarefaction
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_assign_taxonomy
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_beta_diversity
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_beta_diversity_through_plots
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_collapse_samples
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_compare_categories
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_core_diversity
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_count_seqs
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_extract_barcodes
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_filter_alignment
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_filter_fasta
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_filter_otus_from_otu_table
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_filter_samples_from_otu_table
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_filter_taxa_from_otu_table
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_jackknifed_beta_diversity
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_make_emperor
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_make_otu_heatmap
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_make_otu_table
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_make_phylogeny
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_multiple_join_paired_ends
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_multiple_split_libraries_fastq
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_pick_closed_reference_otus
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_pick_open_reference_otus
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_pick_otus
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_pick_rep_set
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_plot_taxa_summary
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_split_libraries
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_split_libraries_fastq
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_summarize_taxa
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_summarize_taxa_through_plots
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_upgma_cluster
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: qiime_validate_mapping_file
+    environment: slurm_bigmem_multicore_container_4c64g
   # Undeclared Python dep
   - id: ncbi_makeblastdb
     environment: slurm_bigmem_multicore_container_venv
