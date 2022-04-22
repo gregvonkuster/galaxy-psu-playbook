@@ -930,6 +930,20 @@ tools:
     environment: frontera_small_2hr
   - id: snippy
     environment: frontera_small_2hr
+  - id: bwa_mem_index_builder_data_manager
+    environment: frontera_small_4hr
+  - id: picard_MarkDuplicates
+    environment: frontera_small_4hr
+  - id: freebayes
+    environment: frontera_small_4hr
+  - id: samtools_idxstats
+    environment: frontera_small_4hr
+  - id: vcffilter2
+    environment: frontera_small_4hr
+  - id: raxml
+    environment: frontera_small_4hr
+  - id: multiqc
+    environment: frontera_small_4hr
   - id: blastxml_to_tabular
     environment: frontera_small_8hr
   - id: ncbi_blastdbcmd_info
@@ -979,6 +993,70 @@ tools:
   - id: magicblast
     environment: frontera_small_8hr
   - id: flash
+    environment: frontera_small_8hr
+  - id: bedtools_annotatebed
+    environment: frontera_small_8hr
+  - id: bedtools_closestbed
+    environment: frontera_small_8hr
+  - id: bedtools_clusterbed
+    environment: frontera_small_8hr
+  - id: bedtools_complementbed
+    environment: frontera_small_8hr
+  - id: bedtools_coveragebed
+    environment: frontera_small_8hr
+  - id: bedtools_expandbed
+    environment: frontera_small_8hr
+  - id: bedtools_fisher
+    environment: frontera_small_8hr
+  - id: bedtools_flankbed
+    environment: frontera_small_8hr
+  - id: bedtools_genomecoveragebed
+    environment: frontera_small_8hr
+  - id: bedtools_getfastabed
+    environment: frontera_small_8hr
+  - id: bedtools_groupbybed
+    environment: frontera_small_8hr
+  - id: bedtools_intersectbed
+    environment: frontera_small_8hr
+  - id: bedtools_jaccard
+    environment: frontera_small_8hr
+  - id: bedtools_links
+    environment: frontera_small_8hr
+  - id: bedtools_makewindowsbed
+    environment: frontera_small_8hr
+  - id: bedtools_map
+    environment: frontera_small_8hr
+  - id: bedtools_maskfastabed
+    environment: frontera_small_8hr
+  - id: bedtools_mergebed
+    environment: frontera_small_8hr
+  - id: bedtools_multicovtbed
+    environment: frontera_small_8hr
+  - id: bedtools_multiintersectbed
+    environment: frontera_small_8hr
+  - id: bedtools_nucbed
+    environment: frontera_small_8hr
+  - id: bedtools_overlapbed
+    environment: frontera_small_8hr
+  - id: bedtools_randombed
+    environment: frontera_small_8hr
+  - id: bedtools_reldistbed
+    environment: frontera_small_8hr
+  - id: bedtools_shufflebed
+    environment: frontera_small_8hr
+  - id: bedtools_slopbed
+    environment: frontera_small_8hr
+  - id: bedtools_sortbed
+    environment: frontera_small_8hr
+  - id: bedtools_spacingbed
+    environment: frontera_small_8hr
+  - id: bedtools_subtractbed
+    environment: frontera_small_8hr
+  - id: bedtools_tagbed
+    environment: frontera_small_8hr
+  - id: bedtools_unionbedgraph
+    environment: frontera_small_8hr
+  - id: bedtools_windowbed
     environment: frontera_small_8hr
   #### Frontera large
   - id: trimmomatic
@@ -1035,9 +1113,15 @@ tools:
     environment: slurm_bigmem_multicore_container_4c16g
   - id: phyloseq_plot_ordination
     environment: slurm_bigmem_multicore_container_4c16g
-  - id: bedtools_genomecoveragebed
+  - id: bedtools_bamtobed
     environment: slurm_bigmem_multicore_container_4c32g
-  - id: bwa_mem_index_builder_data_manager
+  - id: bedtools_bed12tobed6
+    environment: slurm_bigmem_multicore_container_4c32g
+  - id: bedtools_bedpetobam
+    environment: slurm_bigmem_multicore_container_4c32g
+  - id: bedtools_bedtobam
+    environment: slurm_bigmem_multicore_container_4c32g
+  - id: bedtools_bedtoigv
     environment: slurm_bigmem_multicore_container_4c32g
   - id: dada2_assignTaxonomyAddspecies
     environment: slurm_bigmem_multicore_container_4c32g
