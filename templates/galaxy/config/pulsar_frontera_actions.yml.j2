@@ -1,8 +1,18 @@
 ---
 
 paths:
+  - path: {{ corral_root }}/dev/galaxy/var/tool-data
+    path_types: unstructured
+    action: rewrite
+    source_directory: {{ corral_root }}/dev/galaxy/var/tool-data
+    destination_directory: /scratch1/08500/{{ tacc_user }}/tool-data
+  # FIXME: this is for the old /corral/main mount path still referenced in location files
   - path: /corral/main/projects/Galaxy-PSU/dev/galaxy/var/tool-data
     path_types: unstructured
     action: rewrite
     source_directory: /corral/main/projects/Galaxy-PSU/dev/galaxy/var/tool-data
     destination_directory: /scratch1/08500/{{ tacc_user }}/tool-data
+  - path: "{{ galaxy_config.galaxy.file_path }}"
+    action: remote_copy
+  - path: "{{ galaxy_job_working_directory }}"
+    action: remote_copy

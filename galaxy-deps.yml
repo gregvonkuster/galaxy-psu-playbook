@@ -24,12 +24,19 @@
     - name: Create local Galaxy dev user
       user:
         name: galaxydev
-        uid: 810
+        uid: 877997
         group: G-824019
         comment: Galaxy Development Server
         shell: /bin/bash
         create_home: true
         system: true
+    - name: Mount Corral
+      mount:
+        path: "{{ corral_root }}"
+        src: "{{ corral_mount_src }}"
+        fstype: nfs
+        opts: "{{ corral_mount_opts }}"
+        state: mounted
     - name: Configure Postfix if necessary
       template:
         src: templates/postfix/main.cf.j2

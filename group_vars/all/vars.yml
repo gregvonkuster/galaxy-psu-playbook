@@ -18,7 +18,10 @@ all_packages:
   - libuser  # for lgroupmod
 
 # Convenience variables
-corral_root: /corral/main/projects/Galaxy-PSU
+#corral_root: /corral/main/projects/Galaxy-PSU
+corral_mount_src: 129.114.52.151:/corral/main/projects/Galaxy-PSU
+corral_mount_opts: rw,nosuid,noatime,rsize=1048576,wsize=1048576,intr,nfsvers=3,tcp,soft,addr=129.114.52.151
+corral_root: /corral/projects/Galaxy-PSU
 galaxy_instance_root: "{{ corral_root }}/{{ galaxy_instance_name }}"
 
 # Slurm is installed on all hosts

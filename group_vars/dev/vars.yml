@@ -18,7 +18,7 @@ galaxy_postgresql_password: "{{ vault_galaxy_postgresql_password }}"
 
 galaxy_user:
   name: galaxydev
-  uid: 810
+  uid: 877997
   comment: Galaxy Development Server
   shell: /bin/bash
   create_home: true
