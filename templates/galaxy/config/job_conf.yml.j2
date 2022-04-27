@@ -1015,10 +1015,6 @@ tools:
     environment: frontera_small_8hr
   - id: flye
     environment: frontera_small_8hr
-  - id: vsnp_build_tables
-    environment: frontera_small_8hr
-  - id: vsnp_get_snps
-    environment: frontera_small_8hr
   - id: bwa
     environment: frontera_small_8hr
   - id: bwa_mem
@@ -1097,6 +1093,10 @@ tools:
     environment: frontera_small_8hr
   - id: bedtools_windowbed
     environment: frontera_small_8hr
+  - id: vsnp_build_tables
+    environment: frontera_small_16hr
+  - id: vsnp_get_snps
+    environment: frontera_small_16hr
   #### Frontera large
   - id: trimmomatic
     environment: frontera_large_8hr
@@ -1279,6 +1279,9 @@ limits:
     value: 50
   - type: environment_total_concurrent_jobs
     id: frontera_large_24hr
+    value: 50
+  - type: environment_total_concurrent_jobs
+    id: frontera_large_36hr
     value: 50
   - type: environment_total_concurrent_jobs
     id: frontera_large_48hr
