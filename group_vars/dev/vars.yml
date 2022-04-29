@@ -56,6 +56,7 @@ galaxy_config:
     brand: "PSU Dev"
     admin_users: "{{ vault_galaxy_config_admin_users }}"
     database_connection: "postgresql://{{ galaxy_user.name }}:{{ galaxy_postgresql_password }}@{{ galaxy_postgresql_host }}/{{ galaxy_postgresql_db_name }}"
+    builds_file_path: "{{ galaxy_server_dir }}/tool-data/shared/ucsc/builds.txt"
     file_path: "{{ galaxy_instance_root }}/objects"
     check_migrate_tools: false
     tool_data_path: "{{ galaxy_mutable_data_dir }}/tool-data"
