@@ -969,8 +969,6 @@ tools:
     environment: frontera_small_2hr
   - id: snippy
     environment: frontera_small_2hr
-  - id: bwa_mem_index_builder_data_manager
-    environment: frontera_small_4hr
   - id: picard_MarkDuplicates
     environment: frontera_small_4hr
   - id: freebayes
@@ -1148,6 +1146,8 @@ tools:
   - id: sam_dump
     environment: slurm_normal_multicore_container
   #### Slurm bigmem multicore
+  - id: bwa_mem_index_builder_data_manager
+    environment: slurm_bigmem_multicore_container_4c16g
   - id: phyloseq_from_dada2
     environment: slurm_bigmem_multicore_container_4c16g
   - id: phyloseq_plot_richness
