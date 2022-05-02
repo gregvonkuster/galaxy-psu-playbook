@@ -388,6 +388,7 @@ execution:
     #### For testing
     frontera_small_2min:
       runner: frontera
+      tags: [frontera_limit]
       submit_native_specification: --partition=small --nodes=1 --ntasks=56 --time=00:02:00
       remote_metadata: false
       transport: curl
@@ -427,6 +428,7 @@ execution:
           value: "194560"
     frontera_small_2hr:
       runner: frontera
+      tags: [frontera_limit]
       submit_native_specification: --partition=small --nodes=1 --ntasks=56 --time=02:00:00
       remote_metadata: false
       transport: curl
@@ -466,6 +468,7 @@ execution:
           value: "194560"
     frontera_small_4hr:
       runner: frontera
+      tags: [frontera_limit]
       submit_native_specification: --partition=small --nodes=1 --ntasks=56 --time=04:00:00
       remote_metadata: false
       transport: curl
@@ -505,6 +508,7 @@ execution:
           value: "194560"
     frontera_small_8hr:
       runner: frontera
+      tags: [frontera_limit]
       submit_native_specification: --partition=small --nodes=1 --ntasks=56 --time=08:00:00
       remote_metadata: false
       transport: curl
@@ -544,6 +548,7 @@ execution:
           value: "194560"
     frontera_small_16hr:
       runner: frontera
+      tags: [frontera_limit]
       submit_native_specification: --partition=small --nodes=1 --ntasks=56 --time=16:00:00
       remote_metadata: false
       transport: curl
@@ -583,6 +588,7 @@ execution:
           value: "194560"
     frontera_small_24hr:
       runner: frontera
+      tags: [frontera_limit]
       submit_native_specification: --partition=small --nodes=1 --ntasks=56 --time=24:00:00
       remote_metadata: false
       transport: curl
@@ -622,6 +628,7 @@ execution:
           value: "194560"
     frontera_small_48hr:
       runner: frontera
+      tags: [frontera_limit]
       submit_native_specification: --partition=small --nodes=1 --ntasks=56 --time=48:00:00
       remote_metadata: false
       transport: curl
@@ -661,6 +668,7 @@ execution:
           value: "194560"
     frontera_large_2hr:
       runner: frontera
+      tags: [frontera_limit]
       submit_native_specification: --partition=nvdimm --nodes=1 --ntasks=112 --time=02:00:00
       remote_metadata: false
       transport: curl
@@ -700,6 +708,7 @@ execution:
           value: "1966080"
     frontera_large_4hr:
       runner: frontera
+      tags: [frontera_limit]
       submit_native_specification: --partition=nvdimm --nodes=1 --ntasks=112 --time=04:00:00
       remote_metadata: false
       transport: curl
@@ -739,6 +748,7 @@ execution:
           value: "1966080"
     frontera_large_8hr:
       runner: frontera
+      tags: [frontera_limit]
       submit_native_specification: --partition=nvdimm --nodes=1 --ntasks=112 --time=08:00:00
       remote_metadata: false
       transport: curl
@@ -778,6 +788,7 @@ execution:
           value: "1966080"
     frontera_large_16hr:
       runner: frontera
+      tags: [frontera_limit]
       submit_native_specification: --partition=nvdimm --nodes=1 --ntasks=112 --time=16:00:00
       remote_metadata: false
       transport: curl
@@ -817,6 +828,7 @@ execution:
           value: "1966080"
     frontera_large_24hr:
       runner: frontera
+      tags: [frontera_limit]
       submit_native_specification: --partition=nvdimm --nodes=1 --ntasks=112 --time=24:00:00
       remote_metadata: false
       transport: curl
@@ -856,6 +868,7 @@ execution:
           value: "1966080"
     frontera_large_36hr:
       runner: frontera
+      tags: [frontera_limit]
       submit_native_specification: --partition=nvdimm --nodes=1 --ntasks=112 --time=36:00:00
       remote_metadata: false
       transport: curl
@@ -895,6 +908,7 @@ execution:
           value: "1966080"
     frontera_large_48hr:
       runner: frontera
+      tags: [frontera_limit]
       submit_native_specification: --partition=nvdimm --nodes=1 --ntasks=112 --time=48:00:00
       remote_metadata: false
       transport: curl
@@ -1250,39 +1264,7 @@ limits:
   - type: environment_total_concurrent_jobs
     id: frontera_development
     value: 1
+  # Actual Frontera limits are 50 running and 200 pending
   - type: environment_total_concurrent_jobs
-    id: frontera_small_4hr
-    value: 50
-  - type: environment_total_concurrent_jobs
-    id: frontera_small_8hr
-    value: 50
-  - type: environment_total_concurrent_jobs
-    id: frontera_small_16hr
-    value: 50
-  - type: environment_total_concurrent_jobs
-    id: frontera_small_24hr
-    value: 50
-  - type: environment_total_concurrent_jobs
-    id: frontera_small_48hr
-    value: 50
-  - type: environment_total_concurrent_jobs
-    id: frontera_large_2hr
-    value: 50
-  - type: environment_total_concurrent_jobs
-    id: frontera_large_4hr
-    value: 50
-  - type: environment_total_concurrent_jobs
-    id: frontera_large_8hr
-    value: 50
-  - type: environment_total_concurrent_jobs
-    id: frontera_large_16hr
-    value: 50
-  - type: environment_total_concurrent_jobs
-    id: frontera_large_24hr
-    value: 50
-  - type: environment_total_concurrent_jobs
-    id: frontera_large_36hr
-    value: 50
-  - type: environment_total_concurrent_jobs
-    id: frontera_large_48hr
+    id: frontera_limit
     value: 50
