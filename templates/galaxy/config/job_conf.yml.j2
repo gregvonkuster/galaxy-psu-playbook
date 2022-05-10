@@ -1035,8 +1035,6 @@ tools:
     environment: frontera_small_8hr
   - id: bwa
     environment: frontera_small_8hr
-  - id: bwa_mem
-    environment: frontera_small_8hr
   - id: bg_diamond_makedb
     environment: frontera_small_8hr
   - id: kraken2
@@ -1281,6 +1279,8 @@ tools:
   - id: qiime_upgma_cluster
     environment: slurm_bigmem_multicore_container_4c64g
   - id: qiime_validate_mapping_file
+    environment: slurm_bigmem_multicore_container_4c64g
+  - id: bwa_mem
     environment: slurm_bigmem_multicore_container_4c64g
 
 limits:
