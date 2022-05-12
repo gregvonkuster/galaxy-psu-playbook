@@ -999,6 +999,8 @@ tools:
     environment: frontera_small_4hr
   - id: multiqc
     environment: frontera_small_4hr
+  - id: bwa_mem
+    environment: frontera_small_8hr
   - id: fastqc
     environment: frontera_small_8hr
   - id: blastxml_to_tabular
@@ -1107,36 +1109,10 @@ tools:
     environment: frontera_small_8hr
   - id: bedtools_windowbed
     environment: frontera_small_8hr
-  - id: bwa_mem_index_builder_data_manager
-    environment: frontera_small_8hr
   - id: vsnp_build_tables
     environment: frontera_small_16hr
   - id: vsnp_get_snps
     environment: frontera_small_16hr
-  - id: trinity_contig_exn50_statistic
-    environment: frontera_small_24hr
-  - id: trinity_abundance_estimates_to_matrix
-    environment: frontera_small_24hr
-  - id: trinity_gene_to_trans_map
-    environment: frontera_small_24hr
-  - id: trinity_run_de_analysis
-    environment: frontera_small_24hr
-  - id: trinity_samples_qccheck
-    environment: frontera_small_24hr
-  - id: trinity_super_transcripts
-    environment: frontera_small_24hr
-  - id: trinity_analyze_diff_expr
-    environment: frontera_small_24hr
-  - id: trinity_filter_low_expr_transcripts
-    environment: frontera_small_24hr
-  - id: trinity_align_and_estimate_abundance
-    environment: frontera_small_24hr
-  - id: describe_samples
-    environment: frontera_small_24hr
-  - id: trinity
-    environment: frontera_small_24hr
-  - id: trinity_define_clusters_by_cutting_tree
-    environment: frontera_small_24hr
   #### Frontera large
   - id: trimmomatic
     environment: frontera_large_8hr
@@ -1181,6 +1157,30 @@ tools:
   - id: spades_rnaviralspades
     environment: frontera_large_24hr
   - id: malt_run
+    environment: frontera_large_36hr
+  - id: trinity_contig_exn50_statistic
+    environment: frontera_large_36hr
+  - id: trinity_abundance_estimates_to_matrix
+    environment: frontera_large_36hr
+  - id: trinity_gene_to_trans_map
+    environment: frontera_large_36hr
+  - id: trinity_run_de_analysis
+    environment: frontera_large_36hr
+  - id: trinity_samples_qccheck
+    environment: frontera_large_36hr
+  - id: trinity_super_transcripts
+    environment: frontera_large_36hr
+  - id: trinity_analyze_diff_expr
+    environment: frontera_large_36hr
+  - id: trinity_filter_low_expr_transcripts
+    environment: frontera_large_36hr
+  - id: trinity_align_and_estimate_abundance
+    environment: frontera_large_36hr
+  - id: describe_samples
+    environment: frontera_large_36hr
+  - id: trinity
+    environment: frontera_large_36hr
+  - id: trinity_define_clusters_by_cutting_tree
     environment: frontera_large_36hr
   #### Slurm normal multicore
   - id: fastq_dump
@@ -1280,7 +1280,7 @@ tools:
     environment: slurm_bigmem_multicore_container_4c64g
   - id: qiime_validate_mapping_file
     environment: slurm_bigmem_multicore_container_4c64g
-  - id: bwa_mem
+  - id: bwa_mem_index_builder_data_manager
     environment: slurm_bigmem_multicore_container_4c64g
 
 limits:
