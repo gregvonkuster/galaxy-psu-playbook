@@ -1043,8 +1043,6 @@ tools:
     environment: frontera_small_2hr
   - id: vcffilter2
     environment: frontera_small_2hr
-  - id: vsnp_build_tables
-    environment: frontera_small_4hr
   - id: fastqc
     environment: frontera_small_8hr
   - id: blastxml_to_tabular
@@ -1154,8 +1152,6 @@ tools:
   - id: bedtools_windowbed
     environment: frontera_small_8hr
   #### Frontera large
-  - id: vsnp_get_snps
-    environment: frontera_large_8hr
   - id: trimmomatic
     environment: frontera_large_8hr
   - id: diamond_database_builder
@@ -1178,8 +1174,12 @@ tools:
     environment: frontera_large_8hr
   - id: megan_sam2rma
     environment: frontera_large_8hr
+  - id: sina
+    environment: frontera_large_16hr
   - id: magicblast
     environment: frontera_large_16hr
+  - id: vsnp_build_tables
+    environment: frontera_small_24hr
   - id: concoct
     environment: frontera_large_24hr
   - id: spades_biosyntheticspades
@@ -1198,6 +1198,8 @@ tools:
     environment: frontera_large_24hr
   - id: spades_rnaviralspades
     environment: frontera_large_24hr
+  - id: vsnp_get_snps
+    environment: frontera_large_36hr
   - id: malt_run
     environment: frontera_large_36hr
   - id: trinity_contig_exn50_statistic
