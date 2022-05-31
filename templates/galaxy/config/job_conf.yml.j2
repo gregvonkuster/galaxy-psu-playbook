@@ -706,6 +706,46 @@ execution:
           value: "$SLURM_NTASKS"
         - name: GALAXY_MEMORY_MB
           value: "194560"
+    frontera_large_10min:
+      runner: frontera
+      tags: [frontera_limit]
+      submit_native_specification: --partition=nvdimm --nodes=1 --ntasks=112 --time=00:10:00
+      remote_metadata: false
+      transport: curl
+      default_file_action: remote_transfer
+      dependency_resolution: remote
+      rewrite_parameters: true
+      file_action_config: {{ galaxy_config_dir }}/pulsar_frontera_actions.yml
+      outputs_to_working_directory: false
+      jobs_directory: "/scratch1/08500/{{ tacc_user }}/staging"
+      singularity_enabled: true
+      # the tacc-singularity module automatically sets up mounts
+      singularity_volumes: null
+      container_resolvers:
+        - type: explicit_singularity
+        - type: mulled_singularity
+      require_container: true
+      env:
+        - name: _JAVA_OPTIONS
+          value: $_JAVA_OPTIONS -Xmx1792g -Xms256m
+        - name: LC_ALL
+          value: C
+        - name: TERM
+          value: vt100
+        - execute: ulimit -c 0
+        - name: SINGULARITYENV__JAVA_OPTIONS
+          value: $_JAVA_OPTIONS
+        - name: SINGULARITYENV_LC_ALL
+          value: $LC_ALL
+        - name: SINGULARITYENV_TERM
+          value: $TERM
+        - file: /etc/profile.d/z01_lmod.sh
+        - execute: module load tacc-singularity
+        - execute: module unload xalt
+        - name: GALAXY_SLOTS
+          value: "$SLURM_NTASKS"
+        - name: GALAXY_MEMORY_MB
+          value: "1966080"
     frontera_large_1hr:
       runner: frontera
       tags: [frontera_limit]
@@ -1211,10 +1251,10 @@ tools:
     environment: frontera_small_8hr
   #### Frontera large
   - id: vsnp_get_snps
-    environment: frontera_large_1hr
-  - id: obi_grep
-    environment: frontera_large_8hr
+    environment: frontera_large_10min
   - id: vsnp_build_tables
+    environment: frontera_large_10min
+  - id: obi_grep
     environment: frontera_large_8hr
   - id: trimmomatic
     environment: frontera_large_8hr
