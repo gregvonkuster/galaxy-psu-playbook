@@ -1115,11 +1115,19 @@ tools:
     environment: frontera_small_2hr
   - id: bwa_mem
     environment: frontera_small_2hr
+  - id: minimap2
+    environment: frontera_small_2hr
   - id: picard_MarkDuplicates
     environment: frontera_small_2hr
   - id: freebayes
     environment: frontera_small_2hr
+  - id: samtools_fixmate
+    environment: frontera_small_2hr
   - id: samtools_idxstats
+    environment: frontera_small_2hr
+  - id: samtools_markdup
+    environment: frontera_small_2hr
+  - id: samtools_sort
     environment: frontera_small_2hr
   - id: vcffilter2
     environment: frontera_small_2hr
@@ -1251,9 +1259,9 @@ tools:
     environment: frontera_small_8hr
   #### Frontera large
   - id: vsnp_get_snps
-    environment: frontera_large_1hr
+    environment: frontera_large_2hr
   - id: vsnp_build_tables
-    environment: frontera_large_1hr
+    environment: frontera_large_2hr
   - id: obi_grep
     environment: frontera_large_8hr
   - id: trimmomatic
