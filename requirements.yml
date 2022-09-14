@@ -1,7 +1,7 @@
 - src: galaxyproject.repos
   version: 0.0.2
 - src: galaxyproject.galaxy
-  version: 0.9.18
+  version: 0.10.4
 - src: galaxyproject.nginx
   version: 0.7.0
 - src: galaxyproject.postgresql
@@ -30,3 +30,5 @@
   version: 1.2.0
 - src: galaxyproject.pulsar
   version: 1.0.10
+- src: galaxyproject.tusd
+  version: 0.0.1

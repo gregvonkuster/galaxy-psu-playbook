@@ -9,9 +9,3 @@
     - role: galaxyproject.galaxy
     - role: supervisor
       become_user: root
-  handlers:
-    - name: supervisorctl restart galaxy
-      supervisorctl:
-        name: 'galaxy:'
-        state: restarted
-      become_user: root

@@ -138,17 +138,10 @@
       become: true
       become_user: "{{ galaxy_user.name }}"
   roles:
-#    - geerlingguy.pip
     - role: galaxyproject.miniconda
       become: yes
       become_user: "{{ galaxy_user.name }}"
-#    - usegalaxy_eu.rabbitmq
-#    - galaxyproject.nginx
-#    - galaxyproject.proftpd
-#    - galaxyproject.cvmfs
-#    - galaxyproject.gxadmin
-#    - dj-wasabi.telegraf
-#    - usegalaxy_eu.tiaas2
+    - role: galaxyproject.tusd
   tags:
     - galaxy
 
@@ -183,3 +176,19 @@
   roles:
     - role: geerlingguy.docker
     - role: usegalaxy_eu.rabbitmqserver
+
+# NOTE: this would fail the first time stack is run if Galaxy is not yet installed
+- name: Galaxy systemd
+  hosts: galaxyservers
+  roles:
+    - role: galaxyproject.galaxy
+      galaxy_manage_clone: no
+      galaxy_manage_static_setup: no
+      galaxy_manage_mutable_setup: no
+      galaxy_manage_database: no
+      galaxy_fetch_dependencies: no
+      galaxy_manage_errordocs: no
+      galaxy_build_client: no
+      galaxy_manage_systemd: yes
+      galaxy_manage_gravity: no
+  tags: gravity
