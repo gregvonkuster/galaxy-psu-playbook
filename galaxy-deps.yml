@@ -177,8 +177,10 @@
     - role: geerlingguy.docker
     - role: usegalaxy_eu.rabbitmqserver
 
-# NOTE: this would fail the first time stack is run if Galaxy is not yet installed
-- name: Galaxy systemd
+- name: Galaxy
+  import_playbook: galaxy.yml
+
+- name: Galaxy post-install root
   hosts: galaxyservers
   roles:
     - role: galaxyproject.galaxy
@@ -191,4 +193,5 @@
       galaxy_build_client: no
       galaxy_manage_systemd: yes
       galaxy_manage_gravity: no
-  tags: gravity
+      galaxy_manage_cleanup: yes
+  tags: galaxy, galaxy_post
