@@ -81,7 +81,7 @@ galaxy_config:
     enable_quotas: true
     require_login: true
     allow_user_creation: false
-    allow_user_deletion: false
+    allow_user_deletion: true
     show_welcome_with_login: true
     expose_user_name: true
     expose_dataset_path: true
