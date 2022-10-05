@@ -1134,6 +1134,9 @@ tools:
   - id: Cut1
     environment: slurm_normal
     container_override: [{type: singularity, shell: '/bin/sh', identifier: "/cvmfs/singularity.galaxyproject.org/all/perl:5.22.0--9"}]
+  - id: Remove beginning1
+    environment: slurm_normal
+    container_override: [{type: singularity, shell: '/bin/sh', identifier: "/cvmfs/singularity.galaxyproject.org/all/perl:5.22.0--9"}]
   - id: addValue
     environment: slurm_normal
     container_override: [{type: singularity, shell: '/bin/sh', identifier: "/cvmfs/singularity.galaxyproject.org/all/perl:5.22.0--9"}]
