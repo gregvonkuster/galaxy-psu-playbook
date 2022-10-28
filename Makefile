@@ -1,3 +1,6 @@
+shared:
+	ansible-playbook --diff -i hosts-shared shared.yml
+
 dev:
 	ansible-playbook --diff -i hosts-dev galaxy.yml
 

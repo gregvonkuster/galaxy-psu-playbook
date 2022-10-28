@@ -6,13 +6,6 @@ galaxy-psu-dev.tacc.utexas.edu
 [dbservers]
 galaxy-psu-dbdev.tacc.utexas.edu
 
-[slurmservers]
-galaxy-psu-db.tacc.utexas.edu
-
-[slurmexechosts]
-galaxy-psu-jobs1.tacc.utexas.edu
-galaxy-psu-bigjobs1.tacc.utexas.edu
-
 [rabbitmqservers]
 galaxy-psu-dev.tacc.utexas.edu
 
@@ -23,13 +16,3 @@ login3.frontera.tacc.utexas.edu
 galaxy-psu-dev.tacc.utexas.edu
 galaxy-psu-dbdev.tacc.utexas.edu
 login3.frontera.tacc.utexas.edu
-
-# This is used like the "all" group in plays
-[galaxypsuvms]
-galaxy-psu-dev.tacc.utexas.edu
-galaxy-psu-dbdev.tacc.utexas.edu
-galaxy-psu-jobs1.tacc.utexas.edu
-galaxy-psu-bigjobs1.tacc.utexas.edu
-
-[galaxypsuvms:vars]
-ansible_user=root

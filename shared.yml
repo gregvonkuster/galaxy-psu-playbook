@@ -1,0 +1,87 @@
+---
+# Playbook for tasks on hosts shared between Galaxy servers (Slurm, CVMFS, etc.)
+
+- name: Install pacakges for all hosts
+  hosts: galaxypsu
+  tasks:
+    - name: Install Packages
+      package:
+        name: "{{ all_packages }}"
+  tags:
+    - system
+
+- name: Early setup tasks for VM hosts
+  hosts: galaxypsuvms
+  tasks:
+    # Obviously, the first person to run this has to manually install their key, if it's not set up in the VM
+    # bootstrapping process
+    - name: Add to root ssh keys
+      authorized_key:
+        user: root
+        key: "{{ item }}"
+      loop: "{{ root_authorized_ssh_keys }}"
+    # TODO: this hack can be removed if the dev user is added to LDAP
+    - name: Create dev project group
+      group:
+        name: G-824019
+        gid: 824019
+        local: true
+    # TODO: same
+    - name: Create local Galaxy dev user
+      user:
+        name: galaxydev
+        uid: 877997
+        group: G-824019
+        comment: Galaxy Development Server
+        shell: /bin/bash
+        create_home: true
+        system: true
+    - name: Mount Corral
+      mount:
+        path: "{{ corral_root }}"
+        src: "{{ corral_mount_src }}"
+        fstype: nfs
+        opts: "{{ corral_mount_opts }}"
+        state: mounted
+    - name: Configure Postfix if necessary
+      template:
+        src: templates/postfix/main.cf.j2
+        dest: /etc/postfix/main.cf
+        force: false
+        mode: 0644
+      notify:
+        - start postfix
+    - name: Create Postfix aliases if necessary
+      command: newaliases
+      args:
+        creates: /etc/aliases.db
+  handlers:
+    - name: start postfix
+      service:
+        name: postfix
+        state: started
+  tags:
+    - system
+
+- name: Slurm
+  # Slurm is installed on everything, even if just as a client
+  hosts: galaxypsu
+  roles:
+    - role: galaxyproject.slurm
+  tags:
+    - slurm
+
+- name: Slurm Exec Hosts
+  hosts: slurmexechosts
+  roles:
+    - role: gantsign.golang
+    - role: cyverse-ansible.singularity
+  tags:
+    - singularity
+
+- name: CVMFS
+  hosts: galaxypsu
+  roles:
+    - role: galaxyproject.cvmfs
+  tags:
+    - cvmfs
