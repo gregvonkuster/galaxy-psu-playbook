@@ -1,0 +1,15 @@
+tools:
+  __DATA_FETCH__:
+    cores: 1
+    params:
+      tmp_dir: True
+    rules:
+    - if: |
+        user_limit = 4
+        total_limit = 10
+        helpers.concurrent_job_count_for_tool(app, tool, user) >= user_limit or helpers.concurrent_job_count_for_tool(app, tool) >= total_limit
+      execute: |
+        from galaxy.jobs.mapper import JobNotReadyException
+        raise JobNotReadyException()
+  Cut1:
+    cores: 1

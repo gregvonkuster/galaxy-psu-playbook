@@ -1,0 +1,16 @@
+global:
+  default_inherits: default
+
+tools:
+  default:
+    cores: 1
+    mem: cores * 4
+    env: {}
+    context:
+      partition: normal
+    params:
+      native_specification: "--nodes=1 --ntasks={cores} --ntasks-per-node={cores} --mem={round(mem*1024)} --partition={partition}"
+    scheduling:
+      reject:
+        - offline
+    rules: []

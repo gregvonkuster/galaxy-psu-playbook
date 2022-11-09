@@ -37,6 +37,25 @@ execution:
   environments:
     local:
       runner: local
+    tpv_dispatcher:
+      runner: dynamic
+      type: python
+      function: map_tool_to_destination
+      rules_module: tpv.rules
+      tpv_config_files:
+        - https://raw.githubusercontent.com/galaxyproject/tpv-shared-database/main/tools.yml
+        - "{{ galaxy_dynamic_job_rules_dir }}/total_perspective_vortex/default_tool.yml"
+    slurm:
+      runner: slurm
+      tmp_dir: True
+      nativeSpecification: --nodes=1 --ntasks=32 --ntasks-per-node=32 --mem=124160 --partition=main
+      singularity_enabled: true
+      singularity_volumes: "{{ galaxy_job_conf_singularity_volumes | join(',') }}"
+      outputs_to_working_directory: true
+      singularity_default_container_id: "/cvmfs/singularity.galaxyproject.org/all/python:3.9--1"
+      env:
+        - name: LC_ALL
+          value: C
     # single core, default (4GB) memory, non-container
     slurm_normal:
       runner: slurm
@@ -1127,6 +1146,8 @@ execution:
           value: "1966080"
 
 tools:
+  - id: tp_sort_header_tool
+    environment: tpv_dispatcher
   - id: upload1
     environment: slurm_normal
   - id: __DATA_FETCH__

@@ -1,0 +1,7 @@
+destinations:
+  slurm:
+    cores: 32
+    mem: 121.25
+    scheduling:
+      accept:
+        - slurm
