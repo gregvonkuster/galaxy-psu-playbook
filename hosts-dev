@@ -16,3 +16,10 @@ login3.frontera.tacc.utexas.edu
 galaxy-psu-dev.tacc.utexas.edu
 galaxy-psu-dbdev.tacc.utexas.edu
 login3.frontera.tacc.utexas.edu
+
+[galaxypsuvms]
+galaxy-psu-dev.tacc.utexas.edu
+galaxy-psu-dbdev.tacc.utexas.edu
+
+[galaxypsuvms:vars]
+ansible_user=root
