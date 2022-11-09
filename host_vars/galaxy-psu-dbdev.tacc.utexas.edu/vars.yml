@@ -5,12 +5,3 @@ corral_mount_ip: 129.114.52.161
 # total perspective vortex
 tpv_version: "1.2.0"
 
-# ansible-galaxy
-galaxy_dynamic_job_rules_src_dir: files/galaxy/dynamic_job_rules
-galaxy_dynamic_job_rules_dir: "{{ galaxy_root }}/dynamic_job_rules"
-galaxy_dynamic_job_rules:
-  - total_perspective_vortex/tools.yml
-  - total_perspective_vortex/destinations.yml
-  - total_perspective_vortex/users.yml
-  - total_perspective_vortex/roles.yml
-

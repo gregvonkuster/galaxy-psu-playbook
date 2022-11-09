@@ -17,6 +17,13 @@ galaxy_postgresql_password: "{{ vault_galaxy_postgresql_password }}"
 #galaxy_user:
 #  name: glxyhpcdev
 
+galaxy_dynamic_job_rules_src_dir: files/galaxy/dynamic_job_rules
+galaxy_dynamic_job_rules:
+  - total_perspective_vortex/tools.yml
+  - total_perspective_vortex/destinations.yml
+  - total_perspective_vortex/users.yml
+  - total_perspective_vortex/roles.yml
+
 galaxy_user:
   name: galaxydev
   uid: 877997
