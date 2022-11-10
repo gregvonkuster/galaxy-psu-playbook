@@ -88,18 +88,15 @@ slurm_nodes:
 slurm_partitions:
   - name: normal
     Default: YES
-    Nodes: galaxy-psu-jobs1,galaxy-psu-bigjobs1
+    Nodes: galaxy-psu-jobs1,galaxy-psu-bigjobs1,galaxy-psu-set3-[1-3]
     State: UP
     DefMemPerCPU: 4000
     PriorityTier: 0
   - name: bigmem
-    Nodes: galaxy-psu-bigjobs1
+    Nodes: galaxy-psu-bigjobs1,galaxy-psu-set3-[1-3]
     State: UP
     DefMemPerCPU: 32216
     PriorityTier: 10
-  - name: debug
-    Nodes: galaxy-psu-set3-[1-3]
-    State: UP
 
 slurm_cgroup_config:
   CgroupAutomount: yes
