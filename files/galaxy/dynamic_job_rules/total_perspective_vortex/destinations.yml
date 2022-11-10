@@ -4,4 +4,5 @@ destinations:
     mem: 121.25
     scheduling:
       accept:
+        - general
         - slurm

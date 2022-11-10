@@ -11,6 +11,8 @@ tools:
     params:
       native_specification: "--nodes=1 --ntasks={cores} --ntasks-per-node={cores} --mem={round(mem*1024)} --partition={partition}"
     scheduling:
+      accept:
+        - general
       reject:
         - offline
     rules: []

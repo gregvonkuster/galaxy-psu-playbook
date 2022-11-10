@@ -19,6 +19,7 @@ galaxy_postgresql_password: "{{ vault_galaxy_postgresql_password }}"
 
 galaxy_dynamic_job_rules_src_dir: files/galaxy/dynamic_job_rules
 galaxy_dynamic_job_rules:
+  - total_perspective_vortex/default_tool.yml
   - total_perspective_vortex/tools.yml
   - total_perspective_vortex/destinations.yml
   - total_perspective_vortex/users.yml
