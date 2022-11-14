@@ -4,7 +4,7 @@ global:
 tools:
   default:
     cores: 1
-    mem: cores * 4
+    mem: cores * 3.9
     env: {}
     context:
       partition: normal

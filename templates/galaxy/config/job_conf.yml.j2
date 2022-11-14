@@ -45,10 +45,12 @@ execution:
       tpv_config_files:
         - https://raw.githubusercontent.com/galaxyproject/tpv-shared-database/main/tools.yml
         - "{{ galaxy_dynamic_job_rules_dir }}/total_perspective_vortex/default_tool.yml"
+        - "{{ galaxy_dynamic_job_rules_dir }}/total_perspective_vortex/tools.yml"
+        - "{{ galaxy_dynamic_job_rules_dir }}/total_perspective_vortex/destinations.yml"
     slurm:
       runner: slurm
       tmp_dir: True
-      nativeSpecification: --nodes=1 --ntasks=32 --ntasks-per-node=32 --mem=124160 --partition=main
+      native_specification: --nodes=1 --ntasks=24 --ntasks-per-node=24 --mem=119896 --partition=normal
       singularity_enabled: true
       singularity_volumes: "{{ galaxy_job_conf_singularity_volumes | join(',') }}"
       outputs_to_working_directory: true
