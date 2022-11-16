@@ -58,6 +58,46 @@ execution:
       env:
         - name: LC_ALL
           value: C
+    frontera:
+      runner: frontera
+      submit_native_specification: --partition=development --nodes=1 --ntasks=56 --time=00:30:00
+      remote_metadata: false
+      transport: curl
+      default_file_action: remote_transfer
+      dependency_resolution: remote
+      rewrite_parameters: true
+      file_action_config: {{ galaxy_config_dir }}/pulsar_frontera_actions.yml
+      outputs_to_working_directory: false
+      jobs_directory: "/scratch1/08500/{{ tacc_user }}/staging"
+      singularity_enabled: true
+      # the tacc-singularity module automatically sets up mounts
+      singularity_volumes: null
+      container_resolvers:
+        - type: explicit_singularity
+        - type: mulled_singularity
+      require_container: true
+      env:
+        - name: _JAVA_OPTIONS
+          value: $_JAVA_OPTIONS -Xmx128g -Xms256m
+        - name: LC_ALL
+          value: C
+        - name: TERM
+          value: vt100
+        - execute: ulimit -c 0
+        - execute: ulimit -u 16384
+        - name: SINGULARITYENV__JAVA_OPTIONS
+          value: $_JAVA_OPTIONS
+        - name: SINGULARITYENV_LC_ALL
+          value: $LC_ALL
+        - name: SINGULARITYENV_TERM
+          value: $TERM
+        - file: /etc/profile.d/z01_lmod.sh
+        - execute: module load tacc-singularity
+        - execute: module unload xalt
+        - name: GALAXY_SLOTS
+          value: "$SLURM_NTASKS"
+        - name: GALAXY_MEMORY_MB
+          value: "194560"
     # single core, default (4GB) memory, non-container
     slurm_normal:
       runner: slurm
@@ -1190,12 +1230,6 @@ tools:
     environment: frontera_small_1hr
   - id: raxml
     environment: frontera_small_1hr
-  - id: vsnp_statistics
-    environment: frontera_small_1hr
-  - id: vsnp_determine_ref_from_data
-    environment: frontera_small_2hr
-  - id: vsnp_add_zero_coverage
-    environment: frontera_small_2hr
   - id: snippy_clean_full_aln
     environment: frontera_small_2hr
   - id: snippy_core
@@ -1351,10 +1385,6 @@ tools:
   - id: bedtools_windowbed
     environment: frontera_small_8hr
   #### Frontera large
-  - id: vsnp_get_snps
-    environment: frontera_large_2hr
-  - id: vsnp_build_tables
-    environment: frontera_large_2hr
   - id: data_manager_dram_download
     environment: frontera_large_8hr
   - id: obi_grep

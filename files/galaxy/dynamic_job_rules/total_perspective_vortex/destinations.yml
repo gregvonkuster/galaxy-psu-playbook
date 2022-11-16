@@ -1,8 +1,19 @@
 destinations:
   slurm:
-    cores: 32
-    mem: 121.25
+    cores: 24
+    mem: 117
     scheduling:
       accept:
         - general
         - slurm
+      reject:
+        - frontera
+  frontera:
+    cores: 112
+    mem: 2048
+    context:
+      partition: "{'small' if mem < 190 else 'nvdimm'}"
+    scheduling:
+      accept:
+        - frontera
+        - pulsar
