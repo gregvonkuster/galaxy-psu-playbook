@@ -60,7 +60,7 @@ execution:
           value: C
     frontera:
       runner: frontera
-      submit_native_specification: --partition=development --nodes=1 --ntasks=56 --time=00:30:00
+      submit_native_specification: --partition=small --nodes=1 --ntasks=56 --time=00:30:00
       remote_metadata: false
       transport: curl
       default_file_action: remote_transfer
@@ -1188,7 +1188,7 @@ execution:
           value: "1966080"
 
 tools:
-  - id: tp_sort_header_tool
+  - id: vsnp_build_tables
     environment: tpv_dispatcher
   - id: upload1
     environment: slurm_normal

@@ -15,79 +15,95 @@ tools:
     cores: 56
     mem: 2048
     scheduling:
-      require: frontera
+      require:
+        - frontera
   trinity_abundance_estimates_to_matrix:
     cores: 56
     mem: 2048
     scheduling:
-      require: frontera
+      require:
+        - frontera
   trinity_gene_to_trans_map:
     cores: 56
     mem: 2048
     scheduling:
-      require: frontera
+      require:
+        - frontera
   trinity_run_de_analysis:
     cores: 56
     mem: 2048
     scheduling:
-      require: frontera
+      require:
+        - frontera
   trinity_samples_qccheck:
     cores: 56
     mem: 2048
     scheduling:
-      require: frontera
+      require:
+        - frontera
   trinity_super_transcripts:
     cores: 56
     mem: 2048
     scheduling:
-      require: frontera
+      require:
+        - frontera
   trinity_analyze_diff_expr:
     cores: 56
     mem: 2048
     scheduling:
-      require: frontera
+      require:
+        - frontera
   trinity_filter_low_expr_transcripts:
     cores: 56
     mem: 2048
     scheduling:
-      require: frontera
+      require:
+        - frontera
   trinity_align_and_estimate_abundance:
     cores: 56
     mem: 2048
     scheduling:
-      require: frontera
+      require:
+        - frontera
   trinity_align_and_estimate_abundance:
     cores: 56
     mem: 2048
     scheduling:
-      require: frontera
+      require:
+        - frontera
   trinity:
     cores: 56
     mem: 2048
     scheduling:
-      require: frontera
+      require:
+        - frontera
   trinity_define_clusters_by_cutting_tree:
     cores: 56
     mem: 2048
     scheduling:
-      require: frontera
+      require:
+        - frontera
   vsnp_add_zero_coverage:
     cores: 20
     mem: 8
     scheduling:
-      require: frontera
+      require:
+        - frontera
   vsnp_build_tables:
     cores: 20
     mem: 8
     scheduling:
-      require: frontera
+      require:
+        - frontera
   vsnp_get_snps:
     cores: 20
     mem: 8
     scheduling:
-      require: frontera
+      require:
+        - frontera
   vsnp_statistics:
     cores: 20
     mem: 8
     scheduling:
-      require: frontera
+      require:
+        - frontera
