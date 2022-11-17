@@ -92,6 +92,8 @@ tools:
   vsnp_build_tables:
     cores: 20
     mem: 8
+    context:
+      partition: "{'small' if mem < 190 else 'nvdimm'}"
     scheduling:
       require:
         - frontera
