@@ -2,6 +2,10 @@ destinations:
   slurm:
     cores: 24
     mem: 117
+    context:
+      time: "01:00:00"
+    params:
+      native_specification: "--nodes=1 --ntasks={cores} --ntasks-per-node={cores} --time={time} --mem={round(mem*1024)} --partition=normal"
     scheduling:
       accept:
         - general
@@ -12,7 +16,13 @@ destinations:
     cores: 112
     mem: 2048
     context:
-      partition: "{'small' if mem < 190 else 'nvdimm'}"
+      time: "01:00:00"
+    params:
+      submit_native_specification: "--nodes=1 --ntasks={cores} --ntasks-per-node={cores} --time={time} --partition=small"
+    rules:
+      - if: mem > 190
+        params:
+          submit_native_specification: "--nodes=1 --ntasks={cores} --ntasks-per-node={cores} --time={time} --partition=nvdimm"
     scheduling:
       accept:
         - frontera

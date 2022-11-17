@@ -6,11 +6,6 @@ tools:
     cores: 1
     mem: cores * 3.9
     env: {}
-    context:
-      partition: normal
-    params:
-      native_specification: "--nodes=1 --ntasks={cores} --ntasks-per-node={cores} --time=01:00:00 --mem={round(mem*1024)} --partition={partition}"
-      submit_native_specification: "--nodes=1 --ntasks={cores} --ntasks-per-node={cores} --time=01:00:00 --partition={partition}"
     scheduling:
       accept:
         - general
