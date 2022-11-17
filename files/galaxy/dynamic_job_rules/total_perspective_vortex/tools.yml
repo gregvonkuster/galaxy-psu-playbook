@@ -89,7 +89,7 @@ tools:
     scheduling:
       require:
         - frontera
-  vsnp_build_tables:
+  toolshed.g2.bx.psu.edu/repos/iuc/vsnp_build_tables/vsnp_build_tables/.*:
     cores: 20
     mem: 8
     context:
