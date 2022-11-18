@@ -1188,8 +1188,6 @@ execution:
           value: "1966080"
 
 tools:
-  - id: vsnp_build_tables
-    environment: tpv_dispatcher
   - id: upload1
     environment: slurm_normal
   - id: __DATA_FETCH__
@@ -1215,20 +1213,37 @@ tools:
   - id: ncbi_makeblastdb
     environment: slurm_bigmem_multicore_container_venv
   # Tools that do not have corresponding BioContainers
-  #### Frontera small
+  #### TPV Dispatcher
+  - id: vsnp_build_tables
+    environment: tpv_dispatcher
   - id: sample_names
-    environment: frontera_small_2min
+    environment: tpv_dispatcher
+  - id: seqkit_stats
+    environment: tpv_dispatcher
+  - id: seqkit_fx2tab
+    environment: tpv_dispatcher
+  - id: multiqc
+    environment: tpv_dispatcher
+  - id: raxml
+    environment: tpv_dispatcher
+  - id: bwa
+    environment: tpv_dispatcher
+  - id: bwa_mem
+    environment: tpv_dispatcher
+  - id: picard_MarkDuplicates
+    environment: tpv_dispatcher
+  - id: freebayes
+    environment: tpv_dispatcher
+  - id: samtools_idxstats
+    environment: tpv_dispatcher
+  - id: samtools_sort
+    environment: tpv_dispatcher
+  - id: fastqc
+    environment: tpv_dispatcher
+  #### Frontera Small
   - id: bcftools_call
     environment: frontera_small_1hr
   - id: bcftools_mpileup
-    environment: frontera_small_1hr
-  - id: seqkit_stats
-    environment: frontera_small_1hr
-  - id: seqkit_fx2tab
-    environment: frontera_small_1hr
-  - id: multiqc
-    environment: frontera_small_1hr
-  - id: raxml
     environment: frontera_small_1hr
   - id: snippy_clean_full_aln
     environment: frontera_small_2hr
@@ -1240,17 +1255,7 @@ tools:
     environment: frontera_small_2hr
   - id: cutadapt
     environment: frontera_small_2hr
-  - id: bwa_mem
-    environment: frontera_small_2hr
   - id: minimap2
-    environment: frontera_small_2hr
-  - id: picard_MarkDuplicates
-    environment: frontera_small_2hr
-  - id: freebayes
-    environment: frontera_small_2hr
-  - id: samtools_idxstats
-    environment: frontera_small_2hr
-  - id: samtools_sort
     environment: frontera_small_2hr
   - id: vcffilter2
     environment: frontera_small_2hr
@@ -1276,8 +1281,6 @@ tools:
     environment: frontera_small_4hr
   - id: obi_uniq
     environment: frontera_small_4hr
-  - id: fastqc
-    environment: frontera_small_8hr
   - id: blastxml_to_tabular
     environment: frontera_small_8hr
   - id: ncbi_blastdbcmd_info
@@ -1309,8 +1312,6 @@ tools:
   - id: bg_diamond
     environment: frontera_small_8hr
   - id: flye
-    environment: frontera_small_8hr
-  - id: bwa
     environment: frontera_small_8hr
   - id: bg_diamond_makedb
     environment: frontera_small_8hr

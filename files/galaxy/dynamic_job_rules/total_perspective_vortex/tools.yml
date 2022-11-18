@@ -11,95 +11,224 @@ tools:
       execute: |
         from galaxy.jobs.mapper import JobNotReadyException
         raise JobNotReadyException()
-  trinity_contig_exn50_statistic:
+  ################
+  # Frontera large
+  ################
+  toolshed.g2.bx.psu.edu/repos/nate/trinity_psc/trinity_psc/.*:
     cores: 56
     mem: 2048
+    context:
+      time: "08:00:00"
     scheduling:
       require:
         - frontera
-  trinity_abundance_estimates_to_matrix:
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_contig_exn50_statistic/trinity_contig_exn50_statistic/.*:
     cores: 56
     mem: 2048
+    context:
+      time: "08:00:00"
     scheduling:
       require:
         - frontera
-  trinity_gene_to_trans_map:
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_abundance_estimates_to_matrix/trinity_abundance_estimates_to_matrix/.*:
     cores: 56
     mem: 2048
+    context:
+      time: "08:00:00"
     scheduling:
       require:
         - frontera
-  trinity_run_de_analysis:
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_gene_to_trans_map/trinity_gene_to_trans_map/.*:
     cores: 56
     mem: 2048
+    context:
+      time: "08:00:00"
     scheduling:
       require:
         - frontera
-  trinity_samples_qccheck:
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_run_de_analysis/trinity_run_de_analysis/.*:
     cores: 56
     mem: 2048
+    context:
+      time: "08:00:00"
     scheduling:
       require:
         - frontera
-  trinity_super_transcripts:
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_samples_qccheck/trinity_samples_qccheck/.*:
     cores: 56
     mem: 2048
+    context:
+      time: "08:00:00"
     scheduling:
       require:
         - frontera
-  trinity_analyze_diff_expr:
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_super_transcripts/trinity_super_transcripts/.*:
     cores: 56
     mem: 2048
+    context:
+      time: "08:00:00"
     scheduling:
       require:
         - frontera
-  trinity_filter_low_expr_transcripts:
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_analyze_diff_expr/trinity_analyze_diff_expr/.*:
     cores: 56
     mem: 2048
+    context:
+      time: "08:00:00"
     scheduling:
       require:
         - frontera
-  trinity_align_and_estimate_abundance:
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_filter_low_expr_transcripts/trinity_filter_low_expr_transcripts/.*:
     cores: 56
     mem: 2048
+    context:
+      time: "08:00:00"
     scheduling:
       require:
         - frontera
-  trinity:
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_align_and_estimate_abundance/trinity_align_and_estimate_abundance/.*:
     cores: 56
     mem: 2048
+    context:
+      time: "08:00:00"
     scheduling:
       require:
         - frontera
-  trinity_define_clusters_by_cutting_tree:
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*:
     cores: 56
     mem: 2048
+    context:
+      time: "08:00:00"
     scheduling:
       require:
         - frontera
-  vsnp_add_zero_coverage:
-    cores: 20
-    mem: 8
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_define_clusters_by_cutting_tree/trinity_define_clusters_by_cutting_tree/.*:
+    cores: 56
+    mem: 2048
+    context:
+      time: "08:00:00"
     scheduling:
       require:
         - frontera
-  toolshed.g2.bx.psu.edu/repos/iuc/vsnp_build_tables/vsnp_build_tables/.*:
-    cores: 20
+  ################
+  # Frontera Small
+  ################
+  ######################
+  # Open Stack Instances
+  ######################
+  toolshed.g2.bx.psu.edu/repos/iuc/vsnp_add_zero_coverage/vsnp_add_zero_coverage/.*:
+    cores: 1
     mem: 8
     context:
-      time: "02:00:00"
-    scheduling:
-      require:
-        - frontera
-  vsnp_get_snps:
-    cores: 20
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/vsnp_build_tables/vsnp_build_tables/.*:
+    cores: 12
     mem: 8
-    scheduling:
-      require:
-        - frontera
-  vsnp_statistics:
-    cores: 20
+    context:
+      time: "12:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/vsnp_get_snps/vsnp_get_snps/.*:
+    cores: 12
     mem: 8
-    scheduling:
-      require:
-        - frontera
+    context:
+      time: "12:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "04:00:00"
+  toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*:
+    cores: 1
+    mem: 1
+    context:
+      time: "00:10:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/seqkit_stats/seqkit_stats/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "04:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/seqkit_fx2tab/seqkit_fx2tab/,*:
+    cores: 1
+    mem: 8
+    context:
+      time: "04:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/multiqc/multiqc/,*:
+    cores: 1
+    mem: 64
+    context:
+      time: "04:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/raxml/raxml/,*:
+    cores: 1
+    mem: 64
+    context:
+      time: "04:00:00"
+  toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*:
+    cores: 2
+    mem: 8
+    rules:
+    - if: 0.25 <= input_size < 1
+      cores: 4
+    - if: 1 <= input_size < 20
+      cores: 8
+    - if: input_size >= 20
+      cores: 56
+      mem: 2048
+      scheduling:
+        require:
+          - frontera
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa_mem/.*:
+    cores: 2
+    mem: 8
+    rules:
+    - if: 0.25 <= input_size < 1
+      cores: 4
+    - if: 1 <= input_size < 20
+      cores: 8
+    - if: input_size >= 20
+      cores: 56
+      mem: 2048
+      scheduling:
+        require:
+          - frontera
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/devteam/picard/.*:
+    cores: 1
+    mem: 8
+    env:
+      _JAVA_OPTIONS: '-Xmx{int(mem)}G -Xms1G'
+    rules:
+      - if: input_size >= 1
+        cores: 3
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/devteam/freebayes/freebayes/.*:
+    cores: 2
+    mem: 8
+    rules:
+    - if: 0.2 <= input_size < 4
+      cores: 4
+    - if: 4 <= input_size < 50
+      cores: 8
+    - if: input_size >= 50
+      cores: 56
+      mem: 2048
+      scheduling:
+        require:
+          - frontera
+  toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "04:00:00"
+  toolshed.g2.bx.psu.edu/repos/devteam/samtools_sort/samtools_sort/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "04:00:00"
+  toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "04:00:00"
