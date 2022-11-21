@@ -11,6 +11,32 @@ tools:
       execute: |
         from galaxy.jobs.mapper import JobNotReadyException
         raise JobNotReadyException()
+  ###########################################
+  # Tools included in the Galaxy distribution
+  ###########################################
+  #Cut1:
+  #  cores: 1
+  Extract genomic DNA 1:
+    cores: 3
+  Grouping1:
+    cores: 1
+  #Remove beginning1:
+  #  cores: 1
+  join1:
+    cores: 2
+    rules:
+    - if: input_size >= 10
+      cores: 5
+  tabular_to_csv:
+    rules:
+    - if: input_size >= 1
+      cores: 3
+  wig_to_bigWig:
+    cores: 3
+    rules:
+    - if: input_size >= 1
+      cores: 5
+
   ################
   # Frontera large
   ################
@@ -113,6 +139,7 @@ tools:
   ################
   # Frontera Small
   ################
+
   ######################
   # Open Stack Instances
   ######################
@@ -232,3 +259,134 @@ tools:
     mem: 8
     context:
       time: "04:00:00"
+  toolshed.g2.bx.psu.edu/repos/bgruening/bionano_scaffold/bionano_scaffold/.*:
+    cores: 16
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/bgruening/chemfp/ctb_chemfp_nxn_clustering/.*:
+    cores: 16
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/bgruening/chemfp/ctb_chemfp_mol2fps/.*:
+    cores: 16
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/bgruening/chemfp/ctb_sdf2fps/.*:
+    cores: 16
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_compare/deeptools_bam_compare/.*:
+    cores: 9
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_coverage/deeptools_bam_coverage/.*:
+    cores: 7
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_compute_matrix/deeptools_compute_matrix/.*:
+    cores: 9
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*:
+    cores: 3
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*:
+    cores: 5
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sorted_uniq/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/bgruening/trim_galore/trim_galore/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.02 <= input_size < 0.2
+      cores: 3
+    - if: input_size >= 0.2
+      cores: 5
+  toolshed.g2.bx.psu.edu/repos/devteam/clustalw/clustalw/.*:
+    cores: 3
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.0003 <= input_size < 0.002
+      cores: 5
+    - if: 0.002 <= input_size < 0.04
+      cores: 9
+    - if: input_size >= 0.04
+      cores: 56
+      mem: 2048
+      scheduling:
+        require:
+          - frontera
+  toolshed.g2.bx.psu.edu/repos/devteam/cuffmerge/cuffmerge/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: input_size >= 0.1
+      cores: 3
+  toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_joiner/fastq_paired_end_joiner/.*:
+    cores: 3
+    mem: 4
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/devteam/kraken/kraken/.*:
+    cores: 5
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastn_wrapper/.*:
+    cores: 5
+    mem: 4
+    context:
+      time: "08:00:00"
+    rules:
+      - if: helpers.job_args_match(job, app, {'db_opts': {'db_opts_selector': 'db'}})
+        cores: 15
+  toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastp_wrapper/.*:
+    cores: 5
+    mem: 4
+    rules:
+      - if: helpers.job_args_match(job, app, {'db_opts': {'db_opts_selector': 'db'}})
+        cores: 15
+  toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastx_wrapper/.*:
+    cores: 16
+    mem: 4
+  toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_tblastn_wrapper/.*:
+    cores: 5
+    mem: 4
+    rules:
+      - if: helpers.job_args_match(job, app, {'db_opts': {'db_opts_selector': 'db'}})
+        cores: 15
+  toolshed.g2.bx.psu.edu/repos/devteam/picard/.*:
+    cores: 1
+    mem: 8
+    env:
+      _JAVA_OPTIONS: '-Xmx{int(mem)}G -Xms1G'
+    rules:
+      - if: input_size >= 1
+        cores: 3
+

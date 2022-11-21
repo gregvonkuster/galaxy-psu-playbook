@@ -1232,6 +1232,92 @@ tools:
     environment: tpv_dispatcher
   - id: picard_MarkDuplicates
     environment: tpv_dispatcher
+  - id: picard_RevertSam
+    environment: tpv_dispatcher
+  - id: picard_AddCommentsToBam
+    environment: tpv_dispatcher
+  - id: picard_AddOrReplaceReadGroups
+    environment: tpv_dispatcher
+  - id: picard_CollectInsertSizeMetrics
+    environment: tpv_dispatcher
+  - id: picard_BedToIntervalList
+    environment: tpv_dispatcher
+  - id: picard_CollectHsMetrics
+    environment: tpv_dispatcher
+  - id: picard_CollectRnaSeqMetrics
+    environment: tpv_dispatcher
+  - id: picard_artifact_metrics
+    environment: tpv_dispatcher
+  - id: picard_CollectWgsMetrics
+    environment: tpv_dispatcher
+  - id: picard_QualityScoreDistribution
+    environment: tpv_dispatcher
+  - id: picard_FilterSamReads
+    environment: tpv_dispatcher
+  - id: picard_DownsampleSam
+    environment: tpv_dispatcher
+  - id: picard_FixMateInformation
+    environment: tpv_dispatcher
+  - id: picard_MarkDuplicatesWithMateCigar
+    environment: tpv_dispatcher
+  - id: picard_SamToFastq
+    environment: tpv_dispatcher
+  - id: picard_ReorderSam
+    environment: tpv_dispatcher
+  - id: picard_MeanQualityByCycle
+    environment: tpv_dispatcher
+  - id: picard_CollectGcBiasMetrics
+    environment: tpv_dispatcher
+  - id: picard_SortSam
+    environment: tpv_dispatcher
+  - id: picard_FastqToSam
+    environment: tpv_dispatcher
+  - id: picard_CollectBaseDistributionByCycle
+    environment: tpv_dispatcher
+  - id: picard_ReplaceSamHeader
+    environment: tpv_dispatcher
+  - id: picard_ValidateSamFile
+    environment: tpv_dispatcher
+  - id: picard_CASM
+    environment: tpv_dispatcher
+  - id: picard_MergeSamFiles
+    environment: tpv_dispatcher
+  - id: picard_EstimateLibraryComplexity
+    environment: tpv_dispatcher
+  - id: picard_CleanSam
+    environment: tpv_dispatcher
+  - id: picard_RevertOriginalBaseQualitiesAndAddMateCigar
+    environment: tpv_dispatcher
+  - id: picard_NormalizeFasta
+    environment: tpv_dispatcher
+  - id: picard_MergeBamAlignment
+    environment: tpv_dispatcher
+  - id: picard_RevertSam
+    environment: tpv_dispatcher
+  - id: picard_AddCommentsToBam
+    environment: tpv_dispatcher
+  - id: picard_AddOrReplaceReadGroups
+    environment: tpv_dispatcher
+  - id: picard_CollectInsertSizeMetrics
+    environment: tpv_dispatcher
+  - id: picard_BedToIntervalList
+    environment: tpv_dispatcher
+  - id: picard_CollectHsMetrics
+    environment: tpv_dispatcher
+  - id: picard_CollectRnaSeqMetrics
+    environment: tpv_dispatcher
+  - id: picard_artifact_metrics
+    environment: tpv_dispatcher
+  - id: picard_CollectWgsMetrics
+    environment: tpv_dispatcher
+  - id: picard_QualityScoreDistribution
+    environment: tpv_dispatcher
+  - id: picard_FilterSamReads
+    environment: tpv_dispatcher
+  - id: picard_DownsampleSam
+    environment: tpv_dispatcher
+  - id: picard_FixMateInformation
+    environment: tpv_dispatcher
   - id: freebayes
     environment: tpv_dispatcher
   - id: samtools_idxstats
@@ -1239,6 +1325,48 @@ tools:
   - id: samtools_sort
     environment: tpv_dispatcher
   - id: fastqc
+    environment: tpv_dispatcher
+  - id: bionano_scaffold
+    environment: tpv_dispatcher
+  - id: ctb_chemfp_nxn_clustering
+    environment: tpv_dispatcher
+  - id: ctb_chemfp_mol2fps
+    environment: tpv_dispatcher
+  - id: ctb_sdf2fps
+    environment: tpv_dispatcher
+  - id: deeptools_bam_compare
+    environment: tpv_dispatcher
+  - id: deeptools_bam_coverage
+    environment: tpv_dispatcher
+  - id: deeptools_compute_matrix
+    environment: tpv_dispatcher
+  - id: deeptools_plot_heatmap
+    environment: tpv_dispatcher
+  - id: salmon
+    environment: tpv_dispatcher
+  - id: tp_sorted_uniq
+    environment: tpv_dispatcher
+  - id: trim_galore
+    environment: tpv_dispatcher
+  - id: clustalw
+    environment: tpv_dispatcher
+  - id: cuffmerge
+    environment: tpv_dispatcher
+  - id: fastq_paired_end_joiner
+    environment: tpv_dispatcher
+  - id: cshl_fastq_quality_filter
+    environment: tpv_dispatcher
+  - id: kraken
+    environment: tpv_dispatcher
+  - id: ncbi_blastn_wrapper
+    environment: tpv_dispatcher
+  - id: ncbi_blastp_wrapper
+    environment: tpv_dispatcher
+  - id: ncbi_blastx_wrapper
+    environment: tpv_dispatcher
+  - id: ncbi_tblastn_wrapper
+    environment: tpv_dispatcher
+  - id: ncbi_tblastx_wrapper
     environment: tpv_dispatcher
   #### Frontera Small
   - id: bcftools_call
@@ -1287,12 +1415,6 @@ tools:
     environment: frontera_small_8hr
   - id: ncbi_blastdbcmd_wrapper
     environment: frontera_small_8hr
-  - id: ncbi_blastn_wrapper
-    environment: frontera_small_8hr
-  - id: ncbi_blastp_wrapper
-    environment: frontera_small_8hr
-  - id: ncbi_blastx_wrapper
-    environment: frontera_small_8hr
   - id: ncbi_convert2blastmask_wrapper
     environment: frontera_small_8hr
   - id: ncbi_dustmasker_wrapper
@@ -1304,10 +1426,6 @@ tools:
   - id: ncbi_rpstblastn_wrapper
     environment: frontera_small_8hr
   - id: ncbi_segmasker_wrapper
-    environment: frontera_small_8hr
-  - id: ncbi_tblastn_wrapper
-    environment: frontera_small_8hr
-  - id: ncbi_tblastx_wrapper
     environment: frontera_small_8hr
   - id: bg_diamond
     environment: frontera_small_8hr
