@@ -41,100 +41,220 @@ tools:
   # Frontera large
   ################
   toolshed.g2.bx.psu.edu/repos/nate/trinity_psc/trinity_psc/.*:
-    cores: 56
-    mem: 2048
+    cores: 8
+    mem: 64
     context:
       time: "08:00:00"
-    scheduling:
-      require:
+    rules:
+    - if: 0.1 <= input_size < 30
+      cores: 60
+      mem: 961
+      scheduling:
+        require:
+        - frontera
+    - if: input_size >= 30
+      cores: 56
+      mem: 2048
+      scheduling:
+        require:
         - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/trinity_contig_exn50_statistic/trinity_contig_exn50_statistic/.*:
-    cores: 56
-    mem: 2048
+    cores: 8
+    mem: 64
     context:
       time: "08:00:00"
-    scheduling:
-      require:
+    rules:
+    - if: 0.1 <= input_size < 30
+      cores: 60
+      mem: 961
+      scheduling:
+        require:
+        - frontera
+    - if: input_size >= 30
+      cores: 56
+      mem: 2048
+      scheduling:
+        require:
         - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/trinity_abundance_estimates_to_matrix/trinity_abundance_estimates_to_matrix/.*:
-    cores: 56
-    mem: 2048
+    cores: 8
+    mem: 64
     context:
       time: "08:00:00"
-    scheduling:
-      require:
+    rules:
+    - if: 0.1 <= input_size < 30
+      cores: 60
+      mem: 961
+      scheduling:
+        require:
+        - frontera
+    - if: input_size >= 30
+      cores: 56
+      mem: 2048
+      scheduling:
+        require:
         - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/trinity_gene_to_trans_map/trinity_gene_to_trans_map/.*:
-    cores: 56
-    mem: 2048
+    cores: 8
+    mem: 64
     context:
       time: "08:00:00"
-    scheduling:
-      require:
+    rules:
+    - if: 0.1 <= input_size < 30
+      cores: 60
+      mem: 961
+      scheduling:
+        require:
+        - frontera
+    - if: input_size >= 30
+      cores: 56
+      mem: 2048
+      scheduling:
+        require:
         - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/trinity_run_de_analysis/trinity_run_de_analysis/.*:
-    cores: 56
-    mem: 2048
+    cores: 8
+    mem: 64
     context:
       time: "08:00:00"
-    scheduling:
-      require:
+    rules:
+    - if: 0.1 <= input_size < 30
+      cores: 60
+      mem: 961
+      scheduling:
+        require:
+        - frontera
+    - if: input_size >= 30
+      cores: 56
+      mem: 2048
+      scheduling:
+        require:
         - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/trinity_samples_qccheck/trinity_samples_qccheck/.*:
-    cores: 56
-    mem: 2048
+    cores: 8
+    mem: 64
     context:
       time: "08:00:00"
-    scheduling:
-      require:
+    rules:
+    - if: 0.1 <= input_size < 30
+      cores: 60
+      mem: 961
+      scheduling:
+        require:
+        - frontera
+    - if: input_size >= 30
+      cores: 56
+      mem: 2048
+      scheduling:
+        require:
         - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/trinity_super_transcripts/trinity_super_transcripts/.*:
-    cores: 56
-    mem: 2048
+    cores: 8
+    mem: 64
     context:
       time: "08:00:00"
-    scheduling:
-      require:
+    rules:
+    - if: 0.1 <= input_size < 30
+      cores: 60
+      mem: 961
+      scheduling:
+        require:
+        - frontera
+    - if: input_size >= 30
+      cores: 56
+      mem: 2048
+      scheduling:
+        require:
         - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/trinity_analyze_diff_expr/trinity_analyze_diff_expr/.*:
-    cores: 56
-    mem: 2048
+    cores: 8
+    mem: 64
     context:
       time: "08:00:00"
-    scheduling:
-      require:
+    rules:
+    - if: 0.1 <= input_size < 30
+      cores: 60
+      mem: 961
+      scheduling:
+        require:
+        - frontera
+    - if: input_size >= 30
+      cores: 56
+      mem: 2048
+      scheduling:
+        require:
         - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/trinity_filter_low_expr_transcripts/trinity_filter_low_expr_transcripts/.*:
-    cores: 56
-    mem: 2048
+    cores: 8
+    mem: 64
     context:
       time: "08:00:00"
-    scheduling:
-      require:
+    rules:
+    - if: 0.1 <= input_size < 30
+      cores: 60
+      mem: 961
+      scheduling:
+        require:
+        - frontera
+    - if: input_size >= 30
+      cores: 56
+      mem: 2048
+      scheduling:
+        require:
         - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/trinity_align_and_estimate_abundance/trinity_align_and_estimate_abundance/.*:
-    cores: 56
-    mem: 2048
+    cores: 8
+    mem: 64
     context:
       time: "08:00:00"
-    scheduling:
-      require:
+    rules:
+    - if: 0.1 <= input_size < 30
+      cores: 60
+      mem: 961
+      scheduling:
+        require:
+        - frontera
+    - if: input_size >= 30
+      cores: 56
+      mem: 2048
+      scheduling:
+        require:
         - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*:
-    cores: 56
-    mem: 2048
+    cores: 8
+    mem: 64
     context:
       time: "08:00:00"
-    scheduling:
-      require:
+    rules:
+    - if: 0.1 <= input_size < 30
+      cores: 60
+      mem: 961
+      scheduling:
+        require:
+        - frontera
+    - if: input_size >= 30
+      cores: 56
+      mem: 2048
+      scheduling:
+        require:
         - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/trinity_define_clusters_by_cutting_tree/trinity_define_clusters_by_cutting_tree/.*:
-    cores: 56
-    mem: 2048
+    cores: 8
+    mem: 64
     context:
       time: "08:00:00"
-    scheduling:
-      require:
+    rules:
+    - if: 0.1 <= input_size < 30
+      cores: 60
+      mem: 961
+      scheduling:
+        require:
+        - frontera
+    - if: input_size >= 30
+      cores: 56
+      mem: 2048
+      scheduling:
+        require:
         - frontera
   ################
   # Frontera Small
@@ -184,10 +304,17 @@ tools:
     context:
       time: "04:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/raxml/raxml/,*:
-    cores: 1
-    mem: 64
+    cores: 2
+    mem: 16
     context:
       time: "04:00:00"
+    rules:
+    - if: 0.0005 <= input_size < 0.1
+      cores: 16
+      mem: 128
+    - if: input_size >= 0.1
+      cores: 120
+      mem: 1922
   toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*:
     cores: 2
     mem: 16
@@ -1316,9 +1443,22 @@ tools:
       mem: 32
   toolshed.g2.bx.psu.edu/repos/iuc/trinity_align_and_estimate_abundance/trinity_align_and_estimate_abundance/.*:
     cores: 8
-    mem: 16
+    mem: 64
     context:
       time: "08:00:00"
+    rules:
+    - if: 0.1 <= input_size < 30
+      cores: 60
+      mem: 961
+      scheduling:
+        require:
+        - frontera
+    - if: input_size >= 30
+      cores: 56
+      mem: 2048
+      scheduling:
+        require:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/unicycler/unicycler/.*:
     cores: 1
     mem: 8
@@ -1391,4 +1531,89 @@ tools:
     - if: input_size >= 0.5
       cores: 56
       mem: 2048
+  toolshed.g2.bx.psu.edu/repos/bgruening/canu/canu/.*:
+    cores: 56
+    mem: 2048
+    context:
+      time: "36:00:00"
+    scheduling:
+      require:
+        - frontera
+  toolshed.g2.bx.psu.edu/repos/bgruening/hifiasm/hifiasm/.*:
+    cores: 2
+    mem: 16
+    context:
+      time: "08:00:00"
+    rules:
+    - if: input_size >= 0.2
+      cores: 120
+      mem: 1922
+  toolshed.g2.bx.psu.edu/repos/iuc/busco/busco/3.*:
+    cores: 2
+    mem: 16
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.05 <= input_size
+      cores: 8
+      mem: 64
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_cluster_split/mothur_cluster_split/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: input_size >= 0.00015
+      cores: 60
+      mem: 961
+  toolshed.g2.bx.psu.edu/repos/iuc/quast/quast/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: input_size >= 1
+      cores: 60
+      mem: 961
+  toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*:
+    cores: 2
+    mem: 16
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.005 <= input_size < 2
+      cores: 8
+      mem: 64
+    - if: 2 <= input_size < 20
+      cores: 60
+      mem: 961
+    - if: input_size >= 20
+      cores: 56
+      mem: 2048
+  toolshed.g2.bx.psu.edu/repos/iuc/spades_rnaviralspades/spades_rnaviralspades/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/rnaspades/rnaspades/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/spades_plasmidspades/spades_plasmidspades/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/spades_metaviralspades/spades_metaviralspades/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/spades_metaplasmidspades/spades_metaplasmidspades/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/spades_coronaspades/spades_coronaspades/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/spades_biosyntheticspades/spades_biosyntheticspades/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/exonerate/exonerate/.*:
+    cores: 30
+    mem: 480
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/galaxyp/peptideshaker/peptide_shaker/.*:
+    cores: 7
+    mem: 56
+    env:
+      _JAVA_OPTIONS: '-Xmx{int(mem)}G -Xms1G'
+    context:
+      time: "08:00:00"
 
