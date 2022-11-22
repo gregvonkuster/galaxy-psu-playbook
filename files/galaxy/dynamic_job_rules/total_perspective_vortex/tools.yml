@@ -150,12 +150,12 @@ tools:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/vsnp_build_tables/vsnp_build_tables/.*:
     cores: 12
-    mem: 8
+    mem: 96
     context:
       time: "12:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/vsnp_get_snps/vsnp_get_snps/.*:
     cores: 12
-    mem: 8
+    mem: 96
     context:
       time: "12:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*:
@@ -180,7 +180,7 @@ tools:
       time: "04:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/multiqc/multiqc/,*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "04:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/raxml/raxml/,*:
@@ -190,12 +190,14 @@ tools:
       time: "04:00:00"
   toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*:
     cores: 2
-    mem: 8
+    mem: 16
     rules:
     - if: 0.25 <= input_size < 1
       cores: 4
+      mem: 32
     - if: 1 <= input_size < 20
       cores: 8
+      mem: 64
     - if: input_size >= 20
       cores: 56
       mem: 2048
@@ -206,12 +208,14 @@ tools:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa_mem/.*:
     cores: 2
-    mem: 8
+    mem: 16
     rules:
     - if: 0.25 <= input_size < 1
       cores: 4
+      mem: 32
     - if: 1 <= input_size < 20
       cores: 8
+      mem: 64
     - if: input_size >= 20
       cores: 56
       mem: 2048
@@ -222,14 +226,16 @@ tools:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/devteam/freebayes/freebayes/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.2 <= input_size < 4
       cores: 4
+      cores: 32
     - if: 4 <= input_size < 50
       cores: 8
+      cores: 64
     - if: input_size >= 50
       cores: 56
       mem: 2048
@@ -253,47 +259,47 @@ tools:
       time: "04:00:00"
   toolshed.g2.bx.psu.edu/repos/bgruening/bionano_scaffold/bionano_scaffold/.*:
     cores: 16
-    mem: 8
+    mem: 128
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/bgruening/chemfp/ctb_chemfp_nxn_clustering/.*:
     cores: 16
-    mem: 8
+    mem: 128
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/bgruening/chemfp/ctb_chemfp_mol2fps/.*:
     cores: 16
-    mem: 8
+    mem: 128
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/bgruening/chemfp/ctb_sdf2fps/.*:
     cores: 16
-    mem: 8
+    mem: 128
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_compare/deeptools_bam_compare/.*:
     cores: 9
-    mem: 8
+    mem: 72
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_coverage/deeptools_bam_coverage/.*:
     cores: 7
-    mem: 8
+    mem: 56
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_compute_matrix/deeptools_compute_matrix/.*:
     cores: 9
-    mem: 8
+    mem: 72
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*:
     cores: 5
-    mem: 8
+    mem: 40
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sorted_uniq/.*:
@@ -309,18 +315,22 @@ tools:
     rules:
     - if: 0.02 <= input_size < 0.2
       cores: 3
+      mem: 24
     - if: input_size >= 0.2
       cores: 5
+      mem: 40
   toolshed.g2.bx.psu.edu/repos/devteam/clustalw/clustalw/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
     rules:
     - if: 0.0003 <= input_size < 0.002
       cores: 5
+      cores: 40
     - if: 0.002 <= input_size < 0.04
       cores: 9
+      cores: 72
     - if: input_size >= 0.04
       cores: 56
       mem: 2048
@@ -335,9 +345,10 @@ tools:
     rules:
     - if: input_size >= 0.1
       cores: 3
+      mem: 24
   toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_joiner/fastq_paired_end_joiner/.*:
     cores: 3
-    mem: 4
+    mem: 12
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*:
@@ -347,38 +358,41 @@ tools:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/devteam/kraken/kraken/.*:
     cores: 5
-    mem: 8
+    mem: 40
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastn_wrapper/.*:
     cores: 5
-    mem: 4
+    mem: 20
     context:
       time: "08:00:00"
     rules:
       - if: helpers.job_args_match(job, app, {'db_opts': {'db_opts_selector': 'db'}})
         cores: 15
+        cores: 60
   toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastp_wrapper/.*:
     cores: 5
-    mem: 4
+    mem: 20
     context:
       time: "08:00:00"
     rules:
       - if: helpers.job_args_match(job, app, {'db_opts': {'db_opts_selector': 'db'}})
         cores: 15
+        cores: 60
   toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastx_wrapper/.*:
     cores: 16
-    mem: 4
+    mem: 64
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_tblastn_wrapper/.*:
     cores: 5
-    mem: 4
+    mem: 20
     context:
       time: "08:00:00"
     rules:
       - if: helpers.job_args_match(job, app, {'db_opts': {'db_opts_selector': 'db'}})
         cores: 15
+        mem: 60
   toolshed.g2.bx.psu.edu/repos/devteam/picard/.*:
     cores: 1
     mem: 8
@@ -389,47 +403,51 @@ tools:
     rules:
       - if: input_size >= 1
         cores: 3
+        cores: 24
   toolshed.g2.bx.psu.edu/repos/devteam/samtool_filter2/samtool_filter2/.*:
     cores: 3
-    mem: 4
+    mem: 12
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/devteam/samtools_mpileup/samtools_mpileup/.*:
     cores: 5
-    mem: 4
+    mem: 20
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*:
     cores: 2
-    mem: 4
+    mem: 8
     context:
       time: "08:00:00"
     rules:
     - if: input_size >= 0.1
       cores: 5
+      mem: 20
   toolshed.g2.bx.psu.edu/repos/galaxyp/maxquant/.*:
     cores: 16
-    mem: 8
+    mem: 128
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.5 <= input_size < 10
       cores: 5
+      mem: 40
     - if: input_size >= 10
       cores: 7
+      cores: 56
   toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/cat_bins/cat_bins/.*:
     cores: 5
-    mem: 8
+    mem: 40
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/circos/circos_bundlelinks/.*:
@@ -440,8 +458,10 @@ tools:
     rules:
     - if: 0.0002 <= input_size < 0.01
       cores: 2
+      mem: 16
     - if: input_size >= 0.01
       cores: 5
+      mem: 40
   toolshed.g2.bx.psu.edu/repos/iuc/cat_bins/cat_bins/.*:
     cores: 1
     mem: 8
@@ -449,27 +469,27 @@ tools:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/deseq2/deseq2/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/edger/edger/.*:
     cores: 5
-    mem: 8
+    mem: 40
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/fasta_stats/fasta-stats/.*:
     cores: 5
-    mem: 8
+    mem: 40
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/fastp/fastp/.*:
     cores: 5
-    mem: 8
+    mem: 40
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/ggplot2_heatmap2/ggplot2_heatmap2/.*:
     cores: 2
-    mem: 8
+    mem: 40
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/ggplot2_point/ggplot2_point/.*:
@@ -479,12 +499,13 @@ tools:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/gubbins/gubbins/.*:
     cores: 5
-    mem: 8
+    mem: 40
     context:
       time: "08:00:00"
     rules:
     - if: 0.0005 <= input_size < 0.5
       cores: 16
+      mem: 128
     - if: input_size >= 0.5
       cores: 56
       mem: 2048
@@ -493,343 +514,383 @@ tools:
           - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/jbrowse/jbrowse/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/kallisto_quant/kallisto_quant/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: input_size >= 0.1
       cores: 5
+      mem: 40
   toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/.*:
     cores: 16
-    mem: 8
+    mem: 128
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/limma_voom/limma_voom/.*:
     cores: 7
-    mem: 8
+    mem: 56
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/lofreq_call/lofreq_call/.*:
     cores: 5
-    mem: 8
+    mem: 40
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/lofreq_indelqual/lofreq_indelqual/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/macs2/macs2_bdgdiff/.*:
     cores: 5
-    mem: 8
+    mem: 40
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/macs2/macs2_bdgdiff/.*:
     cores: 5
-    mem: 8
+    mem: 40
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/macs2/macs2_callpeak/.*:
     cores: 9
-    mem: 8
+    mem: 72
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/merqury/merqury/.*:
     cores: 5
-    mem: 8
+    mem: 40
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.02 <= input_size < 2
       cores: 5
+      mem: 40
     - if: input_size >= 2
       cores: 7
+      mem: 56
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_chimera_vsearch/mothur_chimera_vsearch/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.02 <= input_size < 2
       cores: 5
+      mem: 40
     - if: input_size >= 2
       cores: 7
+      mem: 56
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_classify_otu/mothur_classify_otu/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.02 <= input_size < 2
       cores: 5
+      mem: 40
     - if: input_size >= 2
       cores: 7
+      mem: 56
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_classify_seqs/mothur_classify_seqs/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.02 <= input_size < 2
       cores: 5
+      mem: 40
     - if: input_size >= 2
       cores: 7
+      mem: 56
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_count_seqs/mothur_count_seqs/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.02 <= input_size < 2
       cores: 5
+      mem: 40
     - if: input_size >= 2
       cores: 7
+      mem: 56
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_dist_shared/mothur_dist_shared/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.02 <= input_size < 2
       cores: 5
+      mem: 40
     - if: input_size >= 2
       cores: 7
+      mem: 56
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_filter_seqs/mothur_filter_seqs/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.02 <= input_size < 2
       cores: 5
+      mem: 40
     - if: input_size >= 2
       cores: 7
+      mem: 56
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_make_contigs/mothur_make_contigs/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.02 <= input_size < 2
       cores: 5
+      mem: 40
     - if: input_size >= 2
       cores: 7
+      mem: 56
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_make_group/mothur_make_group/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.02 <= input_size < 2
       cores: 5
+      mem: 40
     - if: input_size >= 2
       cores: 7
+      mem: 56
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_make_shared/mothur_make_shared/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.02 <= input_size < 2
       cores: 5
+      mem: 40
     - if: input_size >= 2
       cores: 7
+      mem: 56
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_merge_files/mothur_merge_files/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
     rules:
     - if: 0.02 <= input_size < 2
       cores: 5
+      mem: 40
     - if: input_size >= 2
       cores: 7
+      mem: 56
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_pre_cluster/mothur_pre_cluster/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.02 <= input_size < 2
       cores: 5
+      mem: 40
     - if: input_size >= 2
       cores: 7
+      mem: 56
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_screen_seqs/mothur_screen_seqs/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.02 <= input_size < 2
       cores: 5
+      mem: 40
     - if: input_size >= 2
       cores: 7
+      mem: 56
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_summary_seqs/mothur_summary_seqs/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.02 <= input_size < 2
       cores: 5
+      mem: 40
     - if: input_size >= 2
       cores: 7
+      mem: 56
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_summary_seqs/mothur_taxonomy_to_krona/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.02 <= input_size < 2
       cores: 5
+      mem: 40
     - if: input_size >= 2
       cores: 7
+      mem: 56
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_unique_seqs/mothur_unique_seqs/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.02 <= input_size < 2
       cores: 5
+      mem: 40
     - if: input_size >= 2
       cores: 7
+      mem: 56
   toolshed.g2.bx.psu.edu/repos/iuc/nanoplot/nanoplot/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/pear/iuc_pear/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
     rules:
     - if: 0.015 <= input_size < 1
       cores: 5
+      mem: 40
     - if: input_size >= 1
       cores: 7
+      mem: 56
   toolshed.g2.bx.psu.edu/repos/iuc/pilon/pilon/.*:
     cores: 9
-    mem: 8
+    mem: 72
     context:
       time: "08:00:00"
     rules:
     - if: input_size >= 4
       cores: 16
+      mem: 128
     env:
       _JAVA_OPTIONS: '-Xmx{int(mem)}G -Xms1G'
   toolshed.g2.bx.psu.edu/repos/iuc/porechop/porechop/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
     rules:
     - if: input_size >= 5
       cores: 9
+      mem: 72
   toolshed.g2.bx.psu.edu/repos/iuc/poretools_events/poretools_events/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/poretools_extract/poretools_extract/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/poretools_hist/poretools_hist/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/poretools_nucdist/poretools_nucdist/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/poretools_occupancy/poretools_occupancy/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/poretools_qualdist/poretools_qualdist/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/poretools_qualpos/poretools_qualpos/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/poretools_squiggle/poretools_squiggle/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/poretools_stats/poretools_stats/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/poretools_tabular/poretools_tabular/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/poretools_times/poretools_times/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/poretools_winner/poretools_winner/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/poretools_yield_plot/poretools_yield_plot/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/qualimap_bamqc/qualimap_bamqc/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
     rules:
     - if: 0.2 <= input_size < 30
       cores: 5
+      mem: 40
     - if: input_size >= 30
       cores: 9
+      mem: 72
   toolshed.g2.bx.psu.edu/repos/iuc/rna_starsolo/rna_starsolo/.*:
     cores: 9
-    mem: 8
+    mem: 72
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/roary/roary/.*:
     cores: 7
-    mem: 8
+    mem: 56
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/scanpy_cluster_reduce_dimension/scanpy_cluster_reduce_dimension/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
     rules:
     - if: input_size >= 0.5
       cores: 5
+      mem: 40
   toolshed.g2.bx.psu.edu/repos/iuc/scanpy_filter/scanpy_filter/.*:
     cores: 1
     mem: 8
@@ -838,14 +899,16 @@ tools:
     rules:
     - if: input_size >= 0.5
       cores: 3
+      mem: 24
   toolshed.g2.bx.psu.edu/repos/iuc/scanpy_inspect/scanpy_inspect/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
     rules:
     - if: input_size >= 0.5
       cores: 5
+      mem: 40
   toolshed.g2.bx.psu.edu/repos/iuc/scanpy_normalize/scanpy_normalize/.*:
     cores: 1
     mem: 8
@@ -854,52 +917,57 @@ tools:
     rules:
     - if: input_size >= 1
       cores: 2
+      mem: 16
   toolshed.g2.bx.psu.edu/repos/iuc/scanpy_remove_confounders/scanpy_remove_confounders/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
     rules:
     - if: 0.05 <= input_size < 0.5
       cores: 5
+      mem: 40
     - if: input_size >= 0.5
       cores: 9
+      mem: 72
   toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/.*:
     cores: 4
-    mem: 8
+    mem: 32
     context:
       time: "08:00:00"
     rules:
     - if: 0.015 <= input_size < 2
       cores: 8
+      mem: 64
     - if: 2 <= input_size < 10
       cores: 10
+      mem: 80
     - if: input_size >= 10
       cores: 56
       mem: 2048
   toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/snpsift/snpSift_annotate/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*:
     cores: 4
-    mem: 4
+    mem: 32
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fastq_dump/.*:
     cores: 3
-    mem: 4
+    mem: 12
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/sam_dump/.*:
     cores: 3
-    mem: 4
+    mem: 12
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/stringtie/stringtie/.*:
@@ -910,8 +978,10 @@ tools:
     rules:
     - if: 0.2 <= input_size < 2
       cores: 3
+      mem: 24
     - if: input_size >= 2
       cores: 5
+      mem: 40
   toolshed.g2.bx.psu.edu/repos/iuc/stringtie/stringtie_merge/.*:
     cores: 1
     mem: 8
@@ -919,7 +989,7 @@ tools:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/lparsons/cutadapt/cutadapt/.*:
     cores: 5
-    mem: 8
+    mem: 40
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/pjbriggs/trimmomatic/trimmomatic/.*:
@@ -930,44 +1000,52 @@ tools:
     rules:
     - if: 0.015 <= input_size < 3
       cores: 2
+      mem: 16
     - if: input_size >= 3
       cores: 3
+      mem: 24
   toolshed.g2.bx.psu.edu/repos/saskia-hiltemann/krona_text/krona-text/.*:
     cores: 3
-    mem: 8
+    mem: 24
     context:
       time: "08:00:00"
     rules:
     - if: 0.02 <= input_size < 2
       cores: 5
+      mem: 40
     - if: input_size >= 2
       cores: 7
+      mem: 56
   toolshed.g2.bx.psu.edu/repos/bgruening/augustus/augustus/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: input_size >= 0.01
       cores: 8
+      mem: 64
   toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_fingerprint/deeptools_plot_fingerprint/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: input_size >= 0.5
       cores: 8
+      mem: 64
   toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.15 <= input_size < 1
       cores: 8
+      mem: 64
     - if: 1 <= input_size < 10
       cores: 16
+      mem: 128
     - if: input_size >= 10
       cores: 120
       mem: 1922
@@ -979,56 +1057,338 @@ tools:
     rules:
     - if: 0.05 <= input_size < 5
       cores: 8
+      mem: 64
     - if: input_size >= 5
       cores: 120
       mem: 1922
   toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*:
     cores: 8
-    mem: 8
+    mem: 64
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/chemteam/gmx_sim/gmx_sim/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/crs4/prokka/prokka/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.001 <= input_size < 0.03
       cores: 8
+      mem: 64
     - if: input_size >= 0.03
       fail: Too much data, Prokka is designed to annotate bacterial/virus genomes
         only. Prokka will not annotate eukaryotic genomes nor metagenomes.
   toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.1 <= input_size < 5
       cores: 8
+      mem: 64
     - if: input_size >= 5
-      cores: 8
+      cores: 10
+      mem: 80
   toolshed.g2.bx.psu.edu/repos/iuc/bwameth/bwameth/.*:
     cores: 2
-    mem: 8
+    mem: 16
     context:
       time: "08:00:00"
     rules:
     - if: 0.25 <= input_size < 1
       cores: 4
+      mem: 32
     - if: 1 <= input_size < 20
       cores: 8
+      mem: 64
     - if: input_size >= 20
       cores: 60
       mem: 961
   toolshed.g2.bx.psu.edu/repos/devteam/fastq_groomer/fastq_groomer/.*:
     cores: 2
+    mem: 16
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_deinterlacer/fastq_paired_end_deinterlacer/.*:
+    cores: 1
+    mem: 16
+    context:
+      time: "08:00:00"
+    rules:
+    - if: input_size >= 1
+      cores: 8
+      mem: 64
+  toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_interlacer/fastq_paired_end_interlacer/.*:
+    cores: 1
     mem: 8
     context:
       time: "08:00:00"
+    rules:
+    - if: 0.02 <= input_size < 1
+      cores: 3
+      mem: 24
+    - if: input_size >= 1
+      cores: 8
+      mem: 64
+  toolshed.g2.bx.psu.edu/repos/devteam/lastz/lastz_wrapper_2/.*:
+    cores: 2
+    mem: 16
+    context:
+      time: "08:00:00"
+    - if: 0.001 <= input_size < 1
+      cores: 8
+      mem: 64
+    - if: input_size >= 1
+      cores: 16
+      mem: 1128
+  toolshed.g2.bx.psu.edu/repos/devteam/samtools_rmdup/samtools_rmdup/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: input_size >= 0.5
+      cores: 2
+      mem: 16
+  toolshed.g2.bx.psu.edu/repos/iuc/abricate/abricate/.*:
+    cores: 2
+    mem: 16
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.005 <= input_size < 0.02
+      cores: 4
+      mem: 32
+    - if: input_size >= 0.02
+      cores: 8
+      mem: 64
+  toolshed.g2.bx.psu.edu/repos/iuc/circos/circos/.*:
+    cores: 2
+    mem: 24
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/hisat2/hisat2/.*:
+    cores: 2
+    mem: 16
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.5 <= input_size < 15
+      cores: 8
+      mem: 64
+    - if: input_size >= 15
+      cores: 60
+      mem: 961
+  toolshed.g2.bx.psu.edu/repos/iuc/hyphy_gard/hyphy_gard/.*:
+    cores: 2
+    mem: 16
+    context:
+      time: "08:00:00"
+    rules:
+    - if: input_size >= 5e-06
+      cores: 120
+      mem: 1922
+  toolshed.g2.bx.psu.edu/repos/iuc/ivar_consensus/ivar_consensus/.*:
+    cores: 8
+    mem: 64
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/ivar_trim/ivar_trim/.*:
+    cores: 8
+    mem: 64
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/ivar_variants/ivar_variants/.*:
+    cores: 8
+    mem: 64
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/khmer_abundance_distribution_single/khmer_abundance_distribution_single/.*:
+    cores: 2
+    mem: 16
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.1 <= input_size < 0.5
+      cores: 16
+      mem: 128
+    - if: input_size >= 0.5
+      cores: 120
+      mem: 1922
+  toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*:
+    cores: 4
+    mem: 32
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/lofreq_viterbi/lofreq_viterbi/.*:
+    cores: 4
+    mem: 32
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/medaka_consensus_pipeline/medaka_consensus_pipeline/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.5 <= input_size < 5
+      cores: 8
+      mem: 64
+    - if: input_size >= 5
+      cores: 120
+      mem: 1922
+  toolshed.g2.bx.psu.edu/repos/iuc/medaka_variant/medaka_variant/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: input_size >= 0.5
+      cores: 8
+      mem: 64
+  toolshed.g2.bx.psu.edu/repos/iuc/megahit/megahit/.*:
+    cores: 8
+    mem: 64
+    context:
+      time: "08:00:00"
+    rules:
+    - if: input_size >= 5
+      cores: 16
+      mem: 128
+  toolshed.g2.bx.psu.edu/repos/iuc/meryl/meryl/.*:
+    cores: 2
+    mem: 16
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.001 < input_size <= 5
+      cores: 16
+      mem: 128
+    - if: input_size > 5
+      cores: 60
+      mem: 961
+  toolshed.g2.bx.psu.edu/repos/iuc/minimap2/minimap2/.*:
+    cores: 4
+    mem: 32
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.5 <= input_size < 5
+      cores: 8
+      mem: 64
+    - if: 5 <= input_size < 20
+      cores: 16
+      mem: 128
+    - if: input_size >= 20
+      cores: 120
+      mem: 1922
+  toolshed.g2.bx.psu.edu/repos/iuc/rgrnastar/rna_star/.*:
+    cores: 8
+    mem: 64
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/seqtk/seqtk_seq/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 10 <= input_size < 20
+      cores: 4
+      mem: 32
+    - if: input_size >= 20
+      cores: 120
+      mem: 1922
+  toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy/.*:
+    cores: 2
+    mem: 16
+    context:
+      time: "08:00:00"
+    rules:
+    - if: input_size >= 0.015
+      cores: 4
+      mem: 32
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_align_and_estimate_abundance/trinity_align_and_estimate_abundance/.*:
+    cores: 8
+    mem: 16
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/unicycler/unicycler/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.2 <= input_size < 2
+      cores: 8
+      mem: 64
+    - if: input_size >= 2
+      cores: 16
+      mem: 128
+  toolshed.g2.bx.psu.edu/repos/lparsons/htseq_count/htseq_count/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.2 <= input_size < 10
+      cores: 8
+      mem: 64
+    - if: input_size >= 10
+      cores: 16
+      mem: 128
+  toolshed.g2.bx.psu.edu/repos/nilesh/rseqc/rseqc_RPKM_saturation/.*:
+    cores: 8
+    mem: 64
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/nilesh/rseqc/rseqc_geneBody_coverage/.*:
+    cores: 2
+    mem: 16
+    context:
+      time: "08:00:00"
+    rules:
+    - if: input_size >= 0.5
+      cores: 4
+      mem: 32
+  toolshed.g2.bx.psu.edu/repos/nilesh/rseqc/rseqc_geneBody_coverage2/.*:
+    cores: 2
+    mem: 16
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/nilesh/rseqc/rseqc_read_distribution/.*:
+    cores: 2
+    mem: 16
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/nml/metaspades/metaspades/.*:
+    cores: 2
+    mem: 16
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.05 <= input_size < 1
+      cores: 8
+      mem: 64
+    - if: 1 <= input_size < 60
+      cores: 16
+      mem: 128
+    - if: input_size >= 60
+      cores: 56
+      mem: 2048
+  toolshed.g2.bx.psu.edu/repos/rnateam/mafft/rbc_mafft/.*:
+    cores: 8
+    mem: 64
+    context:
+      time: "08:00:00"
+    rules:
+    - if: input_size >= 0.5
+      cores: 56
+      mem: 2048
 

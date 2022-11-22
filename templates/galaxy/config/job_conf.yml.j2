@@ -1546,6 +1546,68 @@ tools:
     environment: tpv_dispatcher
   - id: fastq_groomer
     environment: tpv_dispatcher
+  - id: fastq_paired_end_deinterlacer
+    environment: tpv_dispatcher
+  - id: fastq_paired_end_interlacer
+    environment: tpv_dispatcher
+  - id: lastz_wrapper_2
+    environment: tpv_dispatcher
+  - id: samtools_rmdup
+    environment: tpv_dispatcher
+  - id: abricate
+    environment: tpv_dispatcher
+  - id: circos
+    environment: tpv_dispatcher
+  - id: hisat2
+    environment: tpv_dispatcher
+  - id: hyphy_gard
+    environment: tpv_dispatcher
+  - id: ivar_consensus
+    environment: tpv_dispatcher
+  - id: ivar_trim
+    environment: tpv_dispatcher
+  - id: ivar_variants
+    environment: tpv_dispatcher
+  - id: khmer_abundance_distribution_single
+    environment: tpv_dispatcher
+  - id: lofreq_filter
+    environment: tpv_dispatcher
+  - id: lofreq_viterbi
+    environment: tpv_dispatcher
+  - id: medaka_consensus_pipeline
+    environment: tpv_dispatcher
+  - id: medaka_variant
+    environment: tpv_dispatcher
+  - id: megahit
+    environment: tpv_dispatcher
+  - id: meryl
+    environment: tpv_dispatcher
+  - id: minimap2
+    environment: tpv_dispatcher
+  - id: rna_star
+    environment: tpv_dispatcher
+  - id: seqtk_seq
+    environment: tpv_dispatcher
+  - id: snippy
+    environment: tpv_dispatcher
+  - id: trinity_align_and_estimate_abundance
+    environment: tpv_dispatcher
+  - id: unicycler
+    environment: tpv_dispatcher
+  - id: htseq_count
+    environment: tpv_dispatcher
+  - id: rseqc_RPKM_saturation
+    environment: tpv_dispatcher
+  - id: rseqc_geneBody_coverage
+    environment: tpv_dispatcher
+  - id: rseqc_geneBody_coverage2
+    environment: tpv_dispatcher
+  - id: rseqc_read_distribution
+    environment: tpv_dispatcher
+  - id: metaspades
+    environment: tpv_dispatcher
+  - id: rbc_mafft
+    environment: tpv_dispatcher
   #### Frontera Small
   - id: bcftools_call
     environment: frontera_small_1hr
@@ -1553,11 +1615,7 @@ tools:
     environment: frontera_small_2hr
   - id: snippy_core
     environment: frontera_small_2hr
-  - id: snippy
-    environment: frontera_small_2hr
   - id: adapter_removal
-    environment: frontera_small_2hr
-  - id: minimap2
     environment: frontera_small_2hr
   - id: vcffilter2
     environment: frontera_small_2hr
@@ -1680,8 +1738,6 @@ tools:
     environment: frontera_large_8hr
   - id: diamond_database_builder
     environment: frontera_large_8hr
-  - id: unicycler
-    environment: frontera_large_8hr
   - id: megan_blast2lca
     environment: frontera_large_8hr
   - id: megan_blast2rma
@@ -1703,8 +1759,6 @@ tools:
   - id: concoct
     environment: frontera_large_24hr
   - id: spades_biosyntheticspades
-    environment: frontera_large_24hr
-  - id: metaspades
     environment: frontera_large_24hr
   - id: rnaspades
     environment: frontera_large_24hr
@@ -1735,8 +1789,6 @@ tools:
   - id: trinity_analyze_diff_expr
     environment: frontera_large_36hr
   - id: trinity_filter_low_expr_transcripts
-    environment: frontera_large_36hr
-  - id: trinity_align_and_estimate_abundance
     environment: frontera_large_36hr
   - id: describe_samples
     environment: frontera_large_36hr
