@@ -493,19 +493,11 @@ tools:
     mem: 20
     context:
       time: "08:00:00"
-    rules:
-      - if: helpers.job_args_match(job, app, {'db_opts': {'db_opts_selector': 'db'}})
-        cores: 15
-        cores: 60
   toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastp_wrapper/.*:
     cores: 5
     mem: 20
     context:
       time: "08:00:00"
-    rules:
-      - if: helpers.job_args_match(job, app, {'db_opts': {'db_opts_selector': 'db'}})
-        cores: 15
-        cores: 60
   toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastx_wrapper/.*:
     cores: 16
     mem: 64
@@ -516,10 +508,6 @@ tools:
     mem: 20
     context:
       time: "08:00:00"
-    rules:
-      - if: helpers.job_args_match(job, app, {'db_opts': {'db_opts_selector': 'db'}})
-        cores: 15
-        mem: 60
   toolshed.g2.bx.psu.edu/repos/devteam/picard/.*:
     cores: 1
     mem: 8
@@ -1268,6 +1256,7 @@ tools:
     mem: 16
     context:
       time: "08:00:00"
+    rules:
     - if: 0.001 <= input_size < 1
       cores: 8
       mem: 64
