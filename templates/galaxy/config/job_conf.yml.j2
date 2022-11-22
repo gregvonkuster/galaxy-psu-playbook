@@ -1488,6 +1488,64 @@ tools:
     environment: tpv_dispatcher
   - id: poretools_yield_plot
     environment: tpv_dispatcher
+  - id: qualimap_bamqc
+    environment: tpv_dispatcher
+  - id: rna_starsolo
+    environment: tpv_dispatcher
+  - id: roary
+    environment: tpv_dispatcher
+  - id: scanpy_cluster_reduce_dimension
+    environment: tpv_dispatcher
+  - id: scanpy_filter
+    environment: tpv_dispatcher
+  - id: scanpy_inspect
+    environment: tpv_dispatcher
+  - id: scanpy_normalize
+    environment: tpv_dispatcher
+  - id: scanpy_remove_confounders
+    environment: tpv_dispatcher
+  - id: shovill
+    environment: tpv_dispatcher
+  - id: snpEff
+    environment: tpv_dispatcher
+  - id: snpSift_annotate
+    environment: tpv_dispatcher
+  - id: fasterq_dump
+    environment: tpv_dispatcher
+  - id: fastq_dump
+    environment: tpv_dispatcher
+  - id: sam_dump
+    environment: tpv_dispatcher
+  - id: stringtie
+    environment: tpv_dispatcher
+  - id: stringtie_merge
+    environment: tpv_dispatcher
+  - id: cutadapt
+    environment: tpv_dispatcher
+  - id: trimmomatic
+    environment: tpv_dispatcher
+  - id: krona-text
+    environment: tpv_dispatcher
+  - id: augustus
+    environment: tpv_dispatcher
+  - id: deeptools_plot_fingerprint
+    environment: tpv_dispatcher
+  - id: flye
+    environment: tpv_dispatcher
+  - id: racon
+    environment: tpv_dispatcher
+  - id: repeatmasker_wrapper
+    environment: tpv_dispatcher
+  - id: gmx_sim
+    environment: tpv_dispatcher
+  - id: prokka
+    environment: tpv_dispatcher
+  - id: bowtie2
+    environment: tpv_dispatcher
+  - id: bwameth
+    environment: tpv_dispatcher
+  - id: fastq_groomer
+    environment: tpv_dispatcher
   #### Frontera Small
   - id: bcftools_call
     environment: frontera_small_1hr
@@ -1498,8 +1556,6 @@ tools:
   - id: snippy
     environment: frontera_small_2hr
   - id: adapter_removal
-    environment: frontera_small_2hr
-  - id: cutadapt
     environment: frontera_small_2hr
   - id: minimap2
     environment: frontera_small_2hr
@@ -1546,8 +1602,6 @@ tools:
   - id: ncbi_segmasker_wrapper
     environment: frontera_small_8hr
   - id: bg_diamond
-    environment: frontera_small_8hr
-  - id: flye
     environment: frontera_small_8hr
   - id: bg_diamond_makedb
     environment: frontera_small_8hr
@@ -1624,8 +1678,6 @@ tools:
     environment: frontera_large_8hr
   - id: obi_grep
     environment: frontera_large_8hr
-  - id: trimmomatic
-    environment: frontera_large_8hr
   - id: diamond_database_builder
     environment: frontera_large_8hr
   - id: unicycler
@@ -1693,12 +1745,6 @@ tools:
   - id: trinity_define_clusters_by_cutting_tree
     environment: frontera_large_36hr
   #### Slurm normal multicore
-  - id: fastq_dump
-    environment: slurm_normal_multicore_container
-  - id: fasterq_dump
-    environment: slurm_normal_multicore_container
-  - id: sam_dump
-    environment: slurm_normal_multicore_container
   #### Slurm bigmem multicore
   - id: phyloseq_from_dada2
     environment: slurm_bigmem_multicore_container_4c16g

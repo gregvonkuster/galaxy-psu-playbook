@@ -802,4 +802,233 @@ tools:
     mem: 8
     context:
       time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/qualimap_bamqc/qualimap_bamqc/.*:
+    cores: 3
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.2 <= input_size < 30
+      cores: 5
+    - if: input_size >= 30
+      cores: 9
+  toolshed.g2.bx.psu.edu/repos/iuc/rna_starsolo/rna_starsolo/.*:
+    cores: 9
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/roary/roary/.*:
+    cores: 7
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/scanpy_cluster_reduce_dimension/scanpy_cluster_reduce_dimension/.*:
+    cores: 3
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: input_size >= 0.5
+      cores: 5
+  toolshed.g2.bx.psu.edu/repos/iuc/scanpy_filter/scanpy_filter/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: input_size >= 0.5
+      cores: 3
+  toolshed.g2.bx.psu.edu/repos/iuc/scanpy_inspect/scanpy_inspect/.*:
+    cores: 3
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: input_size >= 0.5
+      cores: 5
+  toolshed.g2.bx.psu.edu/repos/iuc/scanpy_normalize/scanpy_normalize/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: input_size >= 1
+      cores: 2
+  toolshed.g2.bx.psu.edu/repos/iuc/scanpy_remove_confounders/scanpy_remove_confounders/.*:
+    cores: 3
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.05 <= input_size < 0.5
+      cores: 5
+    - if: input_size >= 0.5
+      cores: 9
+  toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/.*:
+    cores: 4
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.015 <= input_size < 2
+      cores: 8
+    - if: 2 <= input_size < 10
+      cores: 10
+    - if: input_size >= 10
+      cores: 56
+      mem: 2048
+  toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff/.*:
+    cores: 3
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/snpsift/snpSift_annotate/.*:
+    cores: 3
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*:
+    cores: 4
+    mem: 4
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fastq_dump/.*:
+    cores: 3
+    mem: 4
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/sam_dump/.*:
+    cores: 3
+    mem: 4
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/stringtie/stringtie/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.2 <= input_size < 2
+      cores: 3
+    - if: input_size >= 2
+      cores: 5
+  toolshed.g2.bx.psu.edu/repos/iuc/stringtie/stringtie_merge/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/lparsons/cutadapt/cutadapt/.*:
+    cores: 5
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/pjbriggs/trimmomatic/trimmomatic/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.015 <= input_size < 3
+      cores: 2
+    - if: input_size >= 3
+      cores: 3
+  toolshed.g2.bx.psu.edu/repos/saskia-hiltemann/krona_text/krona-text/.*:
+    cores: 3
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.02 <= input_size < 2
+      cores: 5
+    - if: input_size >= 2
+      cores: 7
+  toolshed.g2.bx.psu.edu/repos/bgruening/augustus/augustus/.*:
+    cores: 2
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: input_size >= 0.01
+      cores: 8
+  toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_fingerprint/deeptools_plot_fingerprint/.*:
+    cores: 2
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: input_size >= 0.5
+      cores: 8
+  toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*:
+    cores: 2
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.15 <= input_size < 1
+      cores: 8
+    - if: 1 <= input_size < 10
+      cores: 16
+    - if: input_size >= 10
+      cores: 120
+      mem: 1922
+  toolshed.g2.bx.psu.edu/repos/bgruening/racon/racon/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.05 <= input_size < 5
+      cores: 8
+    - if: input_size >= 5
+      cores: 120
+      mem: 1922
+  toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*:
+    cores: 8
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/chemteam/gmx_sim/gmx_sim/.*:
+    cores: 2
+    mem: 8
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/crs4/prokka/prokka/.*:
+    cores: 2
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.001 <= input_size < 0.03
+      cores: 8
+    - if: input_size >= 0.03
+      fail: Too much data, Prokka is designed to annotate bacterial/virus genomes
+        only. Prokka will not annotate eukaryotic genomes nor metagenomes.
+  toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/.*:
+    cores: 2
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.1 <= input_size < 5
+      cores: 8
+    - if: input_size >= 5
+      cores: 8
+  toolshed.g2.bx.psu.edu/repos/iuc/bwameth/bwameth/.*:
+    cores: 2
+    mem: 8
+    context:
+      time: "08:00:00"
+    rules:
+    - if: 0.25 <= input_size < 1
+      cores: 4
+    - if: 1 <= input_size < 20
+      cores: 8
+    - if: input_size >= 20
+      cores: 60
+      mem: 961
+  toolshed.g2.bx.psu.edu/repos/devteam/fastq_groomer/fastq_groomer/.*:
+    cores: 2
+    mem: 8
+    context:
+      time: "08:00:00"
 
