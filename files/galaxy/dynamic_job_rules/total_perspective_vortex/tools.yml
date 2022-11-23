@@ -268,53 +268,113 @@ tools:
     mem: 8
     context:
       time: "08:00:00"
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/vsnp_build_tables/vsnp_build_tables/.*:
     cores: 12
     mem: 96
     context:
       time: "12:00:00"
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/vsnp_get_snps/vsnp_get_snps/.*:
     cores: 12
     mem: 96
     context:
       time: "12:00:00"
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*:
     cores: 1
     mem: 8
     context:
       time: "04:00:00"
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*:
     cores: 1
     mem: 1
     context:
       time: "00:10:00"
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/seqkit_stats/seqkit_stats/.*:
     cores: 1
     mem: 8
     context:
       time: "04:00:00"
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/seqkit_fx2tab/seqkit_fx2tab/,*:
     cores: 1
     mem: 8
     context:
       time: "04:00:00"
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/multiqc/multiqc/,*:
     cores: 3
     mem: 24
     context:
       time: "04:00:00"
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/raxml/raxml/,*:
     cores: 2
     mem: 16
     context:
       time: "04:00:00"
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
     rules:
     - if: 0.0005 <= input_size < 0.1
       cores: 16
       mem: 128
+      scheduling:
+        require:
+          - frontera
     - if: input_size >= 0.1
       cores: 120
       mem: 1922
+      scheduling:
+        require:
+          - frontera
   toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*:
     cores: 2
     mem: 16
@@ -336,10 +396,22 @@ tools:
   toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa_mem/.*:
     cores: 2
     mem: 16
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
     rules:
     - if: 0.25 <= input_size < 1
       cores: 4
       mem: 32
+      scheduling:
+        accept:
+          - general
+          - slurm
+        reject:
+          - frontera
     - if: 1 <= input_size < 20
       cores: 8
       mem: 64
@@ -356,13 +428,31 @@ tools:
     mem: 16
     context:
       time: "08:00:00"
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
     rules:
     - if: 0.2 <= input_size < 4
       cores: 4
       cores: 32
+      scheduling:
+        accept:
+          - general
+          - slurm
+        reject:
+          - frontera
     - if: 4 <= input_size < 50
       cores: 8
       cores: 64
+      scheduling:
+        accept:
+          - general
+          - slurm
+        reject:
+          - frontera
     - if: input_size >= 50
       cores: 56
       mem: 2048
@@ -374,36 +464,66 @@ tools:
     mem: 8
     context:
       time: "04:00:00"
+      scheduling:
+        accept:
+          - general
+          - slurm
+        reject:
+          - frontera
   toolshed.g2.bx.psu.edu/repos/devteam/samtools_sort/samtools_sort/.*:
     cores: 1
     mem: 8
     context:
       time: "04:00:00"
+      scheduling:
+        accept:
+          - general
+          - slurm
+        reject:
+          - frontera
   toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/.*:
     cores: 1
     mem: 8
     context:
       time: "04:00:00"
+      scheduling:
+        accept:
+          - general
+          - slurm
+        reject:
+          - frontera
   toolshed.g2.bx.psu.edu/repos/bgruening/bionano_scaffold/bionano_scaffold/.*:
     cores: 16
     mem: 128
     context:
       time: "08:00:00"
+    scheduling:
+      require:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/bgruening/chemfp/ctb_chemfp_nxn_clustering/.*:
     cores: 16
     mem: 128
     context:
       time: "08:00:00"
+    scheduling:
+      require:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/bgruening/chemfp/ctb_chemfp_mol2fps/.*:
     cores: 16
     mem: 128
     context:
       time: "08:00:00"
+    scheduling:
+      require:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/bgruening/chemfp/ctb_sdf2fps/.*:
     cores: 16
     mem: 128
     context:
       time: "08:00:00"
+    scheduling:
+      require:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_compare/deeptools_bam_compare/.*:
     cores: 9
     mem: 72
@@ -513,6 +633,12 @@ tools:
     mem: 8
     context:
       time: "08:00:00"
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
     env:
       _JAVA_OPTIONS: '-Xmx{int(mem)}G -Xms1G'
     rules:
@@ -524,11 +650,23 @@ tools:
     mem: 12
     context:
       time: "08:00:00"
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/devteam/samtools_mpileup/samtools_mpileup/.*:
     cores: 5
     mem: 20
     context:
       time: "08:00:00"
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*:
     cores: 2
     mem: 8
@@ -597,21 +735,45 @@ tools:
     mem: 40
     context:
       time: "08:00:00"
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/fastp/fastp/.*:
     cores: 5
     mem: 40
     context:
       time: "08:00:00"
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/ggplot2_heatmap2/ggplot2_heatmap2/.*:
     cores: 2
     mem: 40
     context:
       time: "08:00:00"
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/ggplot2_point/ggplot2_point/.*:
     cores: 1
     mem: 8
     context:
       time: "08:00:00"
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/gubbins/gubbins/.*:
     cores: 5
     mem: 40
@@ -632,6 +794,12 @@ tools:
     mem: 24
     context:
       time: "08:00:00"
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
   toolshed.g2.bx.psu.edu/repos/iuc/kallisto_quant/kallisto_quant/.*:
     cores: 2
     mem: 16
@@ -1268,6 +1436,12 @@ tools:
     mem: 8
     context:
       time: "08:00:00"
+    scheduling:
+      accept:
+        - general
+        - slurm
+      reject:
+        - frontera
     rules:
     - if: input_size >= 0.5
       cores: 2
