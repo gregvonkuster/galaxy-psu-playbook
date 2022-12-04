@@ -263,6 +263,9 @@ tools:
   ######################
   # Open Stack Instances
   ######################
+  ##########
+  # Cores: 1
+  ##########
   toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*:
     cores: 1
     mem: 2
@@ -335,6 +338,9 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
+  ##########
+  # Cores: 2
+  ##########
   toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*:
     cores: 2
     mem: 8
@@ -399,9 +405,13 @@ tools:
       cores: 5
       mem: 40
   toolshed.g2.bx.psu.edu/repos/iuc/raxml/raxml/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+    cores: 2
+    mem: 16
     context:
       time: "04:00:00"
+    scheduling:
+       reject:
+         - pulsar
     rules:
     - if: 0.0005 <= input_size < 0.1
       cores: 16
@@ -415,25 +425,6 @@ tools:
       scheduling:
         reject:
           - slurm
-  toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/raxml/raxml/.*
-    context:
-      time: "08:00:00"
-    rules:
-    - if: 0.25 <= input_size < 1
-      cores: 4
-      mem: 32
-    - if: 1 <= input_size < 20
-      cores: 8
-      mem: 64
-    - if: input_size >= 20
-      cores: 56
-      mem: 2048
-      scheduling:
-        reject:
-          - slurm
-  toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa_mem/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
   toolshed.g2.bx.psu.edu/repos/devteam/freebayes/freebayes/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/raxml/raxml/.*
     rules:
@@ -449,6 +440,29 @@ tools:
       scheduling:
         reject:
           - slurm
+  toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*:
+    cores: 2
+    mem: 16
+    context:
+      time: "08:00:00"
+    scheduling:
+       reject:
+         - pulsar
+    rules:
+    - if: 0.25 <= input_size < 1
+      cores: 4
+      mem: 32
+    - if: 1 <= input_size < 20
+      cores: 8
+      mem: 64
+    - if: input_size >= 20
+      cores: 56
+      mem: 2048
+      scheduling:
+        reject:
+          - slurm
+  toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa_mem/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
   toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
     rules:
@@ -465,6 +479,9 @@ tools:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/devteam/kraken/kraken/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
+  ##########
+  # Cores: 3
+  ##########
   toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_joiner/fastq_paired_end_joiner/.*:
     cores: 3
     mem: 12
@@ -557,6 +574,9 @@ tools:
     - if: input_size >= 1
       cores: 7
       mem: 56
+  ##########
+  # Cores: 5
+  ##########
   toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastn_wrapper/.*:
     cores: 5
     mem: 20
@@ -607,6 +627,9 @@ tools:
       scheduling:
         reject:
           - slurm
+  ##########
+  # Cores: 7
+  ##########
   toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_coverage/deeptools_bam_coverage/.*:
     cores: 7
     mem: 56
@@ -617,6 +640,9 @@ tools:
         - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/limma_voom/limma_voom/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_coverage/deeptools_bam_coverage/.*
+  ##########
+  # Cores: 9
+  ##########
   toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_compare/deeptools_bam_compare/.*:
     cores: 9
     mem: 72
@@ -640,6 +666,9 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_compare/deeptools_bam_compare/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_compute_matrix/deeptools_compute_matrix/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_compare/deeptools_bam_compare/.*
+  ###########
+  # Cores: 12
+  ###########
   toolshed.g2.bx.psu.edu/repos/iuc/vsnp_build_tables/vsnp_build_tables/.*:
     cores: 12
     mem: 96
@@ -648,6 +677,9 @@ tools:
     scheduling:
        reject:
          - pulsar
+  ###########
+  # Cores: 16
+  ###########
   toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastx_wrapper/.*:
     cores: 16
     mem: 64
