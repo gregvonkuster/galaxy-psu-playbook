@@ -282,6 +282,16 @@ tools:
     scheduling:
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/seqkit_stats/seqkit_stats/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/seqkit_fx2tab/seqkit_fx2tab/,*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/samtools_sort/samtools_sort/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
     context:
@@ -326,18 +336,6 @@ tools:
     - if: input_size >= 0.01
       cores: 5
       mem: 40
-  toolshed.g2.bx.psu.edu/repos/iuc/vsnp_get_snps/vsnp_get_snps/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_build_tables/vsnp_build_tables/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/seqkit_stats/seqkit_stats/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/seqkit_fx2tab/seqkit_fx2tab/,*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
-  toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
-  toolshed.g2.bx.psu.edu/repos/devteam/samtools_sort/samtools_sort/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
-  toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
   ##########
   # Cores: 2
   ##########
@@ -358,6 +356,12 @@ tools:
     scheduling:
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/kallisto_quant/kallisto_quant/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+    rules:
+    - if: input_size >= 0.1
+      cores: 5
+      mem: 40
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
     rules:
@@ -367,9 +371,6 @@ tools:
     - if: input_size >= 2
       cores: 7
       mem: 56
-      scheduling:
-         reject:
-           - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_chimera_vsearch/mothur_chimera_vsearch/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_classify_otu/mothur_classify_otu/.*:
@@ -398,12 +399,6 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_unique_seqs/mothur_unique_seqs/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/kallisto_quant/kallisto_quant/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
-    rules:
-    - if: input_size >= 0.1
-      cores: 5
-      mem: 40
   toolshed.g2.bx.psu.edu/repos/iuc/raxml/raxml/.*:
     cores: 2
     mem: 16
@@ -417,27 +412,39 @@ tools:
       cores: 16
       mem: 128
       scheduling:
+        accept:
+          - pulsar
         reject:
           - slurm
     - if: input_size >= 0.1
       cores: 120
       mem: 1922
       scheduling:
+        accept:
+          - pulsar
         reject:
           - slurm
   toolshed.g2.bx.psu.edu/repos/devteam/freebayes/freebayes/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/raxml/raxml/.*
+    cores: 2
+    mem: 16
+    context:
+      time: "04:00:00"
+    scheduling:
+       reject:
+         - pulsar
     rules:
     - if: 0.2 <= input_size < 4
       cores: 4
-      cores: 32
+      mem: 32
     - if: 4 <= input_size < 50
       cores: 8
-      cores: 64
+      mem: 64
     - if: input_size >= 50
       cores: 56
       mem: 2048
       scheduling:
+        accept:
+          - pulsar
         reject:
           - slurm
   toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*:
@@ -459,6 +466,8 @@ tools:
       cores: 56
       mem: 2048
       scheduling:
+        accept:
+          - pulsar
         reject:
           - slurm
   toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa_mem/.*:
@@ -546,14 +555,16 @@ tools:
     rules:
     - if: 0.0003 <= input_size < 0.002
       cores: 5
-      cores: 40
+      mem: 40
     - if: 0.002 <= input_size < 0.04
       cores: 9
-      cores: 72
+      mem: 72
     - if: input_size >= 0.04
       cores: 56
       mem: 2048
       scheduling:
+        accept:
+          - pulsar
         reject:
           - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_merge_files/mothur_merge_files/.*:
@@ -625,6 +636,8 @@ tools:
       cores: 56
       mem: 2048
       scheduling:
+        accept:
+          - pulsar
         reject:
           - slurm
   ##########
@@ -637,7 +650,7 @@ tools:
       time: "08:00:00"
     scheduling:
       reject:
-        - slurm
+        - pulsar
   toolshed.g2.bx.psu.edu/repos/iuc/limma_voom/limma_voom/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_coverage/deeptools_bam_coverage/.*
   ##########
@@ -650,7 +663,7 @@ tools:
       time: "08:00:00"
     scheduling:
       reject:
-        - slurm
+        - pulsar
   toolshed.g2.bx.psu.edu/repos/iuc/pilon/pilon/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_compare/deeptools_bam_compare/.*
     rules:
@@ -658,6 +671,8 @@ tools:
       cores: 16
       mem: 128
       scheduling:
+        accept:
+          - pulsar
         reject:
           - slurm
     env:
@@ -677,15 +692,19 @@ tools:
     scheduling:
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/vsnp_get_snps/vsnp_get_snps/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_build_tables/vsnp_build_tables/.*
   ###########
   # Cores: 16
   ###########
   toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastx_wrapper/.*:
     cores: 16
-    mem: 64
+    mem: 128
     context:
       time: "08:00:00"
     scheduling:
+      accept:
+        - pulsar
       reject:
         - slurm
   toolshed.g2.bx.psu.edu/repos/bgruening/bionano_scaffold/bionano_scaffold/.*:
@@ -703,6 +722,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
+      accept:
+        - pulsar
       reject:
         - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/.*:
