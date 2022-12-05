@@ -1554,6 +1554,10 @@ tools:
     environment: tpv_dispatcher
   - id: samtools_rmdup
     environment: tpv_dispatcher
+  - id: samtools_fixmate
+    environment: tpv_dispatcher
+  - id: samtools_markdup
+    environment: tpv_dispatcher
   - id: abricate
     environment: tpv_dispatcher
   - id: circos
@@ -1590,7 +1594,29 @@ tools:
     environment: tpv_dispatcher
   - id: snippy
     environment: tpv_dispatcher
+  - id: trinity
+    environment: tpv_dispatcher
   - id: trinity_align_and_estimate_abundance
+    environment: tpv_dispatcher
+  - id: trinity_contig_exn50_statistic
+    environment: tpv_dispatcher
+  - id: trinity_abundance_estimates_to_matrix
+    environment: tpv_dispatcher
+  - id: trinity_gene_to_trans_map
+    environment: tpv_dispatcher
+  - id: trinity_run_de_analysis
+    environment: tpv_dispatcher
+  - id: trinity_samples_qccheck
+    environment: tpv_dispatcher
+  - id: trinity_super_transcripts
+    environment: tpv_dispatcher
+  - id: trinity_analyze_diff_expr
+    environment: tpv_dispatcher
+  - id: trinity_filter_low_expr_transcripts
+    environment: tpv_dispatcher
+  - id: describe_samples
+    environment: tpv_dispatcher
+  - id: trinity_define_clusters_by_cutting_tree
     environment: tpv_dispatcher
   - id: unicycler
     environment: tpv_dispatcher
@@ -1790,28 +1816,6 @@ tools:
     environment: frontera_large_24hr
   - id: malt_run
     environment: frontera_large_36hr
-  - id: trinity_contig_exn50_statistic
-    environment: frontera_large_36hr
-  - id: trinity_abundance_estimates_to_matrix
-    environment: frontera_large_36hr
-  - id: trinity_gene_to_trans_map
-    environment: frontera_large_36hr
-  - id: trinity_run_de_analysis
-    environment: frontera_large_36hr
-  - id: trinity_samples_qccheck
-    environment: frontera_large_36hr
-  - id: trinity_super_transcripts
-    environment: frontera_large_36hr
-  - id: trinity_analyze_diff_expr
-    environment: frontera_large_36hr
-  - id: trinity_filter_low_expr_transcripts
-    environment: frontera_large_36hr
-  - id: describe_samples
-    environment: frontera_large_36hr
-  - id: trinity
-    environment: frontera_large_36hr
-  - id: trinity_define_clusters_by_cutting_tree
-    environment: frontera_large_36hr
   #### Slurm normal multicore
   #### Slurm bigmem multicore
   - id: phyloseq_from_dada2
@@ -1836,10 +1840,6 @@ tools:
     environment: slurm_bigmem_multicore_container_4c32g
   - id: dada2_learnErrors
     environment: slurm_bigmem_multicore_container_4c32g
-  - id: samtools_fixmate
-    environment: frontera_small_2668mb_2hr
-  - id: samtools_markdup
-    environment: slurm_bigmem_multicore_container_4c64g
   - id: qiime_align_seqs
     environment: slurm_bigmem_multicore_container_4c64g
   - id: qiime_alpha_diversity
