@@ -298,6 +298,12 @@ tools:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/ggplot2_point/ggplot2_point/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/scanpy_filter/scanpy_filter/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    rules:
+    - if: input_size >= 0.5
+      cores: 3
+      mem: 24
   toolshed.g2.bx.psu.edu/repos/devteam/picard/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
     env:
@@ -336,6 +342,12 @@ tools:
     - if: input_size >= 0.01
       cores: 5
       mem: 40
+  toolshed.g2.bx.psu.edu/repos/iuc/scanpy_normalize/scanpy_normalize/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    rules:
+    - if: input_size >= 1
+      cores: 2
+      mem: 16
   ##########
   # Cores: 2
   ##########
@@ -506,6 +518,10 @@ tools:
     scheduling:
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/snpsift/snpSift_annotate/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
   toolshed.g2.bx.psu.edu/repos/iuc/poretools_extract/poretools_extract/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
   toolshed.g2.bx.psu.edu/repos/iuc/poretools_hist/poretools_hist/.*:
@@ -585,6 +601,52 @@ tools:
     - if: input_size >= 1
       cores: 7
       mem: 56
+  toolshed.g2.bx.psu.edu/repos/iuc/qualimap_bamqc/qualimap_bamqc/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
+    rules:
+    - if: 0.2 <= input_size < 30
+      cores: 5
+      mem: 40
+    - if: input_size >= 30
+      cores: 9
+      mem: 72
+  toolshed.g2.bx.psu.edu/repos/iuc/scanpy_remove_confounders/scanpy_remove_confounders/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
+    rules:
+    - if: 0.05 <= input_size < 0.5
+      cores: 5
+      mem: 40
+    - if: input_size >= 0.5
+      cores: 9
+      mem: 72
+  toolshed.g2.bx.psu.edu/repos/iuc/scanpy_inspect/scanpy_inspect/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
+    rules:
+    - if: input_size >= 0.5
+      cores: 5
+      mem: 40
+  toolshed.g2.bx.psu.edu/repos/iuc/scanpy_cluster_reduce_dimension/scanpy_cluster_reduce_dimension/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/scanpy_inspect/scanpy_inspect/.*
+  ##########
+  # Cores: 4
+  ##########
+  toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*:
+    cores: 4
+    mem: 32
+    context:
+      time: "08:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*
+    rules:
+    - if: 0.015 <= input_size < 2
+      cores: 8
+      mem: 64
+    - if: 2 <= input_size < 10
+      cores: 10
+      mem: 80
+    - if: input_size >= 10
+      cores: 56
+      mem: 2048
   ##########
   # Cores: 5
   ##########
@@ -653,6 +715,8 @@ tools:
         - pulsar
   toolshed.g2.bx.psu.edu/repos/iuc/limma_voom/limma_voom/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_coverage/deeptools_bam_coverage/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/roary/roary/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_coverage/deeptools_bam_coverage/.*
   ##########
   # Cores: 9
   ##########
@@ -664,6 +728,8 @@ tools:
     scheduling:
       reject:
         - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/rna_starsolo/rna_starsolo/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_compare/deeptools_bam_compare/.*
   toolshed.g2.bx.psu.edu/repos/iuc/pilon/pilon/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_compare/deeptools_bam_compare/.*
     rules:
@@ -728,106 +794,6 @@ tools:
         - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/galaxyp/maxquant/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/qualimap_bamqc/qualimap_bamqc/.*:
-    cores: 3
-    mem: 24
-    context:
-      time: "08:00:00"
-    rules:
-    - if: 0.2 <= input_size < 30
-      cores: 5
-      mem: 40
-    - if: input_size >= 30
-      cores: 9
-      mem: 72
-  toolshed.g2.bx.psu.edu/repos/iuc/rna_starsolo/rna_starsolo/.*:
-    cores: 9
-    mem: 72
-    context:
-      time: "08:00:00"
-  toolshed.g2.bx.psu.edu/repos/iuc/roary/roary/.*:
-    cores: 7
-    mem: 56
-    context:
-      time: "08:00:00"
-  toolshed.g2.bx.psu.edu/repos/iuc/scanpy_cluster_reduce_dimension/scanpy_cluster_reduce_dimension/.*:
-    cores: 3
-    mem: 24
-    context:
-      time: "08:00:00"
-    rules:
-    - if: input_size >= 0.5
-      cores: 5
-      mem: 40
-  toolshed.g2.bx.psu.edu/repos/iuc/scanpy_filter/scanpy_filter/.*:
-    cores: 1
-    mem: 8
-    context:
-      time: "08:00:00"
-    rules:
-    - if: input_size >= 0.5
-      cores: 3
-      mem: 24
-  toolshed.g2.bx.psu.edu/repos/iuc/scanpy_inspect/scanpy_inspect/.*:
-    cores: 3
-    mem: 24
-    context:
-      time: "08:00:00"
-    rules:
-    - if: input_size >= 0.5
-      cores: 5
-      mem: 40
-  toolshed.g2.bx.psu.edu/repos/iuc/scanpy_normalize/scanpy_normalize/.*:
-    cores: 1
-    mem: 8
-    context:
-      time: "08:00:00"
-    rules:
-    - if: input_size >= 1
-      cores: 2
-      mem: 16
-  toolshed.g2.bx.psu.edu/repos/iuc/scanpy_remove_confounders/scanpy_remove_confounders/.*:
-    cores: 3
-    mem: 24
-    context:
-      time: "08:00:00"
-    rules:
-    - if: 0.05 <= input_size < 0.5
-      cores: 5
-      mem: 40
-    - if: input_size >= 0.5
-      cores: 9
-      mem: 72
-  toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/.*:
-    cores: 4
-    mem: 32
-    context:
-      time: "08:00:00"
-    rules:
-    - if: 0.015 <= input_size < 2
-      cores: 8
-      mem: 64
-    - if: 2 <= input_size < 10
-      cores: 10
-      mem: 80
-    - if: input_size >= 10
-      cores: 56
-      mem: 2048
-  toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff/.*:
-    cores: 3
-    mem: 24
-    context:
-      time: "08:00:00"
-  toolshed.g2.bx.psu.edu/repos/iuc/snpsift/snpSift_annotate/.*:
-    cores: 3
-    mem: 24
-    context:
-      time: "08:00:00"
-  toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*:
-    cores: 4
-    mem: 32
-    context:
-      time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fastq_dump/.*:
     cores: 3
     mem: 12
