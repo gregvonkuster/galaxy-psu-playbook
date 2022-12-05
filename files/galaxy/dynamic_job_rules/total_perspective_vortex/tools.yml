@@ -306,6 +306,27 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/stringtie/stringtie_merge/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_cluster_split/mothur_cluster_split/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    rules:
+    - if: input_size >= 0.00015
+      cores: 60
+      mem: 2048
+      scheduling:
+         accept:
+           - pulsar
+         reject:
+           - slurm
+  toolshed.g2.bx.psu.edu/repos/iuc/quast/quast/.*:
+    rules:
+    - if: input_size >= 1
+      cores: 60
+      mem: 2048
+      scheduling:
+         accept:
+           - pulsar
+         reject:
+           - slurm
   toolshed.g2.bx.psu.edu/repos/lparsons/htseq_count/htseq_count/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
     rules:
@@ -496,6 +517,45 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
   toolshed.g2.bx.psu.edu/repos/nilesh/rseqc/rseqc_read_distribution/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/busco/busco/3.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+    rules:
+    - if: 0.05 <= input_size
+      cores: 8
+      mem: 64
+  toolshed.g2.bx.psu.edu/repos/bgruening/hifiasm/hifiasm/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+    rules:
+    - if: input_size >= 0.2
+      cores: 56
+      mem: 2048
+      scheduling:
+         accept:
+           - pulsar
+         reject:
+           - slurm
+  toolshed.g2.bx.psu.edu/repos/nml/metaspades/metaspades/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+    rules:
+    - if: 0.05 <= input_size < 1
+      cores: 8
+      mem: 64
+    - if: 1 <= input_size < 60
+      cores: 16
+      mem: 128
+      scheduling:
+         accept:
+           - pulsar
+         reject:
+           - slurm
+    - if: input_size >= 60
+      cores: 56
+      mem: 2048
+      scheduling:
+         reject:
+           - slurm
+         accept:
+           - pulsar
   toolshed.g2.bx.psu.edu/repos/nilesh/rseqc/rseqc_geneBody_coverage/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
     rules:
@@ -788,6 +848,42 @@ tools:
     - if: input_size >= 10
       cores: 7
       mem: 56
+  toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+    rules:
+    - if: 0.005 <= input_size < 2
+      cores: 8
+      mem: 64
+    - if: 2 <= input_size < 20
+      cores: 60
+      mem: 961
+      scheduling:
+        accept:
+          - pulsar
+        reject:
+          - slurm
+    - if: input_size >= 20
+      cores: 56
+      mem: 2048
+      scheduling:
+        accept:
+          - pulsar
+        reject:
+          - slurm
+  toolshed.g2.bx.psu.edu/repos/iuc/spades_rnaviralspades/spades_rnaviralspades/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/rnaspades/rnaspades/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/spades_plasmidspades/spades_plasmidspades/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/spades_metaviralspades/spades_metaviralspades/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/spades_metaplasmidspades/spades_metaplasmidspades/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/spades_coronaspades/spades_coronaspades/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/spades_biosyntheticspades/spades_biosyntheticspades/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
   toolshed.g2.bx.psu.edu/repos/iuc/circos/circos/.*:
     cores: 2
     mem: 24
@@ -1075,6 +1171,10 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_coverage/deeptools_bam_coverage/.*
   toolshed.g2.bx.psu.edu/repos/iuc/roary/roary/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_coverage/deeptools_bam_coverage/.*
+  toolshed.g2.bx.psu.edu/repos/galaxyp/peptideshaker/peptide_shaker/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_coverage/deeptools_bam_coverage/.*
+    env:
+      _JAVA_OPTIONS: '-Xmx{int(mem)}G -Xms1G'
   ##########
   # Cores: 8
   ##########
@@ -1096,6 +1196,17 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/iuc/ivar_variants/ivar_variants/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/rnateam/mafft/rbc_mafft/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+    rules:
+    - if: input_size >= 0.5
+      cores: 56
+      mem: 2048
+       scheduling:
+         accept:
+           - pulsar
+         reject:
+           - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/trinity_align_and_estimate_abundance/trinity_align_and_estimate_abundance/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
     rules:
@@ -1195,113 +1306,26 @@ tools:
         - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/galaxyp/maxquant/.*
-  toolshed.g2.bx.psu.edu/repos/nml/metaspades/metaspades/.*:
-    cores: 2
-    mem: 16
+  ###########
+  # Cores: 30
+  ###########
+  toolshed.g2.bx.psu.edu/repos/iuc/exonerate/exonerate/.*:
+    cores: 30
+    mem: 480
     context:
       time: "08:00:00"
-    rules:
-    - if: 0.05 <= input_size < 1
-      cores: 8
-      mem: 64
-    - if: 1 <= input_size < 60
-      cores: 16
-      mem: 128
-    - if: input_size >= 60
-      cores: 56
-      mem: 2048
-  toolshed.g2.bx.psu.edu/repos/rnateam/mafft/rbc_mafft/.*:
-    cores: 8
-    mem: 64
-    context:
-      time: "08:00:00"
-    rules:
-    - if: input_size >= 0.5
-      cores: 56
-      mem: 2048
+    scheduling:
+      reject:
+        - slurm
+  ###########
+  # Cores: 56
+  ###########
   toolshed.g2.bx.psu.edu/repos/bgruening/canu/canu/.*:
     cores: 56
     mem: 2048
     context:
       time: "36:00:00"
     scheduling:
-      require:
-        - frontera
-  toolshed.g2.bx.psu.edu/repos/bgruening/hifiasm/hifiasm/.*:
-    cores: 2
-    mem: 16
-    context:
-      time: "08:00:00"
-    rules:
-    - if: input_size >= 0.2
-      cores: 120
-      mem: 1922
-  toolshed.g2.bx.psu.edu/repos/iuc/busco/busco/3.*:
-    cores: 2
-    mem: 16
-    context:
-      time: "08:00:00"
-    rules:
-    - if: 0.05 <= input_size
-      cores: 8
-      mem: 64
-  toolshed.g2.bx.psu.edu/repos/iuc/mothur_cluster_split/mothur_cluster_split/.*:
-    cores: 1
-    mem: 8
-    context:
-      time: "08:00:00"
-    rules:
-    - if: input_size >= 0.00015
-      cores: 60
-      mem: 961
-  toolshed.g2.bx.psu.edu/repos/iuc/quast/quast/.*:
-    cores: 1
-    mem: 8
-    context:
-      time: "08:00:00"
-    rules:
-    - if: input_size >= 1
-      cores: 60
-      mem: 961
-  toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*:
-    cores: 2
-    mem: 16
-    context:
-      time: "08:00:00"
-    rules:
-    - if: 0.005 <= input_size < 2
-      cores: 8
-      mem: 64
-    - if: 2 <= input_size < 20
-      cores: 60
-      mem: 961
-    - if: input_size >= 20
-      cores: 56
-      mem: 2048
-  toolshed.g2.bx.psu.edu/repos/iuc/spades_rnaviralspades/spades_rnaviralspades/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/rnaspades/rnaspades/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/spades_plasmidspades/spades_plasmidspades/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/spades_metaviralspades/spades_metaviralspades/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/spades_metaplasmidspades/spades_metaplasmidspades/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/spades_coronaspades/spades_coronaspades/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/spades_biosyntheticspades/spades_biosyntheticspades/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/exonerate/exonerate/.*:
-    cores: 30
-    mem: 480
-    context:
-      time: "08:00:00"
-  toolshed.g2.bx.psu.edu/repos/galaxyp/peptideshaker/peptide_shaker/.*:
-    cores: 7
-    mem: 56
-    env:
-      _JAVA_OPTIONS: '-Xmx{int(mem)}G -Xms1G'
-    context:
-      time: "08:00:00"
+      reject:
+        - slurm
 
