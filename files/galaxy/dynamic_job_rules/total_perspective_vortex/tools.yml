@@ -1202,33 +1202,33 @@ tools:
     - if: input_size >= 0.5
       cores: 56
       mem: 2048
-       scheduling:
-         accept:
-           - pulsar
-         reject:
-           - slurm
+      scheduling:
+        accept:
+          - pulsar
+        reject:
+          - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/trinity_align_and_estimate_abundance/trinity_align_and_estimate_abundance/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
     rules:
     - if: input_size > 0.1
       cores: 56
       mem: 2048
-       scheduling:
-         accept:
-           - pulsar
-         reject:
-           - slurm
+      scheduling:
+        accept:
+          - pulsar
+        reject:
+          - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/megahit/megahit/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
     rules:
     - if: input_size >= 5
       cores: 16
       mem: 128
-     scheduling:
-       accept:
-         - pulsar
-       reject:
-         - slurm
+      scheduling:
+        accept:
+          - pulsar
+        reject:
+          - slurm
   ##########
   # Cores: 9
   ##########
