@@ -1188,6 +1188,9 @@ execution:
           value: "1966080"
 
 tools:
+  # TODO: figure out how to make sure these do not run on Frontera.
+  # param_value_from_file
+  #__FILTER_FAILED_DATASETS__
   - id: upload1
     environment: slurm_normal
   - id: __DATA_FETCH__
@@ -1384,7 +1387,33 @@ tools:
     environment: tpv_dispatcher
   - id: bcftools_mpileup
     environment: tpv_dispatcher
+  - id: bcftools_call
+    environment: tpv_dispatcher
   - id: bcftools_norm
+    environment: tpv_dispatcher
+  - id: bcftools_convert_to_vcf
+    environment: tpv_dispatcher
+  - id: bcftools_plugin_fixploidy
+    environment: tpv_dispatcher
+  - id: bcftools_gtcheck
+    environment: tpv_dispatcher
+  - id: bcftools_stats
+    environment: tpv_dispatcher
+  - id: bcftools_convert_from_vcf
+    environment: tpv_dispatcher
+  - id: bcftools_view
+    environment: tpv_dispatcher
+  - id: bcftools_filter
+    environment: tpv_dispatcher
+  - id: bcftools_plugin_color_chrs
+    environment: tpv_dispatcher
+  - id: bcftools_plugin_frameshifts
+    environment: tpv_dispatcher
+  - id: bcftools_cnv
+    environment: tpv_dispatcher
+  - id: bcftools_plugin_missing2ref
+    environment: tpv_dispatcher
+  - id: bcftools_query_list_samples
     environment: tpv_dispatcher
   - id: cat_bins
     environment: tpv_dispatcher
@@ -1596,6 +1625,10 @@ tools:
     environment: tpv_dispatcher
   - id: snippy
     environment: tpv_dispatcher
+  - id: snippy_clean_full_aln
+    environment: tpv_dispatcher
+  - id: snippy_core
+    environment: tpv_dispatcher
   - id: trinity
     environment: tpv_dispatcher
   - id: trinity_align_and_estimate_abundance
@@ -1669,12 +1702,6 @@ tools:
   - id: vcffilter2
     environment: tpv_dispatcher
   #### Frontera Small
-  - id: bcftools_call
-    environment: frontera_small_1hr
-  - id: snippy_clean_full_aln
-    environment: frontera_small_2hr
-  - id: snippy_core
-    environment: frontera_small_2hr
   - id: adapter_removal
     environment: frontera_small_2hr
   - id: aldex2

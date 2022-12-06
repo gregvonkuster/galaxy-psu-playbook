@@ -295,6 +295,34 @@ tools:
     scheduling:
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/bcftools_call/bcftools_call/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bcftools_convert_to_vcf/bcftools_convert_to_vcf/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bcftools_plugin_fixploidy/bcftools_plugin_fixploidy/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bcftools_gtcheck/bcftools_gtcheck/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bcftools_plugin_color_chrs/bcftools_plugin_color_chrs/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bcftools_plugin_frameshifts/bcftools_plugin_frameshifts/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bcftools_cnv/bcftools_cnv/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bcftools_plugin_missing2ref/bcftools_plugin_missing2ref/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bcftools_query_list_samples/bcftools_query_list_samples/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bcftools_stats/bcftools_stats/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bcftools_norm/bcftools_norm/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bcftools_convert_from_vcf/bcftools_convert_from_vcf/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bcftools_view/bcftools_view/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bcftools_filter/bcftools_filter/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastq_groomer/fastq_groomer/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
   toolshed.g2.bx.psu.edu/repos/chemteam/gmx_sim/gmx_sim/.*:
@@ -346,12 +374,6 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
     rules:
     - if: input_size >= 0.5
-      cores: 4
-      mem: 32
-  toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
-    rules:
-    - if: input_size >= 0.015
       cores: 4
       mem: 32
   toolshed.g2.bx.psu.edu/repos/iuc/abricate/abricate/.*:
@@ -426,15 +448,6 @@ tools:
     - if: input_size >= 0.1
       cores: 5
       mem: 40
-  toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
-    rules:
-    - if: 0.02 <= input_size < 2
-      cores: 5
-      mem: 40
-    - if: input_size >= 2
-      cores: 7
-      mem: 56
   toolshed.g2.bx.psu.edu/repos/bgruening/augustus/augustus/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
     rules:
@@ -447,6 +460,25 @@ tools:
     - if: input_size >= 0.5
       cores: 8
       mem: 64
+  toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+    rules:
+    - if: input_size >= 0.015
+      cores: 4
+      mem: 32
+  toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy_clean_full_aln/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy_core/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
+    rules:
+    - if: 0.02 <= input_size < 2
+      cores: 5
+      mem: 40
+    - if: input_size >= 2
+      cores: 7
+      mem: 56
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_chimera_vsearch/mothur_chimera_vsearch/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_classify_otu/mothur_classify_otu/.*:
