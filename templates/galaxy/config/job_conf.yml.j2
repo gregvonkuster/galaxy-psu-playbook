@@ -1214,6 +1214,12 @@ tools:
     environment: slurm_bigmem_multicore_container_venv
   # Tools that do not have corresponding BioContainers
   #### TPV Dispatcher
+  - id: __FILTER_FAILED_DATASETS__
+    environment: tpv_dispatcher
+  - id: collapse_dataset
+    environment: tpv_dispatcher
+  - id: param_value_from_file
+    environment: tpv_dispatcher
   - id: vsnp_build_tables
     environment: tpv_dispatcher
   - id: sample_names
@@ -1664,6 +1670,8 @@ tools:
     environment: tpv_dispatcher
   - id: peptide_shaker
     environment: tpv_dispatcher
+  - id: vcffilter2
+    environment: tpv_dispatcher
   #### Frontera Small
   - id: bcftools_call
     environment: frontera_small_1hr
@@ -1672,8 +1680,6 @@ tools:
   - id: snippy_core
     environment: frontera_small_2hr
   - id: adapter_removal
-    environment: frontera_small_2hr
-  - id: vcffilter2
     environment: frontera_small_2hr
   - id: aldex2
     environment: frontera_small_4hr
