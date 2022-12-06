@@ -580,6 +580,48 @@ tools:
           - slurm
   toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa_mem/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/adapter_removal/adapter_removal/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/aldex2/aldex2/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/ancombc/ancombc/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/obi_illumina_pairend/obi_illumina_pairend/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/obi_ngsfilter/obi_ngsfilter/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/obi_annotate/obi_annotate/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/obi_clean/obi_clean/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/obi_convert/obi_convert/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/obi_sort/obi_sort/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/obi_stat/obi_stat/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/obi_tab/obi_tab/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/obi_uniq/obi_uniq/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/blastxml_to_tabular/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastdbcmd_info/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastdbcmd_wrapper/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_convert2blastmask_wrapper/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_dustmasker_wrapper/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_makeprofiledb/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_rpsblast_wrapper/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_rpstblastn_wrapper/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_segmasker_wrapper/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
   toolshed.g2.bx.psu.edu/repos/iuc/meryl/meryl/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
     rules:
