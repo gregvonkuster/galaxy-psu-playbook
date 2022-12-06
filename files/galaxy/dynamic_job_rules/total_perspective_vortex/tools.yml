@@ -50,8 +50,6 @@ tools:
     scheduling:
        reject:
          - pulsar
-  param_value_from_file:
-    inherits: toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*
   toolshed.g2.bx.psu.edu/repos/nml/collapse_collections/collapse_dataset/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*
   toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*:
@@ -63,8 +61,6 @@ tools:
        reject:
          - pulsar
   toolshed.g2.bx.psu.edu/repos/nml/collapse_collections/collapse_dataset/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
-  __FILTER_FAILED_DATASETS__:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
   toolshed.g2.bx.psu.edu/repos/iuc/seqkit_stats/seqkit_stats/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
