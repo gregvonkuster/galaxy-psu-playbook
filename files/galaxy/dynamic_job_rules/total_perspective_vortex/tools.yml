@@ -1215,10 +1215,10 @@ tools:
   # Cores: 56
   ###########
   toolshed.g2.bx.psu.edu/repos/bgruening/canu/canu/.*:
-    cores: 56
+    cores: 84
     mem: 2048
     context:
-      time: "36:00:00"
+      time: "60:00:00"
     scheduling:
       reject:
         - slurm
