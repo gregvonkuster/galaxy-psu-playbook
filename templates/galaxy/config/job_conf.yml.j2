@@ -1709,6 +1709,8 @@ tools:
     environment: tpv_dispatcher
   - id: obi_illumina_pairend
     environment: tpv_dispatcher
+  - id: obi_grep
+    environment: tpv_dispatcher
   - id: obi_ngsfilter
     environment: tpv_dispatcher
   - id: obi_annotate
@@ -1815,39 +1817,35 @@ tools:
     environment: tpv_dispatcher
   - id: bedtools_windowbed
     environment: tpv_dispatcher
-  #### Frontera large
   - id: data_manager_dram_download
-    environment: frontera_large_8hr
-  - id: obi_grep
-    environment: frontera_large_8hr
+    environment: tpv_dispatcher
   - id: diamond_database_builder
-    environment: frontera_large_8hr
+    environment: tpv_dispatcher
   - id: megan_blast2lca
-    environment: frontera_large_8hr
+    environment: tpv_dispatcher
   - id: megan_blast2rma
-    environment: frontera_large_8hr
+    environment: tpv_dispatcher
   - id: megan_daa2info
-    environment: frontera_large_8hr
+    environment: tpv_dispatcher
   - id: megan_daa2rma
-    environment: frontera_large_8hr
+    environment: tpv_dispatcher
   - id: megan_daa_meganizer
-    environment: frontera_large_8hr
+    environment: tpv_dispatcher
   - id: megan_read_extractor
-    environment: frontera_large_8hr
+    environment: tpv_dispatcher
   - id: megan_sam2rma
-    environment: frontera_large_8hr
+    environment: tpv_dispatcher
   - id: sina
-    environment: frontera_large_16hr
+    environment: tpv_dispatcher
   - id: magicblast
-    environment: frontera_large_16hr
+    environment: tpv_dispatcher
   - id: concoct
-    environment: frontera_large_24hr
+    environment: tpv_dispatcher
   - id: malt_run
-    environment: frontera_large_36hr
-  #### Slurm normal multicore
-  #### Slurm bigmem multicore
+    environment: tpv_dispatcher
   - id: phyloseq_from_dada2
-    environment: slurm_bigmem_multicore_container_4c16g
+    environment: tpv_dispatcher
+  #### Slurm bigmem multicore
   - id: phyloseq_plot_richness
     environment: slurm_bigmem_multicore_container_4c16g
   - id: phyloseq_plot_ordination

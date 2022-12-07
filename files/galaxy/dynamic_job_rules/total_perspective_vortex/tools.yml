@@ -596,6 +596,8 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
   toolshed.g2.bx.psu.edu/repos/iuc/obi_convert/obi_convert/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/obi_grep/obi_grep/1.2.13/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
   toolshed.g2.bx.psu.edu/repos/iuc/obi_sort/obi_sort/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
   toolshed.g2.bx.psu.edu/repos/iuc/obi_stat/obi_stat/.*:
@@ -990,6 +992,8 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*
   toolshed.g2.bx.psu.edu/repos/iuc/lofreq_viterbi/lofreq_viterbi/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/phyloseq_from_dada2/phyloseq_from_dada2/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*
   toolshed.g2.bx.psu.edu/repos/iuc/minimap2/minimap2/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*
     rules:
@@ -1074,6 +1078,8 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
   toolshed.g2.bx.psu.edu/repos/iuc/macs2/macs2_bdgdiff/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/data_manager_dram_database_downloader/data_manager/data_manager_dram_download/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
   toolshed.g2.bx.psu.edu/repos/iuc/gubbins/gubbins/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
     rules:
@@ -1127,6 +1133,22 @@ tools:
   toolshed.g2.bx.psu.edu/repos/iuc/ivar_trim/ivar_trim/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/iuc/ivar_variants/ivar_variants/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/data_manager_diamond_database_builder/data_manager/diamond_database_builder/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/megan_blast2lca/megan_blast2lca/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/megan_blast2rma/megan_blast2rma/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/megan_daa2info/megan_daa2info/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/megan_daa2rma/megan_daa2rma/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/megan_daa_meganizer/megan_daa_meganizer/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/megan_read_extractor/megan_read_extractor/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/megan_sam2rma/megan_sam2rma/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/rnateam/mafft/rbc_mafft/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
@@ -1195,6 +1217,20 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
   toolshed.g2.bx.psu.edu/repos/iuc/trinity_define_clusters_by_cutting_tree/trinity_define_clusters_by_cutting_tree/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/sina/sina/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
+    context:
+      time: "16:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/magicblast/magicblast/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/sina/sina/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/concoct/concoct/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/sina/sina/.*
+    context:
+      time: "24:00:00"
+  toolshed.g2.bx.psu.edu/repos/iuc/malt_run/malt_run/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/concoct/concoct/.*
+    context:
+      time: "36:00:00"
   ##########
   # Cores: 9
   ##########
