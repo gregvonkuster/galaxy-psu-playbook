@@ -642,6 +642,16 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
   toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_coveragebed/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_bamtobed/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_bed12tobed6/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_bedpetobam/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_bedtobam/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_bedtoigv/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
   toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_expandbed/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
   toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_fisher/.*:
@@ -695,6 +705,82 @@ tools:
   toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_unionbedgraph/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
   toolshed.g2.bx.psu.edu/repos/iuc/bedtools/bedtools_windowbed/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/dada2_assigntaxonomyaddspecies/dada2_assignTaxonomyAddspecies/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/dada2_dada/dada2_dada/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/dada2_learnerrors/dada2_learnErrors/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_align_seqs/qiime_align_seqs/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_alpha_diversity/qiime_alpha_diversity/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_alpha_rarefaction/qiime_alpha_rarefaction/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_assign_taxonomy/qiime_assign_taxonomy/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_beta_diversity/qiime_beta_diversity/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_beta_diversity_through_plots/qiime_beta_diversity_through_plots/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_collapse_samples/qiime_collapse_samples/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_compare_categories/qiime_compare_categories/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_core_diversity/qiime_core_diversity/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_count_seqs/qiime_count_seqs/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_extract_barcodes/qiime_extract_barcodes/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_filter_alignment/qiime_filter_alignment/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_filter_fasta/qiime_filter_fasta/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_filter_otus_from_otu_table/qiime_filter_otus_from_otu_table/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_filter_samples_from_otu_table/qiime_filter_samples_from_otu_table/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_filter_taxa_from_otu_table/qiime_filter_taxa_from_otu_table/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_jackknifed_beta_diversity/qiime_jackknifed_beta_diversity/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_make_emperor/qiime_make_emperor/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_make_otu_heatmap/qiime_make_otu_heatmap/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_make_otu_table/qiime_make_otu_table/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_make_phylogeny/qiime_make_phylogeny/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_multiple_join_paired_ends/qiime_multiple_join_paired_ends/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_multiple_split_libraries_fastq/qiime_multiple_split_libraries_fastq/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_pick_closed_reference_otus/qiime_pick_closed_reference_otus/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_pick_open_reference_otus/qiime_pick_open_reference_otus/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_pick_otus/qiime_pick_otus/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_pick_rep_set/qiime_pick_rep_set/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_plot_taxa_summary/qiime_plot_taxa_summary/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_split_libraries/qiime_split_libraries/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_split_libraries_fastq/qiime_split_libraries_fastq/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_summarize_taxa/qiime_summarize_taxa/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_summarize_taxa_through_plots/qiime_summarize_taxa_through_plots/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_upgma_cluster/qiime_upgma_cluster/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qiime_validate_mapping_file/qiime_validate_mapping_file/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/data_manager_bwa_mem_index_builder/bwa_mem_index_builder_data_manager/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
   toolshed.g2.bx.psu.edu/repos/iuc/meryl/meryl/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
@@ -993,6 +1079,10 @@ tools:
   toolshed.g2.bx.psu.edu/repos/iuc/lofreq_viterbi/lofreq_viterbi/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*
   toolshed.g2.bx.psu.edu/repos/iuc/phyloseq_from_dada2/phyloseq_from_dada2/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/phyloseq_plot_richness/phyloseq_plot_richness/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/phyloseq_plot_ordination/phyloseq_plot_ordination/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*
   toolshed.g2.bx.psu.edu/repos/iuc/minimap2/minimap2/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*
