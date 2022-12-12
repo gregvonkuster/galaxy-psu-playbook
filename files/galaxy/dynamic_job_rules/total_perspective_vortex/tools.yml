@@ -1418,7 +1418,7 @@ tools:
     cores: 84
     mem: 2048
     context:
-      time: "60:00:00"
+      time: "48:00:00"
     scheduling:
       reject:
         - slurm
