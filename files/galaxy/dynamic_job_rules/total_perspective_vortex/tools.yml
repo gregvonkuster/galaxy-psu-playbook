@@ -788,7 +788,7 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
     rules:
     - if: 0.001 < input_size <= 5
-      cores: 16
+      cores: 24
       mem: 128
       scheduling:
         accept:
