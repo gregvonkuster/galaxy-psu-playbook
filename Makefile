@@ -1,14 +1,20 @@
 shared:
 	ansible-playbook --diff -i hosts-shared shared.yml
 
-dev:
-	ansible-playbook --diff -i hosts-dev galaxy.yml
+psu:
+	ansible-playbook --diff -i hosts-psu galaxy.yml
 
-dev-deps:
-	ansible-playbook --diff -i hosts-dev galaxy-deps.yml
+psu-deps:
+	ansible-playbook --diff -i hosts-psu galaxy-deps.yml
 
-dev-pulsar:
-	ansible-playbook --diff -i hosts-dev pulsar.yml
+psu-pulsar:
+	ansible-playbook --diff -i hosts-psu pulsar.yml
+
+lrn:
+	ansible-playbook --diff -i hosts-lrn galaxy.yml
+
+lrn-deps:
+	ansible-playbook --diff -i hosts-lrn galaxy-deps.yml
 
 requirements:
 	ansible-galaxy role install -p roles -r requirements.yml

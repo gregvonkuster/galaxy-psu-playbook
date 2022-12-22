@@ -1,0 +1,110 @@
+---
+
+galaxy_commit_id: release_22.05
+
+galaxy_instance_name: dev
+galaxy_instance_group: G-824019
+galaxy_instance_hostname: dev.galaxy.psu.edu
+galaxy_postgresql_host: galaxy-psu-dbdev.tacc.utexas.edu
+galaxy_postgresql_db_name: galaxy_dev
+
+# TODO: redeploy as this user on VMs
+tacc_user: glxhpc
+
+# vars defined in the corresponding vault.yml
+galaxy_postgresql_password: "{{ vault_galaxy_postgresql_password }}"
+
+#galaxy_user:
+#  name: glxyhpcdev
+
+galaxy_dynamic_job_rules_src_dir: files/galaxy/dynamic_job_rules
+galaxy_dynamic_job_rules:
+  - total_perspective_vortex/default_tool.yml
+  - total_perspective_vortex/tools.yml
+  - total_perspective_vortex/destinations.yml
+  - total_perspective_vortex/users.yml
+  - total_perspective_vortex/roles.yml
+
+galaxy_user:
+  name: galaxydev
+  uid: 877997
+  comment: Galaxy Development Server
+  shell: /bin/bash
+  create_home: true
+  system: true
+
+galaxy_group:
+  name: "{{ galaxy_instance_group }}"
+
+galaxy_config:
+  gravity:
+    galaxy_root: "{{ galaxy_server_dir }}"
+    log_dir: "{{ galaxy_log_dir }}"
+    virtualenv: "{{ galaxy_venv_dir }}"
+    gunicorn:
+      bind: "{{ galaxy_config_gunicorn_bind }}"
+      workers: 4
+      timeout: 600
+      preload: true
+    celery:
+      enable: true
+      enable_beat: true
+    tusd:
+      enable: true
+      tusd_path: /usr/local/sbin/tusd
+      upload_dir: "{{ galaxy_tus_upload_store }}"
+    handlers:
+      handler:
+        name_template: "job-handler-{process}"
+        processes: 1
+        pools:
+          - job-handlers
+          - workflow-schedulers
+  galaxy:
+    #tool_data_table_config_path: /cvmfs/data.galaxyproject.org/byhand/location/tool_data_table_conf.xml,/cvmfs/data.galaxyproject.org/managed/location/tool_data_table_conf.xml
+    #dependency_resolvers_config_file: "{{ galaxy_config_dir }}/dependency_resolvers_conf.xml"
+    #containers_resolvers_config_file: "{{ galaxy_config_dir }}/container_resolvers_conf.xml"
+    brand: "PSU"
+    admin_users: "{{ vault_galaxy_config_admin_users }}"
+    database_connection: "postgresql://{{ galaxy_user.name }}:{{ galaxy_postgresql_password }}@{{ galaxy_postgresql_host }}/{{ galaxy_postgresql_db_name }}"
+    builds_file_path: "{{ galaxy_server_dir }}/tool-data/shared/ucsc/builds.txt"
+    file_path: "{{ galaxy_instance_root }}/objects"
+    check_migrate_tools: false
+    tool_data_path: "{{ galaxy_mutable_data_dir }}/tool-data"
+    object_store_store_by: uuid
+    id_secret: "{{ vault_galaxy_config_id_secret }}"
+    job_config_file: "{{ galaxy_config_dir }}/job_conf.yml"
+    smtp_server: localhost
+    error_email_to: ghv2@psu.edu
+    email_from: "Greg Von Kuster <ghv2@psu.edu>"
+    galaxy_infrastructure_url: "https://{{ galaxy_instance_hostname }}"
+    # File serving Performance
+    nginx_x_accel_redirect_base: /_x_accel_redirect
+    tus_upload_store: "{{ galaxy_tus_upload_store }}"
+    # Automation / Ease of Use / User-facing features
+    watch_job_rules: true
+    allow_path_paste: true
+    enable_quotas: true
+    require_login: true
+    allow_user_creation: false
+    allow_user_deletion: true
+    show_welcome_with_login: true
+    expose_user_name: true
+    expose_dataset_path: true
+    expose_potentially_sensitive_job_metrics: true
+    # NFS workarounds
+    retry_job_output_collection: 3
+    # Debugging
+    cleanup_job: onsuccess
+    allow_user_impersonation: true
+    # Tool security
+    outputs_to_working_directory: true
+    # Tool Dependencies
+    conda_prefix: "{{ miniconda_prefix }}"
+    conda_auto_install: false
+    conda_auto_init: false
+    container_resolvers:
+      - type: cached_mulled_singularity
+        cache_directory: /cvmfs/singularity.galaxyproject.org/all
+        cache_directory_cacher_type: dir_mtime
+      - type: explicit_singularity

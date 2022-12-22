@@ -18,8 +18,7 @@ all_packages:
   - libuser  # for lgroupmod
 
 # Convenience variables
-#corral_root: /corral/main/projects/Galaxy-PSU
-corral_mount_ip: 129.114.52.151
+corral_mount_ip: 129.114.52.161
 corral_mount_src: "{{ corral_mount_ip }}:/corral/main/projects/Galaxy-PSU"
 corral_mount_opts: "rw,nosuid,noatime,rsize=1048576,wsize=1048576,intr,nfsvers=3,tcp,soft,addr={{ corral_mount_ip }}"
 corral_root: /corral/projects/Galaxy-PSU

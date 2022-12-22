@@ -12,7 +12,7 @@ galaxy-psu-dev.tacc.utexas.edu
 [pulsarservers]
 login3.frontera.tacc.utexas.edu
 
-[dev]
+[psu]
 galaxy-psu-dev.tacc.utexas.edu
 galaxy-psu-dbdev.tacc.utexas.edu
 login3.frontera.tacc.utexas.edu

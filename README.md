@@ -11,32 +11,16 @@ $ . ./ansible/bin/activate
 $ pip install -r requirements.txt
 ```
 
-The Galaxy dev and prod hosts are split into two separate inventory files, hosts-dev and hosts-prod.
+The Galaxy-PSU and Galaxy-LRN hosts are split into two separate inventory files, `hosts-psu` and `hosts-lrn`. Inventory for the management of common host services (e.g. Slurm server and nodes) is in `hosts-shared`.
 
-Install roles:
+There are `make` targets for all the common operations:
 
-```console
-$ ansible-galaxy role install -r requirements.yml
-```
-
-Run the deps (one-time tasks) playbook:
-
-```console
-$ ansible-playbook -i hosts-prod --diff galaxy-deps.yml
-```
-
-```console
-$ ansible-playbook -i hosts-dev --diff galaxy-deps.yml
-```
-
-To update Galaxy prod and/or its configuration:
-
-```console
-$ ansible-playbook -i hosts-prod --diff galaxy.yml
-```
-
-To update Galaxy dev and/or its configuration:
-
-```console
-$ ansible-playbook -i hosts-dev --diff galaxy.yml
-```
+| Target | Purpose |
+| --- | --- |
+| `requirements` | Install required Ansible roles. |
+| `shared` | Run `shared.yml` playbook for configuration of shared hosts/services. |
+| `psu-deps` | Run `galaxy-deps.yml` playbook with `hosts-psu` inventory to install/manage Galaxy dependencies. |
+| `psu` | Run `galaxy.yml` playbook with `hosts-psu` inventory to install/manage Galaxy itself. |
+| `psu-pulsar` | Run `pulsar.yml` playbook with `hosts-psu` inventory to install/manage Pulsar. |
+| `lrn-deps` | Run `galaxy-deps.yml` playbook with `hosts-lrn` inventory to install/manage Galaxy dependencies. |
+| `lrn` | Run `galaxy.yml` playbook with `hosts-lrn` inventory to install/manage Galaxy itself. |

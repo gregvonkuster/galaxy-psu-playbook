@@ -9,7 +9,7 @@
         name: "{{ all_packages + dbservers_packages }}"
   roles:
     - role: galaxyproject.postgresql
-    - role: natefoo.postgresql_objects
+    - role: galaxyproject.postgresql_objects
       become: true
       become_user: postgres
   post_tasks:
@@ -47,15 +47,6 @@
     - name: Install Dependencies
       package:
         name: "{{ all_packages + galaxyservers_packages }}"
-    - name: Create Galaxy user
-      user:
-        name: "{{ galaxy_user.name }}"
-        uid: "{{ galaxy_user.uid }}"
-        group: "{{ galaxy_group.name }}"
-        comment: "{{ galaxy_user.comment }}"
-        create_home: "{{ galaxy_user.create_home }}"
-        shell: "{{ galaxy_user.shell }}"
-        system: "{{ galaxy_user.system }}"
     - name: Create Galaxy directories
       file:
         path: "{{ item }}"
