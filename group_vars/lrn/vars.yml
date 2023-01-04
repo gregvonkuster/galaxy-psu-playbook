@@ -4,7 +4,7 @@ galaxy_commit_id: release_22.05
 
 galaxy_instance_name: lrn
 galaxy_instance_group: G-824021
-galaxy_instance_hostname: lrn.galaxy.psu.edu
+galaxy_instance_hostname: galaxy-lrn.org
 galaxy_postgresql_host: galaxy-psu-db.tacc.utexas.edu
 galaxy_postgresql_db_name: galaxy_lrn
 
@@ -26,6 +26,10 @@ galaxy_user:
 
 galaxy_group:
   name: "{{ galaxy_instance_group }}"
+
+galaxy_certbot_domains:
+  - "{{ galaxy_instance_hostname }}"
+  - "www.{{ galaxy_instance_hostname }}"
 
 galaxy_config:
   gravity:

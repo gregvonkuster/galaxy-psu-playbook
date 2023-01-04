@@ -114,8 +114,7 @@ certbot_share_key_users:
 certbot_post_renewal: |
   systemctl restart nginx || true
   docker restart rabbitmq || true
-certbot_domains:
-  - "{{ galaxy_instance_hostname }}"
+certbot_domains: "{{ galaxy_certbot_domains }}"
 certbot_agree_tos: --agree-tos
 
 

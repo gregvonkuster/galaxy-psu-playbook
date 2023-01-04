@@ -17,6 +17,9 @@ galaxy_postgresql_password: "{{ vault_galaxy_postgresql_password }}"
 #galaxy_user:
 #  name: glxyhpcdev
 
+galaxy_certbot_domains:
+  - "{{ galaxy_instance_hostname }}"
+
 galaxy_dynamic_job_rules_src_dir: files/galaxy/dynamic_job_rules
 galaxy_dynamic_job_rules:
   - total_perspective_vortex/default_tool.yml
