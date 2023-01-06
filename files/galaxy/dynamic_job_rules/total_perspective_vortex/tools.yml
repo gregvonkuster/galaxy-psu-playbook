@@ -60,8 +60,6 @@ tools:
     scheduling:
        reject:
          - pulsar
-  toolshed.g2.bx.psu.edu/repos/nml/collapse_collections/collapse_dataset/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
   toolshed.g2.bx.psu.edu/repos/iuc/seqkit_stats/seqkit_stats/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
   toolshed.g2.bx.psu.edu/repos/iuc/seqkit_fx2tab/seqkit_fx2tab/,*:
@@ -76,8 +74,6 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
     context:
       time: "08:00:00"
-  toolshed.g2.bx.psu.edu/repos/iuc/cat_bins/cat_bins/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/vsnp_add_zero_coverage/vsnp_add_zero_coverage/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sorted_uniq/.*:
@@ -205,7 +201,7 @@ tools:
     rules:
       - if: input_size >= 1
         cores: 3
-        cores: 24
+        mem: 24
   toolshed.g2.bx.psu.edu/repos/devteam/cuffmerge/cuffmerge/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
     rules:
@@ -287,14 +283,6 @@ tools:
     - if: input_size >= 0.1
       cores: 5
       mem: 20
-  toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*:
-    cores: 2
-    mem: 16
-    context:
-      time: "08:00:00"
-    scheduling:
-       reject:
-         - pulsar
   toolshed.g2.bx.psu.edu/repos/iuc/bcftools_call/bcftools_call/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
   toolshed.g2.bx.psu.edu/repos/iuc/bcftools_convert_to_vcf/bcftools_convert_to_vcf/.*:
@@ -1174,8 +1162,6 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
   toolshed.g2.bx.psu.edu/repos/iuc/macs2/macs2_bdgdiff/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/macs2/macs2_bdgdiff/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
   toolshed.g2.bx.psu.edu/repos/iuc/data_manager_dram_database_downloader/data_manager/data_manager_dram_download/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
   toolshed.g2.bx.psu.edu/repos/iuc/gubbins/gubbins/.*:
@@ -1310,8 +1296,6 @@ tools:
   toolshed.g2.bx.psu.edu/repos/iuc/trinity_analyze_diff_expr/trinity_analyze_diff_expr/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
   toolshed.g2.bx.psu.edu/repos/iuc/trinity_filter_low_expr_transcripts/trinity_filter_low_expr_transcripts/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/trinity_align_and_estimate_abundance/trinity_align_and_estimate_abundance/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
   toolshed.g2.bx.psu.edu/repos/iuc/trinity_define_clusters_by_cutting_tree/trinity_define_clusters_by_cutting_tree/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
