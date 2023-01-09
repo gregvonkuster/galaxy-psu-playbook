@@ -70,6 +70,8 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/fastx_quality_statistics/cshl_fastx_quality_statistics/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
     context:
@@ -151,6 +153,8 @@ tools:
     - if: input_size >= 0.5
       cores: 8
       mem: 64
+  toolshed.g2.bx.psu.edu/repos/iuc/medaka_variant_pipeline/medaka_variant_pipeline/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/medaka_variant/medaka_variant/.*
   toolshed.g2.bx.psu.edu/repos/iuc/medaka_consensus_pipeline/medaka_consensus_pipeline/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
     rules:
@@ -165,6 +169,8 @@ tools:
            - pulsar
          reject:
            - slurm
+  toolshed.g2.bx.psu.edu/repos/iuc/medaka_consensus/medaka_consensus/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/medaka_consensus_pipeline/medaka_consensus_pipeline/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_interlacer/fastq_paired_end_interlacer/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
     rules:
@@ -283,6 +289,8 @@ tools:
     - if: input_size >= 0.1
       cores: 5
       mem: 20
+  toolshed.g2.bx.psu.edu/repos/iuc/charts/charts/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/iuc/bcftools_call/bcftools_call/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
   toolshed.g2.bx.psu.edu/repos/iuc/bcftools_convert_to_vcf/bcftools_convert_to_vcf/.*:
@@ -430,6 +438,8 @@ tools:
            - pulsar
          reject:
            - slurm
+  toolshed.g2.bx.psu.edu/repos/iuc/gtdbtk_classify_wf/gtdbtk_classify_wf/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*
   toolshed.g2.bx.psu.edu/repos/iuc/kallisto_quant/kallisto_quant/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
     rules:
@@ -770,6 +780,10 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
   toolshed.g2.bx.psu.edu/repos/devteam/data_manager_bwa_mem_index_builder/bwa_mem_index_builder_data_manager/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/data_manager_fetch_genome_dbkeys_all_fasta/data_manager/fetch_genome_all_fasta_dbkeys/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/data_manager_sam_fasta_index_builder/data_manager/sam_fasta_index_builder/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
   toolshed.g2.bx.psu.edu/repos/iuc/meryl/meryl/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
     rules:
@@ -919,6 +933,24 @@ tools:
   ##########
   # Cores: 3
   ##########
+  toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/.*:
+    cores: 3
+    mem: 12
+    context:
+      time: "04:00:00"
+    rules:
+    - if: input_size >= 1
+      cores: 5
+      mem: 20
+    scheduling:
+       reject:
+         - pulsar
+  toolshed.g2.bx.psu.edu/repos/devteam/sam_to_bam/sam_to_bam/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/samtools_depth/samtools_depth/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/.*
+  toolshed.g2.bx.psu.edu/repos/greg/filter_contigs/filter_contigs/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_joiner/fastq_paired_end_joiner/.*:
     cores: 3
     mem: 12
@@ -932,6 +964,10 @@ tools:
   toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fastq_dump/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_joiner/fastq_paired_end_joiner/.*
   toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/sam_dump/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_joiner/fastq_paired_end_joiner/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/ncbi_acc_download/ncbi_acc_download/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_joiner/fastq_paired_end_joiner/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/ncbi_datasets/datasets_download_genome/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_joiner/fastq_paired_end_joiner/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*:
     cores: 3
@@ -1146,6 +1182,10 @@ tools:
           - pulsar
   toolshed.g2.bx.psu.edu/repos/devteam/kraken/kraken/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/kraken_report/kraken-report/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/kraken_taxonomy_report/kraken_taxonomy_report/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
   toolshed.g2.bx.psu.edu/repos/lparsons/cutadapt/cutadapt/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
   toolshed.g2.bx.psu.edu/repos/iuc/merqury/merqury/.*:
@@ -1155,6 +1195,8 @@ tools:
   toolshed.g2.bx.psu.edu/repos/iuc/edger/edger/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
   toolshed.g2.bx.psu.edu/repos/iuc/fasta_stats/fasta-stats/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/fastq_stats/fastq_stats/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
   toolshed.g2.bx.psu.edu/repos/iuc/fastp/fastp/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
@@ -1369,6 +1411,10 @@ tools:
         - pulsar
       reject:
         - slurm
+  toolshed.g2.bx.psu.edu/repos/iuc/data_manager_build_kraken2_database/data_manager/kraken2_build_database/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastx_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/data_manager_gtdbtk_database_installer/data_manager/gtdbtk_database_installer/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastx_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/bionano_scaffold/bionano_scaffold/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastx_wrapper/.*
     mem: 128
@@ -1389,6 +1435,8 @@ tools:
       reject:
         - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/galaxyp/maxquant/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/kraken2tax/Kraken2Tax/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/galaxyp/maxquant/.*
   ###########
   # Cores: 30
