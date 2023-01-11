@@ -983,6 +983,8 @@ tools:
     scheduling:
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/greg/bam_to_psl/bam_to_psl/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/.*
   toolshed.g2.bx.psu.edu/repos/devteam/sam_to_bam/sam_to_bam/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/.*
   toolshed.g2.bx.psu.edu/repos/iuc/samtools_depth/samtools_depth/.*:
