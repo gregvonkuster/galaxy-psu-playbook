@@ -80,6 +80,42 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sorted_uniq/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_multijoin_tool/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_unfold_column_tool/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sort_header_tool/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_tac/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_head_tool/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_awk_tool/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sed_tool/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_text_file_with_recurring_lines/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_column/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cut_tool/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sort_rows/*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_easyjoin_tool/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_uniq_tool/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cat/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_tail_tool/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/ggplot2_point/ggplot2_point/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/stringtie/stringtie_merge/.*:
@@ -170,6 +206,8 @@ tools:
          reject:
            - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/medaka_consensus/medaka_consensus/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/medaka_consensus_pipeline/medaka_consensus_pipeline/.*
+  toolshed.g2.bx.psu.edu/repos/greg/p_chunks/p_chunks/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/medaka_consensus_pipeline/medaka_consensus_pipeline/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_interlacer/fastq_paired_end_interlacer/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
