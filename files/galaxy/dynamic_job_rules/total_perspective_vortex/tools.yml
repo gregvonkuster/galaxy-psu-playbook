@@ -50,8 +50,6 @@ tools:
     scheduling:
        reject:
          - pulsar
-  toolshed.g2.bx.psu.edu/repos/nml/collapse_collections/collapse_dataset/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*
   toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*:
     cores: 1
     mem: 8
@@ -327,6 +325,14 @@ tools:
     - if: input_size >= 0.1
       cores: 5
       mem: 20
+  toolshed.g2.bx.psu.edu/repos/nml/collapse_collections/collapse_dataset/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/split_file_to_collection/split_file_to_collection/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/collection_element_identifiers/collection_element_identifiers/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/collection_column_join/collection_column_join/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/iuc/charts/charts/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/iuc/bcftools_call/bcftools_call/.*:
