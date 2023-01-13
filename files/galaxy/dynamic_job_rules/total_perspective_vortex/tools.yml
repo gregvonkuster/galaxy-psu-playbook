@@ -1223,9 +1223,9 @@ tools:
     mem: 40
     context:
       time: "08:00:00"
-      scheduling:
-        reject:
-          - pulsar
+    scheduling:
+      reject:
+        - pulsar
   toolshed.g2.bx.psu.edu/repos/devteam/kraken/kraken/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
   toolshed.g2.bx.psu.edu/repos/devteam/kraken_report/kraken-report/.*:
@@ -1444,6 +1444,10 @@ tools:
          - pulsar
   toolshed.g2.bx.psu.edu/repos/iuc/vsnp_get_snps/vsnp_get_snps/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_build_tables/vsnp_build_tables/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_build_tables/vsnp_build_tables/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/kraken2tax/Kraken2Tax/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_build_tables/vsnp_build_tables/.*
   ###########
   # Cores: 16
   ###########
@@ -1480,10 +1484,6 @@ tools:
         - pulsar
       reject:
         - slurm
-  toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/galaxyp/maxquant/.*
-  toolshed.g2.bx.psu.edu/repos/devteam/kraken2tax/Kraken2Tax/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/galaxyp/maxquant/.*
   ###########
   # Cores: 30
   ###########
