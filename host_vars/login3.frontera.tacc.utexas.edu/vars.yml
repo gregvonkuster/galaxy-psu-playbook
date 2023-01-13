@@ -37,7 +37,7 @@ pulsar_cron_jobs:
   - name: "pulsar-update-tool-data"
     minute: "0"
     hour: "23"
-    job: "rsync -av /corral/projects/Galaxy-PSU/dev/galaxy/var/tool-data {{ _frontera_scratch_root }}"
+    job: "rsync -av /corral/projects/Galaxy-PSU/{{ galaxy_instance_name }}/galaxy/var/tool-data {{ _frontera_scratch_root }}"
   - name: "pulsar-access-tool-data"
     minute: "0"
     hour: "5"

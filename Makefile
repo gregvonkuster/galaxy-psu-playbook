@@ -16,5 +16,8 @@ lrn:
 lrn-deps:
 	ansible-playbook --diff -i hosts-lrn galaxy-deps.yml
 
+lrn-pulsar:
+	ansible-playbook --diff -i hosts-lrn pulsar.yml
+
 requirements:
 	ansible-galaxy role install -p roles -r requirements.yml
