@@ -27,7 +27,7 @@
         gid: 824019
         local: true
     # TODO: same
-    - name: Create local Galaxy dev user
+    - name: Create local Galaxy PSU user
       user:
         name: galaxydev
         uid: 877997
@@ -62,6 +62,22 @@
         state: started
   tags:
     - system
+
+- name: Early setup tasks for all hosts
+  hosts: galaxypsu
+  tasks:
+    - name: Create local Galaxy LRN user
+      user:
+        name: glxyhpc
+        uid: 877998
+        group: G-824021
+        comment: Galaxy-LRN Server
+        shell: /bin/bash
+        create_home: true
+        system: true
+  tags:
+    - system
+    - glxyhpc
 
 - name: Slurm
   # Slurm is installed on everything, even if just as a client
