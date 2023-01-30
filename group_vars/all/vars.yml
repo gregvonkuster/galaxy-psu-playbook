@@ -60,26 +60,26 @@ slurm_config:
 slurm_nodes:
   - name: galaxy-psu-jobs1
     CPUs: 8
-    RealMemory: 32089
+    RealMemory: 30041  # 32089-2048
     Weight: 0
   - name: galaxy-psu-bigjobs1
     CPUs: 8
-    RealMemory: 257736
+    RealMemory: 253640  # 257736-4092
     Weight: 20
   - name: galaxy-psu-set3-1
     NodeAddr: "{{ hostvars['galaxy-psu-set3-1'].ansible_host }}"
     CPUs: 24
-    RealMemory: 119896
+    RealMemory: 115800  # 119896-4096
     Weight: 10
   - name: galaxy-psu-set3-2
     NodeAddr: "{{ hostvars['galaxy-psu-set3-2'].ansible_host }}"
     CPUs: 24
-    RealMemory: 119896
+    RealMemory: 115800  # 119896-4096
     Weight: 10
   - name: galaxy-psu-set3-3
     NodeAddr: "{{ hostvars['galaxy-psu-set3-3'].ansible_host }}"
     CPUs: 24
-    RealMemory: 119896
+    RealMemory: 115800  # 119896-4096
     Weight: 10
 
 # Prioritize jobs such that jobs in the bigmem partition will get priority access to the (shared) big memory nodes
