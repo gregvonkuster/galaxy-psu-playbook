@@ -475,6 +475,12 @@ tools:
     environment: tpv_dispatcher
   - id: vsnp_build_tables
     environment: tpv_dispatcher
+  - id: vsnp_statistics
+    environment: tpv_dispatcher
+  - id: vsnp_add_zero_coverage
+    environment: tpv_dispatcher
+  - id: vsnp_get_snps
+    environment: tpv_dispatcher
   - id: sample_names
     environment: tpv_dispatcher
   - id: seqkit_stats
@@ -605,6 +611,42 @@ tools:
     environment: tpv_dispatcher
   - id: tp_sorted_uniq
     environment: tpv_dispatcher
+  - id: tp_multijoin_tool
+    environment: tpv_dispatcher
+  - id: tp_unfold_column_tool
+    environment: tpv_dispatcher
+  - id: tp_sort_header_tool
+    environment: tpv_dispatcher
+  - id: tp_tac
+    environment: tpv_dispatcher
+  - id: tp_head_tool
+    environment: tpv_dispatcher
+  - id: tp_awk_tool
+    environment: tpv_dispatcher
+  - id: tp_sed_tool
+    environment: tpv_dispatcher
+  - id: tp_text_file_with_recurring_lines
+    environment: tpv_dispatcher
+  - id: tp_replace_in_column
+    environment: tpv_dispatcher
+  - id: tp_find_and_replace
+    environment: tpv_dispatcher
+  - id: tp_cut_tool
+    environment: tpv_dispatcher
+  - id: tp_sort_rows
+    environment: tpv_dispatcher
+  - id: tp_grep_tool
+    environment: tpv_dispatcher
+  - id: tp_easyjoin_tool
+    environment: tpv_dispatcher
+  - id: tp_uniq_tool
+    environment: tpv_dispatcher
+  - id: tp_cat
+    environment: tpv_dispatcher
+  - id: tp_tail_tool
+    environment: tpv_dispatcher
+  - id: tp_replace_in_line
+    environment: tpv_dispatcher
   - id: trim_galore
     environment: tpv_dispatcher
   - id: clustalw
@@ -632,6 +674,10 @@ tools:
   - id: samtools_mpileup
     environment: tpv_dispatcher
   - id: mummer_nucmer
+    environment: tpv_dispatcher
+  - id: bam_to_psl
+    environment: tpv_dispatcher
+  - id: p_chunks
     environment: tpv_dispatcher
   - id: maxquant
     environment: tpv_dispatcher
@@ -681,6 +727,8 @@ tools:
     environment: tpv_dispatcher
   - id: fasta-stats
     environment: tpv_dispatcher
+  - id: draw_features
+    environment: tpv_dispatcher
   - id: fastp
     environment: tpv_dispatcher
   - id: ggplot2_heatmap2
@@ -694,6 +742,8 @@ tools:
   - id: kallisto_quant
     environment: tpv_dispatcher
   - id: kraken2
+    environment: tpv_dispatcher
+  - id: kraken2_build_database
     environment: tpv_dispatcher
   - id: limma_voom
     environment: tpv_dispatcher
@@ -864,6 +914,8 @@ tools:
   - id: lofreq_viterbi
     environment: tpv_dispatcher
   - id: medaka_consensus_pipeline
+    environment: tpv_dispatcher
+  - id: cshl_fastx_quality_statistics
     environment: tpv_dispatcher
   - id: medaka_variant
     environment: tpv_dispatcher
