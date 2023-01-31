@@ -399,6 +399,126 @@ execution:
           value: "$SLURM_NTASKS"
         - name: GALAXY_MEMORY_MB
           value: "194560"
+    frontera_small_2hr:
+      runner: frontera
+      tags: [frontera_limit]
+      submit_native_specification: --partition=small --nodes=1 --ntasks=56 --time=02:00:00
+      remote_metadata: false
+      transport: curl
+      default_file_action: remote_transfer
+      dependency_resolution: remote
+      rewrite_parameters: true
+      file_action_config: {{ galaxy_config_dir }}/pulsar_frontera_actions.yml
+      outputs_to_working_directory: false
+      jobs_directory: "/scratch1/08500/{{ tacc_user }}/staging"
+      singularity_enabled: true
+      # the tacc-singularity module automatically sets up mounts
+      singularity_volumes: null
+      container_resolvers:
+        - type: explicit_singularity
+        - type: mulled_singularity
+      require_container: true
+      env:
+        - name: _JAVA_OPTIONS
+          value: $_JAVA_OPTIONS -Xmx128g -Xms256m
+        - name: LC_ALL
+          value: C
+        - name: TERM
+          value: vt100
+        - execute: ulimit -c 0
+        - name: SINGULARITYENV__JAVA_OPTIONS
+          value: $_JAVA_OPTIONS
+        - name: SINGULARITYENV_LC_ALL
+          value: $LC_ALL
+        - name: SINGULARITYENV_TERM
+          value: $TERM
+        - file: /etc/profile.d/z01_lmod.sh
+        - execute: module load tacc-singularity
+        - execute: module unload xalt
+        - name: GALAXY_SLOTS
+          value: "$SLURM_NTASKS"
+        - name: GALAXY_MEMORY_MB
+          value: "194560"
+    frontera_small_4hr:
+      runner: frontera
+      tags: [frontera_limit]
+      submit_native_specification: --partition=small --nodes=1 --ntasks=56 --time=04:00:00
+      remote_metadata: false
+      transport: curl
+      default_file_action: remote_transfer
+      dependency_resolution: remote
+      rewrite_parameters: true
+      file_action_config: {{ galaxy_config_dir }}/pulsar_frontera_actions.yml
+      outputs_to_working_directory: false
+      jobs_directory: "/scratch1/08500/{{ tacc_user }}/staging"
+      singularity_enabled: true
+      # the tacc-singularity module automatically sets up mounts
+      singularity_volumes: null
+      container_resolvers:
+        - type: explicit_singularity
+        - type: mulled_singularity
+      require_container: true
+      env:
+        - name: _JAVA_OPTIONS
+          value: $_JAVA_OPTIONS -Xmx128g -Xms256m
+        - name: LC_ALL
+          value: C
+        - name: TERM
+          value: vt100
+        - execute: ulimit -c 0
+        - name: SINGULARITYENV__JAVA_OPTIONS
+          value: $_JAVA_OPTIONS
+        - name: SINGULARITYENV_LC_ALL
+          value: $LC_ALL
+        - name: SINGULARITYENV_TERM
+          value: $TERM
+        - file: /etc/profile.d/z01_lmod.sh
+        - execute: module load tacc-singularity
+        - execute: module unload xalt
+        - name: GALAXY_SLOTS
+          value: "$SLURM_NTASKS"
+        - name: GALAXY_MEMORY_MB
+          value: "194560"
+    frontera_small_8hr:
+      runner: frontera
+      tags: [frontera_limit]
+      submit_native_specification: --partition=small --nodes=1 --ntasks=56 --time=08:00:00
+      remote_metadata: false
+      transport: curl
+      default_file_action: remote_transfer
+      dependency_resolution: remote
+      rewrite_parameters: true
+      file_action_config: {{ galaxy_config_dir }}/pulsar_frontera_actions.yml
+      outputs_to_working_directory: false
+      jobs_directory: "/scratch1/08500/{{ tacc_user }}/staging"
+      singularity_enabled: true
+      # the tacc-singularity module automatically sets up mounts
+      singularity_volumes: null
+      container_resolvers:
+        - type: explicit_singularity
+        - type: mulled_singularity
+      require_container: true
+      env:
+        - name: _JAVA_OPTIONS
+          value: $_JAVA_OPTIONS -Xmx128g -Xms256m
+        - name: LC_ALL
+          value: C
+        - name: TERM
+          value: vt100
+        - execute: ulimit -c 0
+        - name: SINGULARITYENV__JAVA_OPTIONS
+          value: $_JAVA_OPTIONS
+        - name: SINGULARITYENV_LC_ALL
+          value: $LC_ALL
+        - name: SINGULARITYENV_TERM
+          value: $TERM
+        - file: /etc/profile.d/z01_lmod.sh
+        - execute: module load tacc-singularity
+        - execute: module unload xalt
+        - name: GALAXY_SLOTS
+          value: "$SLURM_NTASKS"
+        - name: GALAXY_MEMORY_MB
+          value: "194560"
     frontera_large_10min:
       runner: frontera
       tags: [frontera_limit]
@@ -427,6 +547,86 @@ execution:
           value: vt100
         - execute: ulimit -c 0
         - execute: ulimit -u 16384
+        - name: SINGULARITYENV__JAVA_OPTIONS
+          value: $_JAVA_OPTIONS
+        - name: SINGULARITYENV_LC_ALL
+          value: $LC_ALL
+        - name: SINGULARITYENV_TERM
+          value: $TERM
+        - file: /etc/profile.d/z01_lmod.sh
+        - execute: module load tacc-singularity
+        - execute: module unload xalt
+        - name: GALAXY_SLOTS
+          value: "$SLURM_NTASKS"
+        - name: GALAXY_MEMORY_MB
+          value: "1966080"
+    frontera_large_2hr:
+      runner: frontera
+      tags: [frontera_limit]
+      submit_native_specification: --partition=nvdimm --nodes=1 --ntasks=112 --time=02:00:00
+      remote_metadata: false
+      transport: curl
+      default_file_action: remote_transfer
+      dependency_resolution: remote
+      rewrite_parameters: true
+      file_action_config: {{ galaxy_config_dir }}/pulsar_frontera_actions.yml
+      outputs_to_working_directory: false
+      jobs_directory: "/scratch1/08500/{{ tacc_user }}/staging"
+      singularity_enabled: true
+      # the tacc-singularity module automatically sets up mounts
+      singularity_volumes: null
+      container_resolvers:
+        - type: explicit_singularity
+        - type: mulled_singularity
+      require_container: true
+      env:
+        - name: _JAVA_OPTIONS
+          value: $_JAVA_OPTIONS -Xmx1792g -Xms256m
+        - name: LC_ALL
+          value: C
+        - name: TERM
+          value: vt100
+        - execute: ulimit -c 0
+        - name: SINGULARITYENV__JAVA_OPTIONS
+          value: $_JAVA_OPTIONS
+        - name: SINGULARITYENV_LC_ALL
+          value: $LC_ALL
+        - name: SINGULARITYENV_TERM
+          value: $TERM
+        - file: /etc/profile.d/z01_lmod.sh
+        - execute: module load tacc-singularity
+        - execute: module unload xalt
+        - name: GALAXY_SLOTS
+          value: "$SLURM_NTASKS"
+        - name: GALAXY_MEMORY_MB
+          value: "1966080"
+    frontera_large_8hr:
+      runner: frontera
+      tags: [frontera_limit]
+      submit_native_specification: --partition=nvdimm --nodes=1 --ntasks=112 --time=08:00:00
+      remote_metadata: false
+      transport: curl
+      default_file_action: remote_transfer
+      dependency_resolution: remote
+      rewrite_parameters: true
+      file_action_config: {{ galaxy_config_dir }}/pulsar_frontera_actions.yml
+      outputs_to_working_directory: false
+      jobs_directory: "/scratch1/08500/{{ tacc_user }}/staging"
+      singularity_enabled: true
+      # the tacc-singularity module automatically sets up mounts
+      singularity_volumes: null
+      container_resolvers:
+        - type: explicit_singularity
+        - type: mulled_singularity
+      require_container: true
+      env:
+        - name: _JAVA_OPTIONS
+          value: $_JAVA_OPTIONS -Xmx1792g -Xms256m
+        - name: LC_ALL
+          value: C
+        - name: TERM
+          value: vt100
+        - execute: ulimit -c 0
         - name: SINGULARITYENV__JAVA_OPTIONS
           value: $_JAVA_OPTIONS
         - name: SINGULARITYENV_LC_ALL
@@ -474,29 +674,29 @@ tools:
   - id: collapse_dataset
     environment: tpv_dispatcher
   - id: vsnp_build_tables
-    environment: tpv_dispatcher
+    environment: frontera_large_8hr
   - id: vsnp_statistics
-    environment: tpv_dispatcher
+    environment: frontera_small_2hr
   - id: vsnp_add_zero_coverage
-    environment: tpv_dispatcher
+    environment: frontera_small_2hr
   - id: vsnp_get_snps
-    environment: tpv_dispatcher
+    environment: frontera_large_8hr
   - id: sample_names
-    environment: tpv_dispatcher
+    environment: frontera_small_2hr
   - id: seqkit_stats
-    environment: tpv_dispatcher
+    environment: frontera_small_2hr
   - id: seqkit_fx2tab
-    environment: tpv_dispatcher
+    environment: frontera_small_2hr
   - id: multiqc
-    environment: tpv_dispatcher
+    environment: frontera_small_4hr
   - id: raxml
-    environment: tpv_dispatcher
+    environment: frontera_large_8hr
   - id: bwa
     environment: tpv_dispatcher
   - id: bwa_mem
-    environment: tpv_dispatcher
+    environment: frontera_small_2hr
   - id: picard_MarkDuplicates
-    environment: tpv_dispatcher
+    environment: frontera_small_8hr
   - id: picard_RevertSam
     environment: tpv_dispatcher
   - id: picard_AddCommentsToBam
@@ -584,7 +784,7 @@ tools:
   - id: picard_FixMateInformation
     environment: tpv_dispatcher
   - id: freebayes
-    environment: tpv_dispatcher
+    environment: frontera_small_8hr
   - id: samtools_idxstats
     environment: tpv_dispatcher
   - id: samtools_sort
@@ -890,7 +1090,7 @@ tools:
   - id: samtools_rmdup
     environment: tpv_dispatcher
   - id: samtools_fixmate
-    environment: tpv_dispatcher
+    environment: frontera_small_2hr
   - id: samtools_markdup
     environment: tpv_dispatcher
   - id: abricate
@@ -1006,7 +1206,7 @@ tools:
   - id: peptide_shaker
     environment: tpv_dispatcher
   - id: vcffilter2
-    environment: tpv_dispatcher
+    environment: frontera_small_4hr
   - id: adapter_removal
     environment: tpv_dispatcher
   - id: aldex2
