@@ -1249,6 +1249,10 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
   toolshed.g2.bx.psu.edu/repos/iuc/fasta_stats/fasta-stats/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/fasta_compute_length/fasta_compute_length/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mummer_dnadiff/mummer_dnadiff/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastq_stats/fastq_stats/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
   toolshed.g2.bx.psu.edu/repos/iuc/fastp/fastp/.*:
