@@ -50,7 +50,7 @@ tools:
     scheduling:
        reject:
          - pulsar
-  toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*:
+  toolshed.g2.bx.psu.edu/repos/iuc/seqkit_fx2tab/seqkit_fx2tab/,*:
     cores: 1
     mem: 8
     context:
@@ -58,18 +58,16 @@ tools:
     scheduling:
        reject:
          - pulsar
-  toolshed.g2.bx.psu.edu/repos/iuc/seqkit_stats/seqkit_stats/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/seqkit_fx2tab/seqkit_fx2tab/,*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/seqkit_fx2tab/seqkit_fx2tab/.*
   toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/seqkit_fx2tab/seqkit_fx2tab/.*
   toolshed.g2.bx.psu.edu/repos/devteam/samtools_sort/samtools_sort/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/seqkit_fx2tab/seqkit_fx2tab/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastx_quality_statistics/cshl_fastx_quality_statistics/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/seqkit_fx2tab/seqkit_fx2tab/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_statistics/vsnp_statistics/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/seqkit_fx2tab/seqkit_fx2tab/.*
     context:
       time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/vsnp_add_zero_coverage/vsnp_add_zero_coverage/.*:
@@ -326,6 +324,8 @@ tools:
     - if: input_size >= 0.1
       cores: 5
       mem: 20
+  toolshed.g2.bx.psu.edu/repos/iuc/seqkit_stats/seqkit_stats/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/greg/call_insertions/call_insertions/.*:
@@ -1449,7 +1449,7 @@ tools:
   ###########
   # Cores: 12
   ###########
-  toolshed.g2.bx.psu.edu/repos/iuc/vsnp_build_tables/vsnp_build_tables/.*:
+  toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/.*:
     cores: 12
     mem: 96
     context:
@@ -1458,11 +1458,11 @@ tools:
        reject:
          - pulsar
   toolshed.g2.bx.psu.edu/repos/iuc/vsnp_get_snps/vsnp_get_snps/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_build_tables/vsnp_build_tables/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_build_tables/vsnp_build_tables/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/vsnp_build_tables/vsnp_build_tables/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/.*
   toolshed.g2.bx.psu.edu/repos/devteam/kraken2tax/Kraken2Tax/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/vsnp_build_tables/vsnp_build_tables/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/.*
   ###########
   # Cores: 16
   ###########
