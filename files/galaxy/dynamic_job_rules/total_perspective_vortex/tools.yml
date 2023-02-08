@@ -66,56 +66,52 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/seqkit_fx2tab/seqkit_fx2tab/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastx_quality_statistics/cshl_fastx_quality_statistics/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/seqkit_fx2tab/seqkit_fx2tab/.*
-  toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/seqkit_fx2tab/seqkit_fx2tab/.*
-    context:
-      time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/iuc/vsnp_add_zero_coverage/vsnp_add_zero_coverage/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sorted_uniq/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_multijoin_tool/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_unfold_column_tool/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sort_header_tool/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_tac/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_head_tool/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_awk_tool/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sed_tool/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_text_file_with_recurring_lines/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_column/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cut_tool/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sort_rows/*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_easyjoin_tool/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_uniq_tool/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cat/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_tail_tool/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/iuc/ggplot2_point/ggplot2_point/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/iuc/stringtie/stringtie_merge/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_cluster_split/mothur_cluster_split/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
     rules:
     - if: input_size >= 0.00015
       cores: 60
@@ -136,7 +132,7 @@ tools:
          reject:
            - slurm
   toolshed.g2.bx.psu.edu/repos/lparsons/htseq_count/htseq_count/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
     rules:
     - if: 0.2 <= input_size < 10
       cores: 8
@@ -150,7 +146,7 @@ tools:
          reject:
            - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/unicycler/unicycler/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
     rules:
     - if: 0.2 <= input_size < 2
       cores: 8
@@ -164,7 +160,7 @@ tools:
          reject:
            - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/seqtk/seqtk_seq/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
     rules:
     - if: 10 <= input_size < 20
       cores: 4
@@ -178,7 +174,7 @@ tools:
          reject:
            - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/medaka_variant/medaka_variant/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
     rules:
     - if: input_size >= 0.5
       cores: 8
@@ -186,7 +182,7 @@ tools:
   toolshed.g2.bx.psu.edu/repos/iuc/medaka_variant_pipeline/medaka_variant_pipeline/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/medaka_variant/medaka_variant/.*
   toolshed.g2.bx.psu.edu/repos/iuc/medaka_consensus_pipeline/medaka_consensus_pipeline/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/medaka_variant/medaka_variant/.*
     rules:
     - if: 0.5 <= input_size < 5
       cores: 8
@@ -204,7 +200,7 @@ tools:
   toolshed.g2.bx.psu.edu/repos/greg/p_chunks/p_chunks/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/medaka_consensus_pipeline/medaka_consensus_pipeline/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_interlacer/fastq_paired_end_interlacer/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
     rules:
     - if: 0.02 <= input_size < 1
       cores: 3
@@ -213,7 +209,7 @@ tools:
       cores: 8
       mem: 64
   toolshed.g2.bx.psu.edu/repos/bgruening/racon/racon/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
     rules:
     - if: 0.05 <= input_size < 5
       cores: 8
@@ -227,13 +223,13 @@ tools:
          reject:
            - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/scanpy_filter/scanpy_filter/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
     rules:
     - if: input_size >= 0.5
       cores: 3
       mem: 24
   toolshed.g2.bx.psu.edu/repos/devteam/picard/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
     env:
       _JAVA_OPTIONS: '-Xmx{int(mem)}G -Xms1G'
     rules:
@@ -241,13 +237,13 @@ tools:
         cores: 3
         mem: 24
   toolshed.g2.bx.psu.edu/repos/devteam/cuffmerge/cuffmerge/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
     rules:
     - if: input_size >= 0.1
       cores: 3
       mem: 24
   toolshed.g2.bx.psu.edu/repos/bgruening/trim_galore/trim_galore/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
     rules:
     - if: 0.02 <= input_size < 0.2
       cores: 3
@@ -256,7 +252,7 @@ tools:
       cores: 5
       mem: 40
   toolshed.g2.bx.psu.edu/repos/iuc/circos/circos_bundlelinks/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
     rules:
     - if: 0.0002 <= input_size < 0.01
       cores: 2
@@ -265,13 +261,13 @@ tools:
       cores: 5
       mem: 40
   toolshed.g2.bx.psu.edu/repos/iuc/scanpy_normalize/scanpy_normalize/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
     rules:
     - if: input_size >= 1
       cores: 2
       mem: 16
   toolshed.g2.bx.psu.edu/repos/iuc/stringtie/stringtie/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
     rules:
     - if: 0.2 <= input_size < 2
       cores: 3
@@ -280,7 +276,7 @@ tools:
       cores: 5
       mem: 40
   toolshed.g2.bx.psu.edu/repos/pjbriggs/trimmomatic/trimmomatic/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
     rules:
     - if: 0.015 <= input_size < 3
       cores: 2
@@ -289,7 +285,7 @@ tools:
       cores: 3
       mem: 24
   toolshed.g2.bx.psu.edu/repos/devteam/samtools_rmdup/samtools_rmdup/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
     rules:
     - if: input_size >= 0.5
       cores: 2
@@ -324,6 +320,8 @@ tools:
     - if: input_size >= 0.1
       cores: 5
       mem: 20
+  toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/iuc/seqkit_stats/seqkit_stats/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/.*:
@@ -395,10 +393,10 @@ tools:
       cores: 56
       mem: 2048
       scheduling:
-         accept:
-           - pulsar
-         reject:
-           - slurm
+        accept:
+          - pulsar
+        reject:
+          - slurm
   toolshed.g2.bx.psu.edu/repos/nml/metaspades/metaspades/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
     rules:
@@ -409,18 +407,18 @@ tools:
       cores: 16
       mem: 128
       scheduling:
-         accept:
-           - pulsar
-         reject:
-           - slurm
+        accept:
+          - pulsar
+        reject:
+          - slurm
     - if: input_size >= 60
       cores: 56
       mem: 2048
       scheduling:
-         reject:
-           - slurm
-         accept:
-           - pulsar
+        reject:
+          - slurm
+        accept:
+          - pulsar
   toolshed.g2.bx.psu.edu/repos/nilesh/rseqc/rseqc_geneBody_coverage/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
     rules:
@@ -447,10 +445,10 @@ tools:
       mem: 64
     - if: input_size >= 20
       scheduling:
-         reject:
-           - slurm
-         accept:
-           - pulsar
+        reject:
+          - slurm
+        accept:
+          - pulsar
       cores: 60
       mem: 961
   toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/.*:
@@ -483,18 +481,18 @@ tools:
       cores: 16
       mem: 128
       scheduling:
-         accept:
-           - pulsar
-         reject:
-           - slurm
+        accept:
+          - pulsar
+        reject:
+          - slurm
     - if: input_size >= 10
       cores: 56
       mem: 2048
       scheduling:
-         accept:
-           - pulsar
-         reject:
-           - slurm
+        accept:
+          - pulsar
+        reject:
+          - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/gtdbtk_classify_wf/gtdbtk_classify_wf/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*
   toolshed.g2.bx.psu.edu/repos/iuc/kallisto_quant/kallisto_quant/.*:
@@ -568,8 +566,8 @@ tools:
     context:
       time: "04:00:00"
     scheduling:
-       reject:
-         - pulsar
+      reject:
+        - pulsar
     rules:
     - if: 0.0005 <= input_size < 0.1
       cores: 16
@@ -593,8 +591,8 @@ tools:
     context:
       time: "04:00:00"
     scheduling:
-       reject:
-         - pulsar
+      reject:
+        - pulsar
     rules:
     - if: 0.2 <= input_size < 4
       cores: 4
@@ -616,8 +614,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
-       reject:
-         - pulsar
+      reject:
+        - pulsar
     rules:
     - if: 0.25 <= input_size < 1
       cores: 4
@@ -977,16 +975,16 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
-       reject:
-         - pulsar
+      reject:
+        - pulsar
   toolshed.g2.bx.psu.edu/repos/iuc/ggplot2_heatmap2/ggplot2_heatmap2/.*:
     cores: 2
     mem: 40
     context:
       time: "08:00:00"
     scheduling:
-       reject:
-         - pulsar
+      reject:
+        - pulsar
   ##########
   # Cores: 3
   ##########
@@ -1000,8 +998,8 @@ tools:
       cores: 5
       mem: 20
     scheduling:
-       reject:
-         - pulsar
+      reject:
+        - pulsar
   toolshed.g2.bx.psu.edu/repos/greg/bam_to_psl/bam_to_psl/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/.*
   toolshed.g2.bx.psu.edu/repos/devteam/sam_to_bam/sam_to_bam/.*:
@@ -1016,8 +1014,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
-       reject:
-         - pulsar
+      reject:
+        - pulsar
   toolshed.g2.bx.psu.edu/repos/devteam/samtool_filter2/samtool_filter2/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_joiner/fastq_paired_end_joiner/.*
   toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fastq_dump/.*:
@@ -1034,8 +1032,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
-       reject:
-         - pulsar
+      reject:
+        - pulsar
   toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
   toolshed.g2.bx.psu.edu/repos/iuc/snpsift/snpSift_annotate/.*:
@@ -1163,8 +1161,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
-       reject:
-         - pulsar
+      reject:
+        - pulsar
   toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*
   toolshed.g2.bx.psu.edu/repos/iuc/lofreq_viterbi/lofreq_viterbi/.*:
@@ -1223,8 +1221,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
-       reject:
-         - pulsar
+      reject:
+        - pulsar
   toolshed.g2.bx.psu.edu/repos/devteam/samtools_mpileup/samtools_mpileup/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastn_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastp_wrapper/.*:
@@ -1455,8 +1453,8 @@ tools:
     context:
       time: "12:00:00"
     scheduling:
-       reject:
-         - pulsar
+      reject:
+        - pulsar
   toolshed.g2.bx.psu.edu/repos/iuc/vsnp_get_snps/vsnp_get_snps/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/.*
   toolshed.g2.bx.psu.edu/repos/iuc/vsnp_build_tables/vsnp_build_tables/.*:
