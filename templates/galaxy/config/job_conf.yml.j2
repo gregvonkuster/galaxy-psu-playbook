@@ -671,32 +671,6 @@ tools:
     environment: slurm_bigmem_multicore_container_venv
   # Tools that do not have corresponding BioContainers
   # Frontera
-  - id: vsnp_build_tables
-    environment: frontera_large_8hr
-  - id: vsnp_statistics
-    environment: frontera_small_2hr
-  - id: vsnp_add_zero_coverage
-    environment: frontera_small_2hr
-  - id: vsnp_get_snps
-    environment: frontera_large_8hr
-  - id: sample_names
-    environment: frontera_large_10min
-  - id: seqkit_fx2tab
-    environment: frontera_small_2hr
-  - id: multiqc
-    environment: frontera_small_4hr
-  - id: raxml
-    environment: frontera_large_8hr
-  - id: bwa_mem
-    environment: frontera_small_2hr
-  - id: picard_MarkDuplicates
-    environment: frontera_small_8hr
-  - id: freebayes
-    environment: frontera_small_8hr
-  - id: samtools_fixmate
-    environment: frontera_small_2hr
-  - id: vcffilter2
-    environment: frontera_small_4hr
 
 limits:
   - type: registered_user_concurrent_jobs
