@@ -1155,7 +1155,7 @@ tools:
   ##########
   # Cores: 4
   ##########
-  toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*:
+  toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*:
     cores: 4
     mem: 32
     context:
@@ -1163,18 +1163,16 @@ tools:
     scheduling:
        reject:
          - pulsar
-  toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*
   toolshed.g2.bx.psu.edu/repos/iuc/lofreq_viterbi/lofreq_viterbi/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/phyloseq_from_dada2/phyloseq_from_dada2/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/phyloseq_plot_richness/phyloseq_plot_richness/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/phyloseq_plot_ordination/phyloseq_plot_ordination/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/minimap2/minimap2/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
     rules:
     - if: 0.5 <= input_size < 5
       cores: 8
@@ -1196,7 +1194,7 @@ tools:
         reject:
           - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
     rules:
     - if: 0.015 <= input_size < 2
       cores: 8
@@ -1456,7 +1454,10 @@ tools:
        reject:
          - pulsar
   toolshed.g2.bx.psu.edu/repos/devteam/kraken2tax/Kraken2Tax/.*:
+  toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/.*
+    context:
+      time: "16:00:00"
   ###########
   # Cores: 16
   ###########
