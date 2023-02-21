@@ -320,6 +320,8 @@ tools:
     - if: input_size >= 0.1
       cores: 5
       mem: 20
+  toolshed.g2.bx.psu.edu/repos/greg/varscan_pileup/varscan_pileup/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/iuc/varscan_mpileup/varscan_mpileup/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/iuc/seqkit_stats/seqkit_stats/.*:
