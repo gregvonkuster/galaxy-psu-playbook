@@ -464,7 +464,7 @@ tools:
     - if: input_size >= 5
       cores: 10
       mem: 80
-  toolshed.g2.bx.psu.edu/repos/iuc/mummer_dnadiff/mummer_dnadiff/.*:
+  toolshed.g2.bx.psu.edu/repos/greg/mummer4_dnadiff/mummer_dnadiff/:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/.*
   toolshed.g2.bx.psu.edu/repos/crs4/prokka/prokka/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
