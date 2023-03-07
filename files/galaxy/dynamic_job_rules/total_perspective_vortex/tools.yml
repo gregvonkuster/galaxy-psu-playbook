@@ -1165,7 +1165,11 @@ tools:
     scheduling:
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/greg/pima_report/pima_report/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/lofreq_viterbi/lofreq_viterbi/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/phyloseq_from_dada2/phyloseq_from_dada2/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
@@ -1456,10 +1460,6 @@ tools:
        reject:
          - pulsar
   toolshed.g2.bx.psu.edu/repos/devteam/kraken2tax/Kraken2Tax/.*:
-  toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/.*
-    context:
-      time: "16:00:00"
   ###########
   # Cores: 16
   ###########
