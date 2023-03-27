@@ -58,6 +58,14 @@ tools:
     scheduling:
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/gtdbtk_classify_wf/gtdbtk_classify_wf/.*:
+    cores: 1
+    mem: 64
+    context:
+      time: "08:00:00"
+    scheduling:
+       reject:
+         - pulsar
   toolshed.g2.bx.psu.edu/repos/greg/call_amr_mutations/call_amr_mutations/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*
   toolshed.g2.bx.psu.edu/repos/devteam/samtools_sort/samtools_sort/.*:
@@ -196,8 +204,6 @@ tools:
          reject:
            - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/medaka_consensus/medaka_consensus/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/medaka_consensus_pipeline/medaka_consensus_pipeline/.*
-  toolshed.g2.bx.psu.edu/repos/greg/p_chunks/p_chunks/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/medaka_consensus_pipeline/medaka_consensus_pipeline/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_interlacer/fastq_paired_end_interlacer/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
@@ -497,8 +503,6 @@ tools:
            - pulsar
          reject:
            - slurm
-  toolshed.g2.bx.psu.edu/repos/iuc/gtdbtk_classify_wf/gtdbtk_classify_wf/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*
   toolshed.g2.bx.psu.edu/repos/iuc/kallisto_quant/kallisto_quant/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
     rules:
@@ -1231,6 +1235,8 @@ tools:
     scheduling:
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/greg/p_chunks/p_chunks/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastn_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/devteam/samtools_mpileup/samtools_mpileup/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastn_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastp_wrapper/.*:
