@@ -1371,63 +1371,6 @@ tools:
           - pulsar
         reject:
           - slurm
-  toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
-    rules:
-    - if: 0.1 <= input_size < 30
-      cores: 60
-      mem: 961
-      scheduling:
-        accept:
-          - pulsar
-        reject:
-          - slurm
-    - if: input_size >= 30
-      cores: 56
-      mem: 2048
-      scheduling:
-        accept:
-          - pulsar
-        reject:
-          - slurm
-  toolshed.g2.bx.psu.edu/repos/iuc/describe_samples/describe_samples/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/trinity_align_and_estimate_abundance/trinity_align_and_estimate_abundance/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
-  toolshed.g2.bx.psu.edu/repos/nate/trinity_psc/trinity_psc/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/trinity_contig_exn50_statistic/trinity_contig_exn50_statistic/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/trinity_abundance_estimates_to_matrix/trinity_abundance_estimates_to_matrix/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/trinity_gene_to_trans_map/trinity_gene_to_trans_map/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/trinity_run_de_analysis/trinity_run_de_analysis/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/trinity_samples_qccheck/trinity_samples_qccheck/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/trinity_super_transcripts/trinity_super_transcripts/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/trinity_analyze_diff_expr/trinity_analyze_diff_expr/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/trinity_filter_low_expr_transcripts/trinity_filter_low_expr_transcripts/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/trinity_define_clusters_by_cutting_tree/trinity_define_clusters_by_cutting_tree/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/sina/sina/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
-    context:
-      time: "16:00:00"
-  toolshed.g2.bx.psu.edu/repos/iuc/magicblast/magicblast/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/sina/sina/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/concoct/concoct/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/sina/sina/.*
-    context:
-      time: "24:00:00"
-  toolshed.g2.bx.psu.edu/repos/iuc/malt_run/malt_run/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/concoct/concoct/.*
-    context:
-      time: "36:00:00"
   ##########
   # Cores: 9
   ##########
@@ -1518,7 +1461,64 @@ tools:
       reject:
         - slurm
   ###########
-  # Cores: 56
+  # Cores: 60
+  ###########
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*:
+    rules:
+    - if: 0.1 <= input_size < 30
+      cores: 60
+      mem: 961
+      context:
+        time: "24:00:00"
+      scheduling:
+        accept:
+          - pulsar
+        reject:
+          - slurm
+    - if: input_size >= 30
+      cores: 84
+      mem: 2048
+      context:
+        time: "48:00:00"
+      scheduling:
+        accept:
+          - pulsar
+        reject:
+          - slurm
+  toolshed.g2.bx.psu.edu/repos/iuc/describe_samples/describe_samples/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_align_and_estimate_abundance/trinity_align_and_estimate_abundance/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
+  toolshed.g2.bx.psu.edu/repos/nate/trinity_psc/trinity_psc/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_contig_exn50_statistic/trinity_contig_exn50_statistic/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_abundance_estimates_to_matrix/trinity_abundance_estimates_to_matrix/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_gene_to_trans_map/trinity_gene_to_trans_map/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_run_de_analysis/trinity_run_de_analysis/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_samples_qccheck/trinity_samples_qccheck/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_super_transcripts/trinity_super_transcripts/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_analyze_diff_expr/trinity_analyze_diff_expr/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_filter_low_expr_transcripts/trinity_filter_low_expr_transcripts/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/trinity_define_clusters_by_cutting_tree/trinity_define_clusters_by_cutting_tree/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/sina/sina/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/magicblast/magicblast/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/sina/sina/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/concoct/concoct/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/sina/sina/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/malt_run/malt_run/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/concoct/concoct/.*
+  ###########
+  # Cores: 84
   ###########
   toolshed.g2.bx.psu.edu/repos/bgruening/canu/canu/.*:
     cores: 84
