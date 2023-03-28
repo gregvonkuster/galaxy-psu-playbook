@@ -475,11 +475,15 @@ tools:
   toolshed.g2.bx.psu.edu/repos/greg/mummer4_dnadiff/mummer_dnadiff/:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/.*
   toolshed.g2.bx.psu.edu/repos/crs4/prokka/prokka/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
     rules:
     - if: 0.001 <= input_size < 0.03
       cores: 8
       mem: 64
+      context:
+        time: "08:00:00"
+      scheduling:
+         reject:
+           - pulsar
     - if: input_size >= 0.03
       fail: Too much data, Prokka is designed to annotate bacterial/virus genomes
         only. Prokka will not annotate eukaryotic genomes nor metagenomes.
