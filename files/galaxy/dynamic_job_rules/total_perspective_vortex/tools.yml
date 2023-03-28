@@ -1173,6 +1173,8 @@ tools:
     scheduling:
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/fastani/fastani/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/greg/pima_report/pima_report/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/lofreq_viterbi/lofreq_viterbi/.*:
