@@ -58,14 +58,8 @@ tools:
     scheduling:
        reject:
          - pulsar
-  toolshed.g2.bx.psu.edu/repos/iuc/gtdbtk_classify_wf/gtdbtk_classify_wf/.*:
-    cores: 1
-    mem: 64
-    context:
-      time: "08:00:00"
-    scheduling:
-       reject:
-         - pulsar
+  toolshed.g2.bx.psu.edu/repos/greg/lrn_risk/lrn_risk/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*
   toolshed.g2.bx.psu.edu/repos/greg/call_amr_mutations/call_amr_mutations/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*
   toolshed.g2.bx.psu.edu/repos/devteam/samtools_sort/samtools_sort/.*:
@@ -311,6 +305,14 @@ tools:
     - if: input_size >= 1
       cores: 8
       mem: 64
+  toolshed.g2.bx.psu.edu/repos/iuc/gtdbtk_classify_wf/gtdbtk_classify_wf/.*:
+    cores: 1
+    mem: 64
+    context:
+      time: "08:00:00"
+    scheduling:
+       reject:
+         - pulsar
   ##########
   # Cores: 2
   ##########
