@@ -189,7 +189,10 @@ tools:
     - if: 0.5 <= input_size < 5
       cores: 8
       mem: 64
-    - if: input_size >= 5
+    - if: 5 <= input_size < 10
+      cores: 24
+      mem: 96
+    - if: input_size >= 10
       cores: 56
       mem: 2048
       scheduling:
@@ -951,14 +954,12 @@ tools:
     - if: 0.005 <= input_size < 2
       cores: 8
       mem: 64
-    - if: 2 <= input_size < 20
-      cores: 60
-      mem: 961
-      scheduling:
-        accept:
-          - pulsar
-        reject:
-          - slurm
+    - if: 2 <= input_size < 10
+      cores: 16
+      mem: 64
+    - if: 10 <= input_size < 20
+      cores: 24
+      mem: 96
     - if: input_size >= 20
       cores: 56
       mem: 2048
