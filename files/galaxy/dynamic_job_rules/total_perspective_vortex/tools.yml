@@ -595,7 +595,7 @@ tools:
         reject:
           - slurm
     - if: input_size >= 0.1
-      cores: 120
+      cores: 96
       mem: 1922
       scheduling:
         accept:
@@ -1527,14 +1527,16 @@ tools:
   toolshed.g2.bx.psu.edu/repos/iuc/malt_run/malt_run/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/concoct/concoct/.*
   ###########
-  # Cores: 120
+  # Cores: 96
   ###########
   toolshed.g2.bx.psu.edu/repos/bgruening/canu/canu/.*:
-    cores: 120
+    cores: 96
     mem: 2048
     context:
       time: "48:00:00"
     scheduling:
+      accept:
+        - pulsar
       reject:
         - slurm
 
