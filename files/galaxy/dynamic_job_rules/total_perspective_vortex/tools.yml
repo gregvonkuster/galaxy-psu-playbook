@@ -1527,10 +1527,10 @@ tools:
   toolshed.g2.bx.psu.edu/repos/iuc/malt_run/malt_run/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/concoct/concoct/.*
   ###########
-  # Cores: 84
+  # Cores: 120
   ###########
   toolshed.g2.bx.psu.edu/repos/bgruening/canu/canu/.*:
-    cores: 84
+    cores: 120
     mem: 2048
     context:
       time: "48:00:00"
