@@ -112,6 +112,8 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/stringtie/stringtie_merge/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/ucsc_fasplit/fasplit/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_cluster_split/mothur_cluster_split/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
     rules:
@@ -1529,14 +1531,16 @@ tools:
   ###########
   # Cores: 96
   ###########
+  #toolshed.g2.bx.psu.edu/repos/bgruening/canu/canu/.*:
+  #  cores: 96
+  #  mem: 2048
+  #  context:
+  #    time: "16:00:00"
+  #  scheduling:
+  #    accept:
+  #      - pulsar
+  #    reject:
+  #      - slurm
   toolshed.g2.bx.psu.edu/repos/bgruening/canu/canu/.*:
-    cores: 96
-    mem: 2048
-    context:
-      time: "48:00:00"
-    scheduling:
-      accept:
-        - pulsar
-      reject:
-        - slurm
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
 
