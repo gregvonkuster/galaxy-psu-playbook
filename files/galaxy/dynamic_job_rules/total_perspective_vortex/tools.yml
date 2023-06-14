@@ -150,8 +150,6 @@ tools:
            - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/ucsc_fasplit/fasplit/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/lparsons/htseq_count/htseq_count/.*
-  toolshed.g2.bx.psu.edu/repos/rnateam/splitfasta/rbc_splitfasta/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/lparsons/htseq_count/htseq_count/.*
   toolshed.g2.bx.psu.edu/repos/iuc/unicycler/unicycler/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
     rules:
@@ -336,6 +334,8 @@ tools:
     - if: input_size >= 0.1
       cores: 5
       mem: 20
+  toolshed.g2.bx.psu.edu/repos/rnateam/splitfasta/rbc_splitfasta/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/greg/quast/quast/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/greg/varscan_pileup/varscan_pileup/.*:
