@@ -48,16 +48,32 @@ tools:
     context:
       time: "00:10:00"
     scheduling:
-       reject:
-         - pulsar
+      reject:
+        - pulsar
+  toolshed.g2.bx.psu.edu/repos/devteam/fasta_compute_length/fasta_compute_length/.*:
+    cores: 1
+    mem: 8
+    context:
+      time: "04:00:00"
+    scheduling:
+      accept:
+        - slurm
+      reject:
+        - pulsar
+    rules:
+    - if: input_size >= 1
+      cores: 5
+      mem: 40
+      context:
+        time: "08:00:00"
   toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*:
     cores: 1
     mem: 8
     context:
       time: "04:00:00"
     scheduling:
-       reject:
-         - pulsar
+      reject:
+        - pulsar
   toolshed.g2.bx.psu.edu/repos/greg/lrn_risk/lrn_risk/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*
   toolshed.g2.bx.psu.edu/repos/greg/call_amr_mutations/call_amr_mutations/.*:
@@ -1249,8 +1265,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
-       reject:
-         - pulsar
+      reject:
+        - pulsar
   toolshed.g2.bx.psu.edu/repos/greg/p_chunks/p_chunks/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastn_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/devteam/samtools_mpileup/samtools_mpileup/.*:
@@ -1282,8 +1298,6 @@ tools:
   toolshed.g2.bx.psu.edu/repos/iuc/edger/edger/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
   toolshed.g2.bx.psu.edu/repos/iuc/fasta_stats/fasta-stats/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
-  toolshed.g2.bx.psu.edu/repos/devteam/fasta_compute_length/fasta_compute_length/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastq_stats/fastq_stats/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
