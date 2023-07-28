@@ -534,6 +534,20 @@ tools:
     - if: input_size >= 5
       cores: 24
       mem: 96
+  toolshed.g2.bx.psu.edu/repos/iuc/minimap2/minimap2/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/kraken/kraken/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/kraken2tax/Kraken2Tax/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/kraken_report/kraken-report/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/kraken_taxonomy_report/kraken_taxonomy_report/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/data_manager_build_kraken2_database/kraken2_build_database/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*
   toolshed.g2.bx.psu.edu/repos/iuc/kallisto_quant/kallisto_quant/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
     rules:
@@ -1218,27 +1232,6 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/phyloseq_plot_ordination/phyloseq_plot_ordination/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/minimap2/minimap2/.*:
-    context:
-      time: "08:00:00"
-    scheduling:
-       accept:
-         - slurm
-       reject:
-         - pulsar
-    rules:
-    - if: input_size < 0.5
-      cores: 4
-      mem: 32
-    - if: 0.5 <= input_size < 5
-      cores: 8
-      mem: 40
-    - if: 5 <= input_size < 20
-      cores: 16
-      mem: 80
-    - if: input_size >= 20
-      cores: 24
-      mem: 96
   toolshed.g2.bx.psu.edu/repos/iuc/shovill/shovill/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
     rules:
@@ -1283,12 +1276,6 @@ tools:
     scheduling:
       reject:
         - pulsar
-  toolshed.g2.bx.psu.edu/repos/devteam/kraken/kraken/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
-  toolshed.g2.bx.psu.edu/repos/devteam/kraken_report/kraken-report/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/kraken_taxonomy_report/kraken_taxonomy_report/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
   toolshed.g2.bx.psu.edu/repos/lparsons/cutadapt/cutadapt/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/.*
   toolshed.g2.bx.psu.edu/repos/iuc/merqury/merqury/.*:
@@ -1434,15 +1421,6 @@ tools:
   ###########
   # Cores: 12
   ###########
-  toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/.*:
-    cores: 12
-    mem: 96
-    context:
-      time: "12:00:00"
-    scheduling:
-       reject:
-         - pulsar
-  toolshed.g2.bx.psu.edu/repos/devteam/kraken2tax/Kraken2Tax/.*:
   ###########
   # Cores: 16
   ###########
@@ -1456,8 +1434,6 @@ tools:
         - pulsar
       reject:
         - slurm
-  toolshed.g2.bx.psu.edu/repos/iuc/data_manager_build_kraken2_database/kraken2_build_database/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastx_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/iuc/data_manager_gtdbtk_database_installer/data_manager/gtdbtk_database_installer/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastx_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/bionano_scaffold/bionano_scaffold/.*:
