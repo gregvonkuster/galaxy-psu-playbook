@@ -515,7 +515,7 @@ tools:
         only. Prokka will not annotate eukaryotic genomes nor metagenomes.
   toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*:
     context:
-      time: "08:00:00"
+      time: "04:00:00"
     scheduling:
       accept:
         - slurm
@@ -537,17 +537,30 @@ tools:
   toolshed.g2.bx.psu.edu/repos/iuc/minimap2/minimap2/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*
   toolshed.g2.bx.psu.edu/repos/devteam/kraken/kraken/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*
+    context:
+      time: "04:00:00"
+    scheduling:
+      accept:
+        - slurm
+      reject:
+        - pulsar
+    rules:
+    - if: input_size <= 2
+      cores: 8
+      mem: 32
+    - if: input_size > 2
+      cores: 16
+      mem: 64
   toolshed.g2.bx.psu.edu/repos/iuc/kraken2/kraken2/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/kraken/kraken/.*
   toolshed.g2.bx.psu.edu/repos/devteam/kraken2tax/Kraken2Tax/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/kraken/kraken/.*
   toolshed.g2.bx.psu.edu/repos/devteam/kraken_report/kraken-report/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/kraken/kraken/.*
   toolshed.g2.bx.psu.edu/repos/iuc/kraken_taxonomy_report/kraken_taxonomy_report/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/kraken/kraken/.*
   toolshed.g2.bx.psu.edu/repos/iuc/data_manager_build_kraken2_database/kraken2_build_database/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/flye/flye/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/kraken/kraken/.*
   toolshed.g2.bx.psu.edu/repos/iuc/kallisto_quant/kallisto_quant/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
     rules:
