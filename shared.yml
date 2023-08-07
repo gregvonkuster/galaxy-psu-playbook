@@ -79,6 +79,15 @@
     - system
     - glxyhpc
 
+- name: Early setup tasks for Openstack hosts
+  hosts: galaxypsuinstances
+  tasks:
+    - name: Add to admin user ssh keys
+      authorized_key:
+        user: "{{ ansible_user }}"
+        key: "{{ item }}"
+      loop: "{{ root_authorized_ssh_keys }}"
+
 - name: Slurm
   # Slurm is installed on everything, even if just as a client
   hosts: galaxypsu
