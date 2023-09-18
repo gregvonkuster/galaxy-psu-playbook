@@ -7,6 +7,7 @@ supervisor_configs: []
 # General dependencies
 galaxyservers_packages:
   - gcc
+  - g++
 
 
 # Conda
