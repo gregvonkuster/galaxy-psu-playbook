@@ -1,8 +1,23 @@
 tools:
+
+  upload1:
+    cores: 1
+    scheduling:
+      require:
+        - conda
+      reject:
+        - general
+
+  __.*__:
+    cores: 1
+    scheduling:
+      require:
+        - conda
+      reject:
+        - general
+
   __DATA_FETCH__:
     cores: 1
-    params:
-      tmp_dir: True
     rules:
     - if: |
         user_limit = 4
@@ -11,6 +26,12 @@ tools:
       execute: |
         from galaxy.jobs.mapper import JobNotReadyException
         raise JobNotReadyException()
+    scheduling:
+      require:
+        - conda
+      reject:
+        - general
+
   ###########################################
   # Tools included in the Galaxy distribution
   ###########################################

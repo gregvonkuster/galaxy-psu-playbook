@@ -1,8 +1,8 @@
 ---
 
 # This is still used for reports
-supervisor_configs:
-  - galaxy.conf
+supervisor_configs: []
+#  - galaxy.conf
 
 # General dependencies
 galaxyservers_packages:
