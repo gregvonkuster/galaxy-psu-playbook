@@ -343,6 +343,18 @@ tools:
   ##########
   # Cores: 2
   ##########
+  toolshed.g2.bx.psu.edu/repos/iuc/stacks2_clonefilter/stacks2_clonefilter/.*:
+    cores: 2
+    mem: 12
+    context:
+      time: "08:00:00"
+    scheduling:
+       reject:
+         - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/stacks2_kmerfilter/stacks2_kmerfilter/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_clonefilter/stacks2_clonefilter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/stacks2_shortreads/stacks2_shortreads/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_clonefilter/stacks2_clonefilter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*:
     cores: 2
     mem: 8
@@ -1352,6 +1364,18 @@ tools:
   ##########
   # Cores: 8
   ##########
+  toolshed.g2.bx.psu.edu/repos/iuc/stacks2_populations/stacks2_populations/.*:
+    cores: 8
+    mem: 32
+    context:
+      time: "08:00:00"
+    scheduling:
+      reject:
+        - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/stacks2_procrad/stacks2_procrad/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_populations/stacks2_populations/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/stacks2_procrad/stacks2_procrad/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_refmap/stacks2_refmap/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*:
     cores: 8
     mem: 64
@@ -1453,6 +1477,26 @@ tools:
   ###########
   # Cores: 16
   ###########
+  toolshed.g2.bx.psu.edu/repos/iuc/stacks2_cstacks/stacks2_cstacks/.*:
+    cores: 16
+    mem: 64
+    context:
+      time: "08:00:00"
+    scheduling:
+      accept:
+        - pulsar
+      reject:
+        - slurm
+  toolshed.g2.bx.psu.edu/repos/iuc/stacks2_denovomap/stacks2_denovomap/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_cstacks/stacks2_cstacks/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/stacks2_gstacks/stacks2_gstacks/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_cstacks/stacks2_cstacks/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/stacks2_sstacks/stacks2_sstacks/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_cstacks/stacks2_cstacks/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/stacks2_tsv2bam/stacks2_tsv2bam/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_cstacks/stacks2_cstacks/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/stacks2_ustacks/stacks2_ustacks/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_cstacks/stacks2_cstacks/.*
   toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastx_wrapper/.*:
     cores: 16
     mem: 128
