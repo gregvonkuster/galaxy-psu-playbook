@@ -1374,8 +1374,8 @@ tools:
         - pulsar
   toolshed.g2.bx.psu.edu/repos/iuc/stacks2_procrad/stacks2_procrad/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_populations/stacks2_populations/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/stacks2_procrad/stacks2_procrad/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_refmap/stacks2_refmap/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/stacks2_refmap/stacks2_refmap/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_populations/stacks2_populations/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*:
     cores: 8
     mem: 64
