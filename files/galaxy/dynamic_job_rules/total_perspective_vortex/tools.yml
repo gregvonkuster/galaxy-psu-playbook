@@ -69,6 +69,8 @@ tools:
     context:
       time: "00:10:00"
     scheduling:
+       accept:
+         - slurm
        reject:
          - pulsar
   toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*:
@@ -77,6 +79,8 @@ tools:
     context:
       time: "04:00:00"
     scheduling:
+       accept:
+         - slurm
        reject:
          - pulsar
   toolshed.g2.bx.psu.edu/repos/greg/lrn_risk/lrn_risk/.*:
@@ -138,7 +142,7 @@ tools:
     rules:
     - if: input_size >= 0.00015
       cores: 60
-      mem: 2048
+      mem: 1536
       scheduling:
          accept:
            - pulsar
@@ -149,7 +153,7 @@ tools:
     rules:
     - if: input_size >= 1
       cores: 60
-      mem: 2048
+      mem: 1536
       scheduling:
          accept:
            - pulsar
@@ -193,7 +197,7 @@ tools:
       mem: 32
     - if: input_size >= 20
       cores: 56
-      mem: 2048
+      mem: 1536
       scheduling:
          accept:
            - pulsar
@@ -218,7 +222,7 @@ tools:
       mem: 96
     - if: input_size >= 10
       cores: 56
-      mem: 2048
+      mem: 1536
       scheduling:
          accept:
            - pulsar
@@ -243,7 +247,7 @@ tools:
       mem: 64
     - if: input_size >= 5
       cores: 56
-      mem: 2048
+      mem: 1536
       scheduling:
          accept:
            - pulsar
@@ -338,6 +342,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
+       accept:
+         - slurm
        reject:
          - pulsar
   ##########
@@ -349,6 +355,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
+       accept:
+         - slurm
        reject:
          - pulsar
   toolshed.g2.bx.psu.edu/repos/iuc/stacks2_kmerfilter/stacks2_kmerfilter/.*:
@@ -361,6 +369,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
+       accept:
+         - slurm
        reject:
          - pulsar
     rules:
@@ -446,7 +456,7 @@ tools:
     rules:
     - if: input_size >= 0.2
       cores: 56
-      mem: 2048
+      mem: 1536
       scheduling:
          accept:
            - pulsar
@@ -468,12 +478,12 @@ tools:
            - slurm
     - if: input_size >= 60
       cores: 56
-      mem: 2048
+      mem: 1536
       scheduling:
-         reject:
-           - slurm
          accept:
            - pulsar
+         reject:
+           - slurm
   toolshed.g2.bx.psu.edu/repos/nilesh/rseqc/rseqc_geneBody_coverage/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
     rules:
@@ -500,10 +510,10 @@ tools:
       mem: 64
     - if: input_size >= 20
       scheduling:
-         reject:
-           - slurm
          accept:
            - pulsar
+         reject:
+           - slurm
       cores: 60
       mem: 961
   toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/.*:
@@ -525,6 +535,8 @@ tools:
       context:
         time: "08:00:00"
       scheduling:
+         accept:
+           - slurm
          reject:
            - pulsar
     - if: input_size >= 0.03
@@ -622,6 +634,8 @@ tools:
     context:
       time: "04:00:00"
     scheduling:
+       accept:
+         - slurm
        reject:
          - pulsar
     rules:
@@ -647,6 +661,8 @@ tools:
     context:
       time: "04:00:00"
     scheduling:
+       accept:
+         - slurm
        reject:
          - pulsar
     rules:
@@ -658,7 +674,7 @@ tools:
       mem: 64
     - if: input_size >= 50
       cores: 56
-      mem: 2048
+      mem: 1536
       scheduling:
         accept:
           - pulsar
@@ -670,6 +686,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
+       accept:
+         - slurm
        reject:
          - pulsar
     rules:
@@ -681,7 +699,7 @@ tools:
       mem: 64
     - if: input_size >= 20
       cores: 56
-      mem: 2048
+      mem: 1536
       scheduling:
         accept:
           - pulsar
@@ -906,7 +924,7 @@ tools:
           - slurm
     - if: input_size > 5
       cores: 60
-      mem: 2048
+      mem: 1536
       scheduling:
         accept:
           - pulsar
@@ -925,7 +943,7 @@ tools:
           - slurm
     - if: input_size >= 0.5
       cores: 56
-      mem: 2048
+      mem: 1536
       scheduling:
         accept:
           - pulsar
@@ -936,7 +954,7 @@ tools:
     rules:
     - if: input_size >= 5e-06
       cores: 56
-      mem: 2048
+      mem: 1536
       scheduling:
         accept:
           - pulsar
@@ -950,7 +968,7 @@ tools:
       mem: 64
     - if: input_size >= 15
       cores: 60
-      mem: 2048
+      mem: 1536
       scheduling:
         accept:
           - pulsar
@@ -1001,7 +1019,7 @@ tools:
       mem: 96
     - if: input_size >= 20
       cores: 56
-      mem: 2048
+      mem: 1536
       scheduling:
         accept:
           - pulsar
@@ -1027,6 +1045,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
+       accept:
+         - slurm
        reject:
          - pulsar
   toolshed.g2.bx.psu.edu/repos/greg/draw_circos/draw_circos/.*:
@@ -1037,6 +1057,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
+       accept:
+         - slurm
        reject:
          - pulsar
   ##########
@@ -1052,6 +1074,8 @@ tools:
       cores: 5
       mem: 20
     scheduling:
+       accept:
+         - slurm
        reject:
          - pulsar
   toolshed.g2.bx.psu.edu/repos/devteam/data_manager_sam_fasta_index_builder/data_manager/sam_fasta_index_builder/.*:
@@ -1070,6 +1094,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
+       accept:
+         - slurm
        reject:
          - pulsar
   toolshed.g2.bx.psu.edu/repos/devteam/samtool_filter2/samtool_filter2/.*:
@@ -1088,6 +1114,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
+       accept:
+         - slurm
        reject:
          - pulsar
   toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff/.*:
@@ -1149,7 +1177,7 @@ tools:
       mem: 72
     - if: input_size >= 0.04
       cores: 56
-      mem: 2048
+      mem: 1536
       scheduling:
         accept:
           - pulsar
@@ -1267,7 +1295,7 @@ tools:
       mem: 80
     - if: input_size >= 10
       cores: 56
-      mem: 2048
+      mem: 1536
       scheduling:
         accept:
           - pulsar
@@ -1282,6 +1310,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
+       accept:
+         - slurm
        reject:
          - pulsar
   toolshed.g2.bx.psu.edu/repos/greg/p_chunks/p_chunks/.*:
@@ -1298,6 +1328,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
+      accept:
+        - slurm
       reject:
         - pulsar
   toolshed.g2.bx.psu.edu/repos/devteam/kraken/kraken/.*:
@@ -1336,7 +1368,7 @@ tools:
       mem: 128
     - if: input_size >= 0.5
       cores: 56
-      mem: 2048
+      mem: 1536
       scheduling:
         accept:
           - pulsar
@@ -1351,6 +1383,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
+      accept:
+        - slurm
       reject:
         - pulsar
   toolshed.g2.bx.psu.edu/repos/iuc/limma_voom/limma_voom/.*:
@@ -1370,6 +1404,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
+      accept:
+        - slurm
       reject:
         - pulsar
   toolshed.g2.bx.psu.edu/repos/iuc/stacks2_procrad/stacks2_procrad/.*:
@@ -1382,6 +1418,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
+      accept:
+        - slurm
       reject:
         - pulsar
   toolshed.g2.bx.psu.edu/repos/nilesh/rseqc/rseqc_RPKM_saturation/.*:
@@ -1415,7 +1453,7 @@ tools:
     rules:
     - if: input_size >= 0.5
       cores: 56
-      mem: 2048
+      mem: 1536
       scheduling:
         accept:
           - pulsar
@@ -1441,6 +1479,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
+      accept:
+        - slurm
       reject:
         - pulsar
   toolshed.g2.bx.psu.edu/repos/iuc/rna_starsolo/rna_starsolo/.*:
@@ -1471,6 +1511,8 @@ tools:
     context:
       time: "12:00:00"
     scheduling:
+       accept:
+         - slurm
        reject:
          - pulsar
   toolshed.g2.bx.psu.edu/repos/devteam/kraken2tax/Kraken2Tax/.*:
@@ -1539,6 +1581,8 @@ tools:
     context:
       time: "08:00:00"
     scheduling:
+      accept:
+        - pulsar
       reject:
         - slurm
   ###########
@@ -1558,7 +1602,7 @@ tools:
           - slurm
     - if: input_size >= 30
       cores: 84
-      mem: 2048
+      mem: 1536
       context:
         time: "48:00:00"
       scheduling:
@@ -1603,7 +1647,7 @@ tools:
   ###########
   #toolshed.g2.bx.psu.edu/repos/bgruening/canu/canu/.*:
   #  cores: 96
-  #  mem: 2048
+  #  mem: 1536
   #  context:
   #    time: "16:00:00"
   #  scheduling:
