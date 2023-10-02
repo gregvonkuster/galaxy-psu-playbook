@@ -1589,27 +1589,15 @@ tools:
   # Cores: 60
   ###########
   toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*:
-    rules:
-    - if: 0.1 <= input_size < 30
-      cores: 60
-      mem: 961
-      context:
-        time: "24:00:00"
-      scheduling:
-        accept:
-          - pulsar
-        reject:
-          - slurm
-    - if: input_size >= 30
-      cores: 84
-      mem: 1536
-      context:
-        time: "48:00:00"
-      scheduling:
-        accept:
-          - pulsar
-        reject:
-          - slurm
+    cores: 60
+    mem: 961
+    context:
+      time: "48:00:00"
+    scheduling:
+      accept:
+        - pulsar
+      reject:
+        - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/describe_samples/describe_samples/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
   toolshed.g2.bx.psu.edu/repos/iuc/trinity_align_and_estimate_abundance/trinity_align_and_estimate_abundance/.*:
@@ -1637,9 +1625,9 @@ tools:
   toolshed.g2.bx.psu.edu/repos/iuc/sina/sina/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
   toolshed.g2.bx.psu.edu/repos/iuc/magicblast/magicblast/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/sina/sina/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
   toolshed.g2.bx.psu.edu/repos/iuc/concoct/concoct/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/sina/sina/.*
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
   toolshed.g2.bx.psu.edu/repos/iuc/malt_run/malt_run/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/concoct/concoct/.*
   ###########
