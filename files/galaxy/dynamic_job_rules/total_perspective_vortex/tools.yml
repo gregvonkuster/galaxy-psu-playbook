@@ -927,10 +927,6 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
   toolshed.g2.bx.psu.edu/repos/q2d2/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
-  toolshed.g2.bx.psu.edu/repos/devteam/data_manager_bwa_mem_index_builder/bwa_mem_index_builder_data_manager/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
-  toolshed.g2.bx.psu.edu/repos/devteam/data_manager_fetch_genome_dbkeys_all_fasta/data_manager/fetch_genome_all_fasta_dbkeys/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
   toolshed.g2.bx.psu.edu/repos/iuc/meryl/meryl/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
     rules:
@@ -1442,6 +1438,12 @@ tools:
         - slurm
       reject:
         - pulsar
+  toolshed.g2.bx.psu.edu/repos/devteam/data_manager_fetch_genome_dbkeys_all_fasta/data_manager/fetch_genome_all_fasta_dbkeys/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/data_manager_bwa_mem_index_builder/bwa_mem_index_builder_data_manager/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/data_manager_diamond_database_builder/data_manager/diamond_database_builder/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/nilesh/rseqc/rseqc_RPKM_saturation/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/iuc/rgrnastar/rna_star/.*:
@@ -1451,8 +1453,6 @@ tools:
   toolshed.g2.bx.psu.edu/repos/iuc/ivar_trim/ivar_trim/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/iuc/ivar_variants/ivar_variants/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
-  toolshed.g2.bx.psu.edu/repos/bgruening/data_manager_diamond_database_builder/data_manager/diamond_database_builder/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/iuc/megan_blast2lca/megan_blast2lca/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
