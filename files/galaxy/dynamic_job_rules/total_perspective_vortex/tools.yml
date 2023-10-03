@@ -1438,7 +1438,7 @@ tools:
         - slurm
       reject:
         - pulsar
-  toolshed.g2.bx.psu.edu/repos/devteam/data_manager_fetch_genome_dbkeys_all_fasta/data_manager/fetch_genome_all_fasta_dbkeys/.*:
+  toolshed.g2.bx.psu.edu/repos/devteam/data_manager_fetch_genome_dbkeys_all_fasta/data_manager_fetch_genome_all_fasta_dbkey/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/devteam/data_manager_bwa_mem_index_builder/bwa_mem_index_builder_data_manager/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
