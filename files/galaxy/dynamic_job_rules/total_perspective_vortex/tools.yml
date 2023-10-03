@@ -669,9 +669,19 @@ tools:
     - if: 0.2 <= input_size < 4
       cores: 4
       mem: 32
+      scheduling:
+         accept:
+           - slurm
+         reject:
+           - pulsar
     - if: 4 <= input_size < 50
       cores: 8
       mem: 64
+      scheduling:
+         accept:
+           - slurm
+         reject:
+           - pulsar
     - if: input_size >= 50
       cores: 56
       mem: 1536
@@ -694,10 +704,20 @@ tools:
     - if: 0.25 <= input_size < 1
       cores: 4
       mem: 32
-    - if: 1 <= input_size < 20
+      scheduling:
+         accept:
+           - slurm
+         reject:
+           - pulsar
+    - if: 1 <= input_size < 30
       cores: 8
       mem: 64
-    - if: input_size >= 20
+      scheduling:
+         accept:
+           - slurm
+         reject:
+           - pulsar
+    - if: input_size >= 30
       cores: 56
       mem: 1536
       scheduling:
@@ -1589,15 +1609,27 @@ tools:
   # Cores: 60
   ###########
   toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*:
-    cores: 60
-    mem: 961
-    context:
-      time: "48:00:00"
-    scheduling:
-      accept:
-        - pulsar
-      reject:
-        - slurm
+    rules:
+    - if: 0.1 <= input_size < 30
+      cores: 60
+      mem: 961
+      context:
+        time: "24:00:00"
+      scheduling:
+        accept:
+          - pulsar
+        reject:
+          - slurm
+    - if: input_size >= 30
+      cores: 84
+      mem: 1536
+      context:
+        time: "48:00:00"
+      scheduling:
+        accept:
+          - pulsar
+        reject:
+          - slurm
   toolshed.g2.bx.psu.edu/repos/iuc/describe_samples/describe_samples/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
   toolshed.g2.bx.psu.edu/repos/iuc/trinity_align_and_estimate_abundance/trinity_align_and_estimate_abundance/.*:
