@@ -1094,8 +1094,6 @@ tools:
          - slurm
        reject:
          - pulsar
-  toolshed.g2.bx.psu.edu/repos/devteam/data_manager_sam_fasta_index_builder/data_manager/sam_fasta_index_builder/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/.*
   toolshed.g2.bx.psu.edu/repos/greg/bam_to_psl/bam_to_psl/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/.*
   toolshed.g2.bx.psu.edu/repos/devteam/sam_to_bam/sam_to_bam/.*:
@@ -1439,6 +1437,8 @@ tools:
       reject:
         - pulsar
   toolshed.g2.bx.psu.edu/repos/devteam/data_manager_fetch_genome_dbkeys_all_fasta/data_manager_fetch_genome_all_fasta_dbkey/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/data_manager_sam_fasta_index_builder/sam_fasta_index_builder/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/devteam/data_manager_bwa_mem_index_builder/bwa_mem_index_builder_data_manager/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
