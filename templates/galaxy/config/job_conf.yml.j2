@@ -62,6 +62,8 @@ execution:
           value: $_GALAXY_JOB_TMP_DIR
         - name: TEMP
           value: $_GALAXY_JOB_TMP_DIR
+        - name: _JAVA_OPTIONS
+          value: -Djava.io.tmpdir=$TEMP
     # single core, default (4GB) memory, singularity, galaxy venv (for tools that use galaxy lib)
     slurm_normal_container_venv:
       runner: slurm
@@ -78,6 +80,8 @@ execution:
           value: $_GALAXY_JOB_TMP_DIR
         - name: TEMP
           value: $_GALAXY_JOB_TMP_DIR
+        - name: _JAVA_OPTIONS
+          value: -Djava.io.tmpdir=$TEMP
         - name: SINGULARITYENV_PREPEND_PATH
           value: "{{ galaxy_venv_dir }}/bin"
     # default multi core (6), default (64GB) memory, singularity, galaxy venv (for tools that use galaxy lib)
@@ -98,6 +102,8 @@ execution:
           value: $_GALAXY_JOB_TMP_DIR
         - name: TEMP
           value: $_GALAXY_JOB_TMP_DIR
+        - name: _JAVA_OPTIONS
+          value: -Djava.io.tmpdir=$TEMP
         - name: SINGULARITYENV_PREPEND_PATH
           value: "{{ galaxy_venv_dir }}/bin"
 

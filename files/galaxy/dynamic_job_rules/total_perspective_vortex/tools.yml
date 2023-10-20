@@ -1427,7 +1427,7 @@ tools:
   toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_populations/stacks2_populations/.*
     env:
-      _JAVA_OPTIONS: '-Xmx{int(mem)}G -Xms1G -Djava.io.tmpdir=$TEMP'
+      _JAVA_OPTIONS: '-Xmx{int(mem)}G -Xms1G'
   toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*:
     cores: 8
     mem: 64
