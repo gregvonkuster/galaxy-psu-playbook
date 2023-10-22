@@ -24,6 +24,8 @@ destinations:
         value: $_GALAXY_JOB_TMP_DIR
       - name: TEMP
         value: $_GALAXY_JOB_TMP_DIR
+      - name: _JAVA_OPTIONS
+        value: -Djava.io.tmpdir=$TEMP
 
   slurm_conda:
     inherits: _slurm_common
