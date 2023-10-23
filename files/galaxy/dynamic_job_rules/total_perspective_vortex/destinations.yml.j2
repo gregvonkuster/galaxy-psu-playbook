@@ -25,7 +25,7 @@ destinations:
       - name: TEMP
         value: $_GALAXY_JOB_TMP_DIR
       - name: _JAVA_OPTIONS
-        value: $_JAVA_OPTIONS -Djava.io.tmpdir=$_GALAXY_JOB_TMP_DIR
+        value: $_JAVA_OPTIONS -Djava.io.tmpdir=$_GALAXY_JOB_TMP_DIR -Xmx{int(mem)}G -Xms1G
       - name: SINGULARITYENV__JAVA_OPTIONS
         value: $_JAVA_OPTIONS
 
