@@ -80,7 +80,7 @@ execution:
           value: $_GALAXY_JOB_TMP_DIR
         - name: TEMP
           value: $_GALAXY_JOB_TMP_DIR
-        - name: _JAVA_OPTIONS
+        - name: SINGULARITYENV__JAVA_OPTIONS
           value: -Djava.io.tmpdir=$_GALAXY_JOB_TMP_DIR
         - name: SINGULARITYENV_PREPEND_PATH
           value: "{{ galaxy_venv_dir }}/bin"
@@ -102,7 +102,7 @@ execution:
           value: $_GALAXY_JOB_TMP_DIR
         - name: TEMP
           value: $_GALAXY_JOB_TMP_DIR
-        - name: _JAVA_OPTIONS
+        - name: SINGULARITYENV__JAVA_OPTIONS
           value: -Djava.io.tmpdir=$_GALAXY_JOB_TMP_DIR
         - name: SINGULARITYENV_PREPEND_PATH
           value: "{{ galaxy_venv_dir }}/bin"

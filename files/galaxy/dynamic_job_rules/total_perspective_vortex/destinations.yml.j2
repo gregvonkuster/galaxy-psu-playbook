@@ -25,7 +25,9 @@ destinations:
       - name: TEMP
         value: $_GALAXY_JOB_TMP_DIR
       - name: _JAVA_OPTIONS
-        value: -Djava.io.tmpdir=$_GALAXY_JOB_TMP_DIR
+        value: $_JAVA_OPTIONS -Djava.io.tmpdir=$_GALAXY_JOB_TMP_DIR
+      - name: SINGULARITYENV__JAVA_OPTIONS
+        value: $_JAVA_OPTIONS
 
   slurm_conda:
     inherits: _slurm_common
@@ -85,7 +87,7 @@ destinations:
       - execute: ulimit -c 0
       - execute: ulimit -u 16384
       - name: SINGULARITYENV__JAVA_OPTIONS
-        value: -Djava.io.tmpdir=$_GALAXY_JOB_TMP_DIR
+        value: $_JAVA_OPTIONS -Djava.io.tmpdir=$_GALAXY_JOB_TMP_DIR
       - name: SINGULARITYENV_LC_ALL
         value: $LC_ALL
       - name: SINGULARITYENV_TERM
