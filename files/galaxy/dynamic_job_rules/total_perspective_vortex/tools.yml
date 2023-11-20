@@ -1160,8 +1160,6 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
   toolshed.g2.bx.psu.edu/repos/iuc/poretools_events/poretools_events/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/nanoplot/nanoplot/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
   toolshed.g2.bx.psu.edu/repos/iuc/lofreq_indelqual/lofreq_indelqual/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
   toolshed.g2.bx.psu.edu/repos/iuc/jbrowse/jbrowse/.*:
@@ -1438,6 +1436,8 @@ tools:
         - slurm
       reject:
         - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/nanoplot/nanoplot/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/devteam/data_manager_fetch_genome_dbkeys_all_fasta/data_manager_fetch_genome_all_fasta_dbkey/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/devteam/data_manager_sam_fasta_index_builder/sam_fasta_index_builder/.*:
