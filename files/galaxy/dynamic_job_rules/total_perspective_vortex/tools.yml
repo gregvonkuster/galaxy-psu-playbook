@@ -1259,6 +1259,10 @@ tools:
          - slurm
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/peterjc/seq_filter_by_id/seq_filter_by_id/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/fasta_filter_by_length/fasta_filter_by_length/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/fastani/fastani/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/greg/pima_report/pima_report/.*:
