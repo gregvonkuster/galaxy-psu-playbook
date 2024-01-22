@@ -1934,8 +1934,6 @@ tools:
           - pulsar
         reject:
           - slurm
-  toolshed.g2.bx.psu.edu/repos/iuc/megahit/megahit/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/megahit/megahit/.*
   ##########
   # Cores: 9
   ##########
