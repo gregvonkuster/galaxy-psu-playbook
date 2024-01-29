@@ -73,6 +73,18 @@ tools:
          - slurm
        reject:
          - pulsar
+  Rtoolshed.g2.bx.psu.edu/repos/iuc/column_order_header_sort/column_order_header_sort/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/column_remove_by_header/column_remove_by_header/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/split_file_on_column/tp_split_on_column/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*
+  toolshed.g2.bx.psu.edu/repos/mvdbeek/concatenate_multiple_datasets/cat_multiple/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/filter_tabular/filter_tabular/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/add_line_to_file/add_line_to_file/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*
   toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*:
     cores: 1
     mem: 8
@@ -83,6 +95,16 @@ tools:
          - slurm
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/uniprot_rest_interface/uniprot/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*
+  toolshed.g2.bx.psu.edu/repos/mvdbeek/add_input_name_as_column/addName/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/replace_column_by_key_value_file/replace_column_with_key_value_file/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*
+  toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regex1/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*
   toolshed.g2.bx.psu.edu/repos/imgteam/curl_post/curl_post/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*
   toolshed.g2.bx.psu.edu/repos/greg/lrn_risk/lrn_risk/.*:
@@ -361,6 +383,20 @@ tools:
          - slurm
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/annotatemyids/annotatemyids/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_clonefilter/stacks2_clonefilter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/jq/jq/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_clonefilter/stacks2_clonefilter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/reshape2_cast/cast/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_clonefilter/stacks2_clonefilter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/reshape2_melt/melt/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_clonefilter/stacks2_clonefilter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/table_compute/table_compute/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_clonefilter/stacks2_clonefilter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/query_tabular/query_tabular/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_clonefilter/stacks2_clonefilter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/sqlite_to_tabular/sqlite_to_tabular/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_clonefilter/stacks2_clonefilter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/stacks2_kmerfilter/stacks2_kmerfilter/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/stacks2_clonefilter/stacks2_clonefilter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/stacks2_shortreads/stacks2_shortreads/.*:
@@ -1275,6 +1311,24 @@ tools:
          - slurm
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/gff3_rebase/gff3.rebase/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/clair3/clair3/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/krakentools_kreport2mpa/krakentools_kreport2mpa/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/krakentools_kreport2krona/krakentools_kreport2krona/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/krakentools_extract_kraken_reads/krakentools_extract_kraken_reads/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/krakentools_combine_kreports/krakentools_combine_kreports/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/krakentools_beta_diversity/krakentools_beta_diversity/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/krakentools_alpha_diversity/krakentools_alpha_diversity/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bamtools_split_mapped/bamtools_split_mapped/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmemit/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_alimask/.*:
