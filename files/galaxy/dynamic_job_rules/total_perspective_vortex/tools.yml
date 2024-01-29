@@ -73,13 +73,15 @@ tools:
          - slurm
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/map_param_value/map_param_value/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*
   Rtoolshed.g2.bx.psu.edu/repos/iuc/column_order_header_sort/column_order_header_sort/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*
   toolshed.g2.bx.psu.edu/repos/iuc/column_remove_by_header/column_remove_by_header/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/split_file_on_column/tp_split_on_column/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*
-  toolshed.g2.bx.psu.edu/repos/mvdbeek/concatenate_multiple_datasets/cat_multiple/.*:
+  toolshed.g2.bx.psu.edu/repos/artbio/concatenate_multiple_datasets/cat_multi_datasets/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*
   toolshed.g2.bx.psu.edu/repos/iuc/filter_tabular/filter_tabular/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*
@@ -95,6 +97,8 @@ tools:
          - slurm
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/compose_text_param/compose_text_param/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*
   toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/uniprot_rest_interface/uniprot/.*:
