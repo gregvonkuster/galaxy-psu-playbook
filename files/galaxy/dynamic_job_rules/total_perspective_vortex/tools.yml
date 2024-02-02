@@ -97,6 +97,8 @@ tools:
          - slurm
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/devteam/add_value/addValue/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*
   toolshed.g2.bx.psu.edu/repos/iuc/compose_text_param/compose_text_param/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*
   toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/.*:
@@ -755,6 +757,8 @@ tools:
           - pulsar
         reject:
           - slurm
+  toolshed.g2.bx.psu.edu/repos/iuc/bwa_mem2/bwa_mem2/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
   toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa_mem/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
   toolshed.g2.bx.psu.edu/repos/iuc/adapter_removal/adapter_removal/.*:
@@ -1315,6 +1319,12 @@ tools:
          - slurm
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/yahs/yahs/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/parse_mito_blast/parse_mito_blast/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/gfastats/gfastats/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/gff3_rebase/gff3.rebase/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/clair3/clair3/.*:
