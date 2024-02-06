@@ -233,6 +233,8 @@ tools:
            - pulsar
          reject:
            - slurm
+  toolshed.g2.bx.psu.edu/repos/iuc/seqtk/seqtk_sample/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/seqtk/seqtk_seq/.*
   toolshed.g2.bx.psu.edu/repos/iuc/medaka_variant/medaka_variant/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
     rules:
