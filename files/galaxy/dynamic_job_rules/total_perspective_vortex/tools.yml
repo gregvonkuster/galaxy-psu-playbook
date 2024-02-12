@@ -425,6 +425,8 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/greg/quast/quast/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/varscan_version_2/varscan/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/greg/varscan_pileup/varscan_pileup/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/iuc/varscan_mpileup/varscan_mpileup/.*:
