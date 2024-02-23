@@ -355,6 +355,18 @@ tools:
       mem: 16
   toolshed.g2.bx.psu.edu/repos/iuc/samtools_fixmate/samtools_fixmate/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_rmdup/samtools_rmdup/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/samtools_reheader/samtools_reheader/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_rmdup/samtools_rmdup/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/samtools_slice_bam/samtools_slice_bam/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_rmdup/samtools_rmdup/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/samtools_stats/samtools_stats/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_rmdup/samtools_rmdup/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/samtools_split/samtools_split/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_rmdup/samtools_rmdup/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/samtools_calmd/samtools_calmd/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_rmdup/samtools_rmdup/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/samtools_flagstat/samtools_flagstat/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_rmdup/samtools_rmdup/.*
   toolshed.g2.bx.psu.edu/repos/iuc/samtools_markdup/samtools_markdup/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_rmdup/samtools_rmdup/.*
   toolshed.g2.bx.psu.edu/repos/devteam/vcffilter/vcffilter2/.*:
@@ -1208,6 +1220,8 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/.*
   toolshed.g2.bx.psu.edu/repos/devteam/sam_to_bam/sam_to_bam/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/samtools_fastx/samtools_fastx/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/.*
   toolshed.g2.bx.psu.edu/repos/iuc/samtools_depth/samtools_depth/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/.*
   toolshed.g2.bx.psu.edu/repos/greg/filter_contigs/filter_contigs/.*:
@@ -1373,6 +1387,20 @@ tools:
          - slurm
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/devteam/sam_pileup/sam_pileup/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/sam_bitwise_flag_filter/sam_bw_filter/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/sam2interval/sam2interval/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/pileup_parser/pileup_parser/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/pileup_interval/pileup_interval/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/sam_merge/sam_merge2/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/boris/filter_on_md/MDtag_filter/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/devteam/vcftools_slice/vcftools_slice/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/devteam/vcftools_annotate/vcftools_annotate/.*:
@@ -1450,6 +1478,12 @@ tools:
   toolshed.g2.bx.psu.edu/repos/iuc/krakentools_beta_diversity/krakentools_beta_diversity/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/krakentools_alpha_diversity/krakentools_alpha_diversity/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/bamtools_filter/bamFilter/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/bamtools/bamtools/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/bamtools_split/bamtools_split/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/bamtools_split_mapped/bamtools_split_mapped/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
