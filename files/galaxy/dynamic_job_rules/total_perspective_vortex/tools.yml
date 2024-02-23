@@ -667,6 +667,8 @@ tools:
     - if: input_size >= 0.015
       cores: 4
       mem: 32
+  toolshed.g2.bx.psu.edu/repos/iuc/snpfreqplot/snpfreqplot/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy/.*
   toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy_clean_full_aln/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy/.*
   toolshed.g2.bx.psu.edu/repos/iuc/snippy/snippy_core/.*:
@@ -1220,6 +1222,12 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/.*
   toolshed.g2.bx.psu.edu/repos/devteam/sam_to_bam/sam_to_bam/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/samtools_view/samtools_view/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/samtools_phase/samtools_phase/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/samtools_merge/samtools_merge/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/.*
   toolshed.g2.bx.psu.edu/repos/iuc/samtools_fastx/samtools_fastx/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bam_to_sam/bam_to_sam/.*
   toolshed.g2.bx.psu.edu/repos/iuc/samtools_depth/samtools_depth/.*:
@@ -1258,7 +1266,33 @@ tools:
          - slurm
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff_download/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff_build_gb/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff_get_chr_names/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
   toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
+  toolshed.g2.bx.psu.edu/repos/nick/allele_counts/allele_counts_1/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/mutate_snp_codon/mutate_snp_codon_1/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/table_annovar/table_annovar/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/snpsift/snpSift_vcfCheck/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/snpsift/snpSift_int/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/snpsift/snpSift_rmInfo/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/snpsift/snpSift_filter/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/snpsift/snpSift_extractFields/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/snpsift/snpSift_caseControl/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/snpsift/snpsift_vartype/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
   toolshed.g2.bx.psu.edu/repos/iuc/snpsift/snpSift_annotate/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_plot_heatmap/deeptools_plot_heatmap/.*
@@ -1387,6 +1421,22 @@ tools:
          - slurm
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/boris/hetbox/hetbox/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/boris/phylorelatives/phylorelatives/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/blankenberg/naive_variant_caller/naive_variant_caller/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff_databases/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/freebayes/bamleftalign/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/snp_dists/snp_dists/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bamutil_clip_overlap/bamutil_clip_overlap/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/qualimap_multi_bamqc/qualimap_multi_bamqc/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/devteam/sam_pileup/sam_pileup/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/devteam/sam_bitwise_flag_filter/sam_bw_filter/.*:
