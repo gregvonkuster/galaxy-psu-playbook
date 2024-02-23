@@ -439,9 +439,13 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/greg/quast/quast/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/varscan_copynumber/varscan_copynumber/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/devteam/varscan_version_2/varscan/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/greg/varscan_pileup/varscan_pileup/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/varscan_somatic/varscan_somatic/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
   toolshed.g2.bx.psu.edu/repos/iuc/varscan_mpileup/varscan_mpileup/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mummer_nucmer/mummer_nucmer/.*
@@ -1421,6 +1425,26 @@ tools:
          - slurm
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/galaxyp/peptideshaker/ident_params/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/snpsift_genesets/snpSift_geneSets/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/snpsift_dbnsfp/snpSift_dbnsfp/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/ococo/ococo/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mixcr_analyze/mixcr_analyze/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/gatk4_mutect2/gatk4_mutect2/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/crs4/exomedepth/exomedepth/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/basil/basil/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/lofreq_alnqual/lofreq_alnqual/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/boris/getalleleseq/getalleleseq/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/boris/hetbox/hetbox/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/boris/phylorelatives/phylorelatives/.*:
