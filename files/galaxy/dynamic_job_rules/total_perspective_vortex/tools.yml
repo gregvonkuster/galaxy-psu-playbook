@@ -371,6 +371,8 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_rmdup/samtools_rmdup/.*
   toolshed.g2.bx.psu.edu/repos/devteam/vcffilter/vcffilter2/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_rmdup/samtools_rmdup/.*
+  toolshed.g2.bx.psu.edu/repos/dnbenso/masurca/masurca/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_rmdup/samtools_rmdup/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_deinterlacer/fastq_paired_end_deinterlacer/.*:
     cores: 1
     mem: 16
@@ -858,6 +860,10 @@ tools:
   toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_makeprofiledb/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
   toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_rpsblast_wrapper/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_makeblastdb/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_tblastx_wrapper/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
   toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_rpstblastn_wrapper/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/.*
@@ -1431,6 +1437,36 @@ tools:
          - slurm
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/get_species_taxids/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/galaxyp/mz_to_sqlite/mz_to_sqlite/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/galaxyp/gffcompare_to_bed/gffcompare_to_bed/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/galaxyp/bed_to_protein_map/bed_to_protein_map/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/ucsc_twobittofa/ucsc-twobittofa/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/gtftobed12/gtftobed12/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/gfa_to_fa/gfa_to_fa/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/crossmap_gff/crossmap_gff/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/crossmap_vcf/crossmap_vcf/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/crossmap_wig/crossmap_wig/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/crossmap_bed/crossmap_bed/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/crossmap_bam/crossmap_bam/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/bax2bam/bax2bam/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/fastq_to_tabular/fastq_to_tabular/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/tabular_to_fastq/tabular_to_fastq/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastq_to_fasta/cshl_fastq_to_fasta/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/bam_to_scidx/bam_to_scidx/.*:
@@ -2377,6 +2413,8 @@ tools:
         - slurm
       reject:
         - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/berokka/berokka/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_compare/deeptools_bam_compare/.*
   toolshed.g2.bx.psu.edu/repos/iuc/rna_starsolo/rna_starsolo/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_compare/deeptools_bam_compare/.*
   toolshed.g2.bx.psu.edu/repos/iuc/pilon/pilon/.*:
@@ -2572,19 +2610,6 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
   toolshed.g2.bx.psu.edu/repos/iuc/malt_run/malt_run/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/concoct/concoct/.*
-  ###########
-  # Cores: 96
-  ###########
-  #toolshed.g2.bx.psu.edu/repos/bgruening/canu/canu/.*:
-  #  cores: 96
-  #  mem: 1536
-  #  context:
-  #    time: "16:00:00"
-  #  scheduling:
-  #    accept:
-  #      - pulsar
-  #    reject:
-  #      - slurm
   toolshed.g2.bx.psu.edu/repos/bgruening/canu/canu/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/.*
 
