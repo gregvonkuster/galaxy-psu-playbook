@@ -167,6 +167,8 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/ggplot2_point/ggplot2_point/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/ggplot2_violin/ggplot2_violin/,*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/stringtie/stringtie_merge/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_cluster_split/mothur_cluster_split/.*:
@@ -1223,6 +1225,10 @@ tools:
          - slurm
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/ggplot2_pca/ggplot2_pca/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/ggplot2_heatmap2/ggplot2_heatmap2/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/ggplot2_histogram/ggplot2_histogram/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/ggplot2_heatmap2/ggplot2_heatmap2/.*
   ##########
   # Cores: 3
   ##########
@@ -1443,6 +1449,32 @@ tools:
          - slurm
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/length_and_gc_content/length_and_gc_content/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/fastx_clipper/cshl_fastx_clipper/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/fastx_reverse_complement/cshl_fastx_reverse_complement/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/fastx_trimmer/cshl_fastx_trimmer/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/bgruening/find_subsequences/bg_find_subsequences/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/volcanoplot/volcanoplot/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/tsne/tsne/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/pygenometracks/pygenomeTracks/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/pathview/pathview/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/newick_utils/newick_display/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/jvarkit_wgscoverageplotter/jvarkit_wgscoverageplotter/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/intervene/intervene_upset/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/intervene/intervene_pairwise/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/devteam/gmaj/gmaj_1/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/peterjc/mummer/mummerplot_wrapper/.*:
