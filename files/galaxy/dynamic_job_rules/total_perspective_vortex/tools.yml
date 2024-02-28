@@ -111,6 +111,8 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/replace_column_by_key_value_file/replace_column_with_key_value_file/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*
+  toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regexColumn1/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*
   toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regex1/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/.*
   toolshed.g2.bx.psu.edu/repos/imgteam/curl_post/curl_post/.*:
@@ -635,6 +637,8 @@ tools:
     - if: input_size >= 5
       cores: 10
       mem: 80
+  toolshed.g2.bx.psu.edu/repos/iuc/mummer_show_coords/mummer_show_coords/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/.*
   toolshed.g2.bx.psu.edu/repos/greg/mummer4_dnadiff/mummer_dnadiff/:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/.*
   toolshed.g2.bx.psu.edu/repos/crs4/prokka/prokka/.*:
@@ -716,6 +720,12 @@ tools:
     - if: input_size >= 2
       cores: 7
       mem: 56
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_venn/mothur_venn/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_biom_info/mothur_biom_info/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_rename_seqs/mothur_rename_seqs/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_chimera_vsearch/mothur_chimera_vsearch/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_classify_otu/mothur_classify_otu/.*:
@@ -738,11 +748,51 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_screen_seqs/mothur_screen_seqs/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_screen_seqs/mothur_screen_seqs/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_sens_spec/mothur_sens_spec/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_seq_error/mothur_seq_error/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_sffinfo/mothur_sffinfo/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_shhh_flows/mothur_shhh_flows/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_shhh_seqs/mothur_shhh_seqs/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_sort_seqs/mothur_sort_seqs/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_split_abund/mothur_split_abund/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_split_groups/mothur_split_groups/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_sub_sample/mothur_sub_sample/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_summary_qual/mothur_summary_qual/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_summary_seqs/mothur_summary_seqs/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_merge_count/mothur_merge_count/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_summary_seqs/mothur_taxonomy_to_krona/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_unique_seqs/mothur_unique_seqs/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_unifrac_weighted/mothur_unifrac_weighted/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_trim_seqs/mothur_trim_seqs/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_trim_flows/mothur_trim_flows/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_tree_shared/mothur_tree_shared/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_summary_tax/mothur_summary_tax/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_summary_single/mothur_summary_single/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_summary_shared/mothur_summary_shared/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_unifrac_unweighted/mothur_unifrac_unweighted/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
   toolshed.g2.bx.psu.edu/repos/iuc/raxml/raxml/.*:
     cores: 2
@@ -1467,6 +1517,24 @@ tools:
          - slurm
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/wolma/mimodd_main/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/kc_align/kc-align/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/pipelign/pipelign/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mummer_mummer/mummer_mummer/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mummer_delta_filter/mummer_delta_filter/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/msaboot/msaboot/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/interval2maf/Interval2Maf1/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/maf_stats/maf_stats1/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/genebed_maf_to_fasta/GeneBed_Maf_Fasta2/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/sickle/sickle/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/filtlong/filtlong/.*:
@@ -2599,6 +2667,8 @@ tools:
           - pulsar
         reject:
           - slurm
+  toolshed.g2.bx.psu.edu/repos/rnateam/mafft/rbc_mafft_add/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/rnateam/mafft/rbc_mafft/.*
   toolshed.g2.bx.psu.edu/repos/iuc/megahit/megahit/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
     rules:
