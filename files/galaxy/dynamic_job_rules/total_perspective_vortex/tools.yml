@@ -786,6 +786,10 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_chimera_vsearch/mothur_chimera_vsearch/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_classify_rf/mothur_classify_rf/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/mothur_hcluster/mothur_hcluster/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_check/mothur_align_check/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_amova/mothur_amova/.*:
@@ -1693,6 +1697,68 @@ tools:
          - slurm
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/devteam/microsats_mutability/microsats_mutability1/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/maf_cpg_filter/cpgFilter/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/getindelrates_3way/indelRates_3way/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/featurecounter/featureCoverage1/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/indels_3way/indels_3way/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/substitutions/substitutions1/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/substitution_rates/subRate1/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/quality_filter/qualityFilter/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/weightedaverage/wtavg/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/galaxyp/peptide_genomic_coordinate/peptide_genomic_coordinate/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/galaxyp/pep_pointer/pep_pointer/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/galaxyp/custom_pro_db/custom_pro_db/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/guerler/ffindex_dbkit_merge/ffindex_dbkit_merge/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/guerler/ffindex_dbkit_extract/ffindex_dbkit_extract/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/guerler/ffindex_dbkit_create/ffindex_dbkit_create/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/guerler/spring_mcc/spring_mcc/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/guerler/spring_cross/spring_cross/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/guerler/spring_model/spring_model/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/guerler/spring_minz/spring_minz/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/guerler/spring_map/spring_map/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/guerler/hhsearch/hhsearch/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/hgv_hilbertvis/hgv_hilbertvis/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/hgv_fundo/hgv_funDo/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/divide_pg_snp/dividePgSnp/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/snpfreq/hgv_snpFreq/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/vcf2pgsnp/vcf2pgSnp/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/meme_chip/meme_chip/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/meme_psp_gen/meme_psp_gen/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/weblogo3/rgweblogo3/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/meme_fimo/meme_fimo/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/meme_meme/meme_meme/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/wolma/mimodd_main/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/kc_align/kc-align/.*:
@@ -2961,6 +3027,8 @@ tools:
       reject:
         - slurm
   toolshed.g2.bx.psu.edu/repos/galaxyp/maxquant/maxquant_mqpar/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/galaxyp/maxquant/.*
+  toolshed.g2.bx.psu.edu/repos/galaxyp/msstats/msstats/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/galaxyp/maxquant/.*
   ###########
   # Cores: 30
