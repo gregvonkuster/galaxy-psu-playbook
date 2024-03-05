@@ -787,8 +787,6 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_anosim/mothur_anosim/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/mothur_anosim/mothur_anosim/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_bin_seqs/mothur_bin_seqs/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_chimera_bellerophon/mothur_chimera_bellerophon/.*:
@@ -916,8 +914,6 @@ tools:
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_remove_seqs/mothur_remove_seqs/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_reverse_seqs/mothur_reverse_seqs/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/mothur_screen_seqs/mothur_screen_seqs/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
   toolshed.g2.bx.psu.edu/repos/iuc/mothur_screen_seqs/mothur_screen_seqs/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/mothur_align_seqs/mothur_align_seqs/.*
@@ -1442,13 +1438,11 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
   toolshed.g2.bx.psu.edu/repos/iuc/spades_biosyntheticspades/spades_biosyntheticspades/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
+  toolshed.g2.bx.psu.edu/repos/greg/draw_circos/draw_circos/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
+  toolshed.g2.bx.psu.edu/repos/nick/dunovo/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/nml/spades/spades/.*
   toolshed.g2.bx.psu.edu/repos/iuc/circos/.*:
-    - if: 0.0002 <= input_size < 0.01
-      cores: 2
-      mem: 24
-    - if: input_size >= 0.01
-      cores: 5
-      mem: 40
     context:
       time: "08:00:00"
     scheduling:
@@ -1456,10 +1450,13 @@ tools:
          - slurm
        reject:
          - pulsar
-  toolshed.g2.bx.psu.edu/repos/greg/draw_circos/draw_circos/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/circos.*
-  toolshed.g2.bx.psu.edu/repos/nick/dunovo/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/circos.*
+    rules:
+    - if: 0.0002 <= input_size < 0.01
+      cores: 2
+      mem: 24
+    - if: input_size >= 0.01
+      cores: 5
+      mem: 40
   toolshed.g2.bx.psu.edu/repos/iuc/ggplot2_heatmap2/ggplot2_heatmap2/.*:
     cores: 2
     mem: 40
