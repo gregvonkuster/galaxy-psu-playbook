@@ -548,7 +548,7 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
   toolshed.g2.bx.psu.edu/repos/devteam/fastq_groomer/fastq_groomer/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
-  toolshed.g2.bx.psu.edu/repos/chemteam/gmx_sim/gmx_sim/.*:
+  toolshed.g2.bx.psu.edu/repos/chemteam/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
   toolshed.g2.bx.psu.edu/repos/iuc/busco/busco/3.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
@@ -2435,29 +2435,7 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/bamtools_split_mapped/bamtools_split_mapped/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmemit/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_alimask/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_nhmmer/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmscan/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmconvert/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmfetch/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_jackhmmer/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_nhmmscan/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_phmmer/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmsearch/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmbuild/.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmalign/.*:
+  toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/humann2_unpack_pathways/humann2_unpack_pathways/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
