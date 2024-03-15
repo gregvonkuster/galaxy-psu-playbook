@@ -73,6 +73,8 @@ tools:
          - slurm
        reject:
          - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/pick_value/pick_value/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*
   toolshed.g2.bx.psu.edu/repos/iuc/map_param_value/map_param_value/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/greg/sample_names/sample_names/.*
   Rtoolshed.g2.bx.psu.edu/repos/iuc/column_order_header_sort/column_order_header_sort/.*:
@@ -1693,6 +1695,10 @@ tools:
          - pulsar
     env:
       _JAVA_OPTIONS: '-Xmx{int(mem)}G -Xms1G'
+  toolshed.g2.bx.psu.edu/repos/iuc/baredsc_combine_2d/baredsc_combine_2d/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/baredsc_combine_1d/baredsc_combine_1d/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/galaxyp/openms_metaprosip/MetaProSIP/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/galaxyp/openms_idmapper/IDMapper/.*:
