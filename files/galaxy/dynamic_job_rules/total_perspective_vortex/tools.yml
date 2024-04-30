@@ -1697,6 +1697,16 @@ tools:
          - pulsar
     env:
       _JAVA_OPTIONS: '-Xmx{int(mem)}G -Xms1G'
+  toolshed.g2.bx.psu.edu/repos/fgiacomoni/hmdb_ms_search/wsdl_hmdb/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/ethevenot/univariate/Univariate/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/melpetera/generic_filter/generic_filter/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/melpetera/batchcorrection/Determine_BC/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
+  toolshed.g2.bx.psu.edu/repos/ethevenot/qualitymetrics/quality_metrics/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/pharmcat/pharmcat/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/protease_prediction/eden_protease_prediction/.*:
