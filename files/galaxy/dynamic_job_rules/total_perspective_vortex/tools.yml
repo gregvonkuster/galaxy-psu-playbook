@@ -1697,6 +1697,8 @@ tools:
          - pulsar
     env:
       _JAVA_OPTIONS: '-Xmx{int(mem)}G -Xms1G'
+  toolshed.g2.bx.psu.edu/repos/greg/plant_tribes_assembly_post_processor/plant_tribes_assembly_post_processor/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/unique/bg_uniq/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/salmonquantmerge/salmonquantmerge/.*:
