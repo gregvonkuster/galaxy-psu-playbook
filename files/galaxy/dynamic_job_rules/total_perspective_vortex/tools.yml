@@ -1697,6 +1697,8 @@ tools:
          - pulsar
     env:
       _JAVA_OPTIONS: '-Xmx{int(mem)}G -Xms1G'
+  toolshed.g2.bx.psu.edu/repos/iuc/data_manager_fetch_busco/busco_fetcher/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/compress_file/compress_file/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/.*
   toolshed.g2.bx.psu.edu/repos/iuc/samtools_coverage/samtools_coverage/.*:
@@ -3657,6 +3659,26 @@ tools:
   toolshed.g2.bx.psu.edu/repos/devteam/data_manager_bwa_mem_index_builder/bwa_mem_index_builder_data_manager/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/bgruening/data_manager_diamond_database_builder/data_manager/diamond_database_builder/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/data_manager_build_kraken_database/kraken_database_builder/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/data_manager_dada2/data_manager/dada2_fetcher/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/data_manager_fetch_ncbi_taxonomy/data_manager/ncbi_taxonomy_fetcher/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/data_manager_malt_index_builder/data_manager/data_manager_malt_index_builder/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/data_manager_qiime_database_downloader/data_manager/data_manager_qiime_download/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/data_manager_build_bracken_database/data_manager/bracken_build_database/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/devteam/data_manager_bowtie2_index_builder/data_manager/bowtie2_index_builder/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/data_manager_metaphlan2_database_downloader/data_manager/data_manager_metaphlan2_download/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/data_manager_humann2_database_downloader/data_manager/data_manager_humann2_download/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
+  toolshed.g2.bx.psu.edu/repos/iuc/amrfinderplus_data_manager_build/data_manager/data_manager_build_amrfinderplus/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/iuc/rgrnastar/rna_star/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
