@@ -554,12 +554,6 @@ tools:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
   toolshed.g2.bx.psu.edu/repos/chemteam/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
-  toolshed.g2.bx.psu.edu/repos/iuc/busco/busco/3.*:
-    inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
-    rules:
-    - if: 0.05 <= input_size
-      cores: 8
-      mem: 64
   toolshed.g2.bx.psu.edu/repos/bgruening/hifiasm/hifiasm/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/iuc/bcftools_mpileup/bcftools_mpileup/.*
     rules:
@@ -3606,6 +3600,8 @@ tools:
         - slurm
       reject:
         - pulsar
+  toolshed.g2.bx.psu.edu/repos/iuc/busco/busco/.*:
+    inherits: toolshed.g2.bx.psu.edu/repos/bgruening/repeat_masker/repeatmasker_wrapper/.*
   toolshed.g2.bx.psu.edu/repos/iuc/fastqe/fastqe/.*:
     inherits: toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/.*
   toolshed.g2.bx.psu.edu/repos/nilesh/rseqc/rseqc_bam_stat/.*:
